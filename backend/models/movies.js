@@ -1,8 +1,9 @@
 const mongoose  = require("mongoose");
+
 const Schema = mongoose.Schema;
 
 
-const movieSchema = new Schema({
+const movieSchema = new mongoose.Schema({
     title: {
         type:String,
         required: true
@@ -22,11 +23,10 @@ const movieSchema = new Schema({
         type:String,
         required: true
     },
-    
     description: {
         type:String
     },
-
+    
     userId: {
         type: Schema.Types.ObjectId,
         ref: 'User',
