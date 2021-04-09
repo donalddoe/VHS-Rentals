@@ -6,7 +6,7 @@ const app = express();
 
 
 
-require('./startup/logging')();
+require('./startup/loggings')();
 require('./startup/routes')(app);
 require('./startup/config')();
 require('./startup/validation')();

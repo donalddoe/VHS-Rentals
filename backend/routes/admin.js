@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const Student = require('../models/users');
+const mongoose = require('mongoose');
+const User = require('../models/users');
 const Admin = require('../models/admin');
-const Menu = require('../models/movies');
+const Movie = require('../models/movies');
 
 router.get("/addadmin", (req,res) => {
     res.send("Add admin");

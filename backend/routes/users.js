@@ -2,7 +2,7 @@
 const auth = require('../middlewares/auth')
 const _  = require('lodash');
 const bcrypt = require('bcrypt');
-const {User, validate} = require('../models/user');
+const {User, validate} = require('../models/users');
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
@@ -35,22 +35,22 @@ router.post('/', async (req, res) => {
     res.header('x-auth-token', token).send(_.pick(user, ['id', 'username', 'email']))
 });
 
-if(!user) {
-  Admin.findOne({ username: username}).exec((err, admin) =>{
-      if (admin){
-          bcrypt.compare(password, admin.password).then(doMatch => {
-              if (doMatch) {
-                  return res.send({ message: `Welcome ${admin.firstname} (Admin)` });    
-              }    
-          })
-      }
-      if (!admin){
-          return res.send({ message: `Not a user` });
-      }
+// if(!user) {
+//   Admin.findOne({ username: username}).exec((err, admin) =>{
+//       if (admin){
+//           bcrypt.compare(password, admin.password).then(doMatch => {
+//               if (doMatch) {
+//                   return res.send({ message: `Welcome ${admin.firstname} (Admin)` });    
+//               }    
+//           })
+//       }
+//       if (!admin){
+//           return res.send({ message: `Not a user` });
+//       }
   
-   })
+//    })
 
-}
+// }
 
 
 

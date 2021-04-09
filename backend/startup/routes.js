@@ -3,6 +3,7 @@ const cors = require('cors');
 const users = require('../routes/users');
 const auth = require('../routes/auth');
 const error = require('../middlewares/error');
+const mongoose = require('mongoose');
 
 
 module.exports = function(app) {
