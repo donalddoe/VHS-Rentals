@@ -22,6 +22,10 @@ const movieSchema = new Schema({
         type:String,
         required: true
     },
+    
+    description: {
+        type:String
+    },
 
     userId: {
         type: Schema.Types.ObjectId,
