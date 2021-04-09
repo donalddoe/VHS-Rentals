@@ -35,23 +35,6 @@ router.post('/', async (req, res) => {
     res.header('x-auth-token', token).send(_.pick(user, ['id', 'username', 'email']))
 });
 
-// if(!user) {
-//   Admin.findOne({ username: username}).exec((err, admin) =>{
-//       if (admin){
-//           bcrypt.compare(password, admin.password).then(doMatch => {
-//               if (doMatch) {
-//                   return res.send({ message: `Welcome ${admin.firstname} (Admin)` });    
-//               }    
-//           })
-//       }
-//       if (!admin){
-//           return res.send({ message: `Not a user` });
-//       }
-  
-//    })
-
-// }
-
 
 
 module.exports = router;

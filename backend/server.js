@@ -13,9 +13,8 @@ require('./startup/validation')();
 connectDB();
 
 
-
 const port = process.env.PORT || 4000;
 
-const server = app.listen(port, () => winston.info(`Server is up and running on port${port}`))
+const server = app.listen(port, () => winston.info(`Server is up and running on port ${port}`))
 
 module.exports = server
