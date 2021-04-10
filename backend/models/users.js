@@ -28,14 +28,15 @@ const userSchema =  new mongoose.Schema({
         type:Date,
         default:Date.now
     },
-   role: {
-       type: String
+   isAdmin: {
+       type: Boolean,
+       default: false
    }
 });
 
 //generate user token
 userSchema.methods.generateAuthToken = function() {
-  const token = jwt.sign({ _id: this.id, email: this.email, username: this.username }, config.get('jwtPrivateKey'));
+  const token = jwt.sign({ _id: this.id,isAdmin: this.isAdmin, email: this.email, username: this.username }, config.get('jwtPrivateKey'));
     return token
 }
 const User = mongoose.model('User', userSchema);

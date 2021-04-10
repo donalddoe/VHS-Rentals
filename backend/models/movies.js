@@ -1,39 +1,51 @@
-const mongoose  = require("mongoose");
+const Joi = require('joi');
+const string = require('joi/lib/types/string');
+const mongoose = require('mongoose');
+const {genreSchema} = require('./genre');
 
-const Schema = mongoose.Schema;
+const Movie = mongoose.model('Movies', new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+    trim: true, 
+    minlength: 5,
+    maxlength: 255
+  },
+  genre: { 
+    type: genreSchema,  
+    required: true
+  },
+  year: {
+    type: String,
+    requred: true,
+    min: 5,
+    max: 255
+  },
+  numberInStock: { 
+    type: Number,   
+    required: true,
+    min: 0,
+    max: 255
+  },
+  dailyRentalRate: { 
+    type: Number, 
+    required: true,
+    min: 0,
+    max: 255
+  }
+}));
 
+function validateMovie(movie) {
+  const schema = {
+    title: Joi.string().min(5).max(50).required(),
+    genreId: Joi.objectId().required(),
+    year: Joi.string().min(5).max(50).required(),
+    numberInStock: Joi.number().min(0).required(),
+    dailyRentalRate: Joi.number().min(0).required()
+  };
 
-const movieSchema = new mongoose.Schema({
-    title: {
-        type:String,
-        required: true
-    },
+  return Joi.validate(movie, schema);
+}
 
-    genre: {
-        type:String,
-        required: true
-    },
-
-     cost: {
-        type:String,
-        required: true
-    },
-
-    Year: {
-        type:String,
-        required: true
-    },
-    description: {
-        type:String
-    },
-    
-    userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: false
-    }
-})
-
-const movieModel  = mongoose.model("Movie", movieSchema);
-
-module.exports = movieModel;
+exports.Movie = Movie; 
+exports.validate = validateMovie;
