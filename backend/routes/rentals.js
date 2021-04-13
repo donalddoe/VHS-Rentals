@@ -1,6 +1,6 @@
 const auth = require('../middlewares/auth');
 const {Rental, validate} = require('../models/rental'); 
-const {Movie} = require('../models/admin'); 
+const {Movie} = require('../models/movies'); 
 const {Customer} = require('../models/customer'); 
 const mongoose = require('mongoose');
 const Fawn = require('fawn')

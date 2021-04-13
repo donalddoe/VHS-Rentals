@@ -6,6 +6,7 @@ const movies = require("../routes/movies");
 const genres = require('../routes/genres');
 const customers = require('../routes/customers');
 const rentals = require('../routes/rentals');
+const returns = require('../routes/returns')
 const error = require('../middlewares/error');
 
 
@@ -20,5 +21,6 @@ module.exports = function(app) {
     app.use('/api/genres', genres);
     app.use('/api/customers', customers);
     app.use('/api/rentals', rentals);
+    app.use('/api/returns', returns);
     app.use(error)
     }

@@ -5,12 +5,13 @@ const connectDB = require('./startup/db')
 const app = express();
 
 
-
+connectDB();
 require('./startup/loggings')();
 require('./startup/routes')(app);
 require('./startup/config')();
 require('./startup/validation')();
-connectDB();
+require('./startup/prod')(app);
+
 
 
 const port = process.env.PORT || 4000;
