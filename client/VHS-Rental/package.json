@@ -24,6 +24,7 @@
     "angular": "^1.8.2",
     "angular-material": "^1.2.2",
     "rxjs": "~6.6.0",
+    "swal": "^0.1.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
