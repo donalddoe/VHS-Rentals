@@ -517,3 +517,5 @@
 {"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-14T08:26:32.589Z"}
 {"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-14T08:26:34.234Z"}
 {"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-14T08:29:04.433Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-14T09:41:34.311Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-04-14T09:41:41.551Z"}
