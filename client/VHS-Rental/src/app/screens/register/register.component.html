@@ -1,5 +1,8 @@
 <br><br><br><br>
 <main class="container">
+    <div *ngIf="loaderService.isLoading | async" class="loader-container">
+        <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+      </div>
     <mat-card class="mat-elevation-z24" id="card">
         <mat-card-title> VHS RENTALS REGISTRATION FORM</mat-card-title>
 

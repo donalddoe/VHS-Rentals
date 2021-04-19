@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../login.service'
 import Swal from 'sweetalert2'
+import { LoaderService } from 'src/app/loader/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     private LoginService: LoginService,
     private router: Router,
     private route: ActivatedRoute,
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    public loaderService: LoaderService
   ) { 
     this.reactiveForm = this.fb.group({
       "email": new FormControl(null,[Validators.required, this.emailChecked]),
@@ -72,7 +74,7 @@ console.log(response)
   }),
   setTimeout(() => {
     this.reactiveForm.reset();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/customers']);
   }, 3000);
 };
     },
@@ -80,7 +82,7 @@ console.log(response)
         console.log(err)
         if (err.error) {
           Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'error',
             title: 'Something went wrong or Incorrect Password or Email',
             showConfirmButton: false,

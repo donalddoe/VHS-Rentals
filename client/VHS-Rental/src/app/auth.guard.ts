@@ -1,20 +1,25 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Router, CanActivate } from '@angular/router';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanActivateChild {
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
-  }
-  canActivateChild(
-    childRoute: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
-  }
-  
+export class AuthGuard implements CanActivate {
+ 
+  constructor(private router: Router
+    , private LoginService: LoginService) {}
+
+  canActivate() {
+    // Check to see if a user has a valid token
+    if (this.LoginService.isAuthenticated()) {
+        // If they do, return true and allow the user to load app
+        return true;
+    }
+
+    // If not, they redirect them to the login page
+    this.router.navigate(['/login']);
+    return false;
+}
+
 }

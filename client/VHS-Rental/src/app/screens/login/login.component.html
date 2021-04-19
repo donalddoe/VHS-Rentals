@@ -1,7 +1,7 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
       <mat-card-header>
-        <mat-card-title>Log in</mat-card-title>
+        <mat-card-title>VHS RENTALS LOGIN FORM</mat-card-title>
       </mat-card-header>
       <form class="example-form"  [formGroup]="reactiveForm" (ngSubmit)="upLoad(reactiveForm)">
         <mat-card-content>
@@ -10,7 +10,7 @@
          <mat-icon matPrefix>email</mat-icon>
           </mat-form-field>
           <div class="err" *ngIf="reactiveForm.get('email').touched && reactiveForm.get('email').invalid">
-            <span *ngIf="reactiveForm.controls.username.errors.username">
+            <span *ngIf="reactiveForm.controls.email.errors.email">
                 *Invalid Email
             </span>
             <span *ngIf="reactiveForm.controls.email.errors.required">
@@ -25,7 +25,7 @@
         </button>
           </mat-form-field>
           <div class="err" *ngIf="reactiveForm.get('password').touched && reactiveForm.get('password').invalid">
-           <span *ngIf="reactiveForm.controls.password.errors">
+           <span *ngIf="reactiveForm.controls.password.errors.password">
                *Invalid Password
            </span>
            <span *ngIf="reactiveForm.controls.password.errors.required">
@@ -36,7 +36,6 @@
         <button mat-stroked-button color="accent" type="submit" [disabled]="!reactiveForm.valid" class="btn-block">Log in</button>
       </form>
       <p>Don't have an account? <a mat-raised-button routerLink='/register' color='primary'>Register</a></p>
-      <a mat-button routerLink='/forgot-password' color='primary' >I forgot my password</a>
     </mat-card>
   </div>
 

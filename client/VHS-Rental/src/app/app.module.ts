@@ -11,10 +11,15 @@ import { MoviesComponent } from './screens/movies/movies.component';
 import { AdminComponent } from './screens/admin/admin.component';
 import { RentalsComponent } from './screens/rentals/rentals.component';
 import { ReturnsComponent } from './screens/returns/returns.component';
-import { HttpClientModule } from '@angular/common/http';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { CustomerComponent } from './screens/customer/customer.component';
+import { NoPageFoundComponent } from './screens/no-page-found/no-page-found.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './loader/interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +29,12 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     AdminComponent,
     RentalsComponent,
     ReturnsComponent,
-    NavBarComponent
+    NavBarComponent,
+    CustomerComponent,
+    NoPageFoundComponent
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,  
   ],
   imports: [
     BrowserModule,
@@ -35,12 +45,24 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     ReactiveFormsModule,
     HttpClientModule,
     FlexLayoutModule,
-
+    NgxSpinnerModule,
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      progressBar: true,
+      preventDuplicates: true,
+      progressAnimation: 'decreasing'
+    }),
   ],
 
   providers: [
     ReactiveFormsModule,
-    FormsModule],
+    FormsModule,
+    {
+      provide: HTTP_INTERCEPTORS,
+       useClass: InterceptorService, 
+       multi: true
+      }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
