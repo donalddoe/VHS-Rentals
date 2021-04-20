@@ -7,7 +7,7 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RegisterService {
-  private url = "http://localhost:4000/api/users";
+  private url = "https://vhsrentals.herokuapp.com/api/users";
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin': '*',
