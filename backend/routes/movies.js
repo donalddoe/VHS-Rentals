@@ -8,7 +8,7 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get('/add-movie',  async (req, res) => {
+router.get('/', auth, async (req, res) => {
     const movies = await Movie.find().sort('name');
     res.send(movies);
   });
@@ -26,7 +26,9 @@ router.get('/add-movie',  async (req, res) => {
         _id: genre._id,
         name: genre.name
       },
-      // year: res.body.year,
+      year: res.body.year,
+      plot: res.body.plot,
+      poster: res.body.poster,
       numberInStock: req.body.numberInStock,
       dailyRentalRate: req.body.dailyRentalRate
     });
