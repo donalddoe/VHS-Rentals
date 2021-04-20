@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../login.service'
 import Swal from 'sweetalert2'
 import { LoaderService } from 'src/app/loader/loader.service';
+import { JwtHelperService } from "@auth0/angular-jwt";
+
 
 @Component({
   selector: 'app-login',
@@ -52,17 +54,34 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
+  private helper = new JwtHelperService();
+
+
+  private getToken() {
+    return localStorage.getItem('token');
+  }
+
+  private decodeToken() {
+    return this.getToken() ? this.helper.decodeToken(this.getToken()) : null;
+  }
+
+  userData(): boolean {
+    if (!this.decodeToken()) return null;
+    const { isAdmin} = this.decodeToken();
+    return  isAdmin as boolean;
+  }
  upLoad(reactiveForm){
    if (reactiveForm.valid){
     this.LoginService.userLogin(this.reactiveForm.value).subscribe(
       response => {
-     console.log(response)
    if (response.hasOwnProperty("token")) {
   localStorage.setItem("token", response['token']);
   localStorage.setItem("id", response["id"]);
   localStorage.setItem('email',response['email']);
   localStorage.setItem('username',response['username']);
-  localStorage.setItem('isAdmin',response['isAdmin']);
+  localStorage.setItem('isAdmin', this.userData().toString());
+
 
 console.log(response)
   Swal.fire({
@@ -70,11 +89,15 @@ console.log(response)
     icon: 'success',
     title: 'Login is successful, Welcome!!',
     showConfirmButton: false,
-    timer: 2000
+    timer: 4000
   }),
   setTimeout(() => {
     this.reactiveForm.reset();
-    this.router.navigate(['/customers']);
+    console.log(this.userData());
+    if(this.userData() == true){
+    this.router.navigate(['/admin/admin']);
+    }else 
+   {this.router.navigate(['/users']);}
   }, 3000);
 };
     },
