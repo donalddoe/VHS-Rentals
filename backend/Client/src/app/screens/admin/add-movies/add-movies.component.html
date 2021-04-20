@@ -1,0 +1,117 @@
+<br><br><br><br>
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+  <mat-spinner></mat-spinner>
+</div>
+<main class="container"  *ngIf="!(loaderService.isLoading | async)">
+ 
+  <section  class="search-container">
+  <mat-card class="mat-elevation-z24" id="card">
+    <form  [formGroup]="searchForm" (ngSubmit)="lookupOmdb()">
+      <div>Find Movie</div>
+      <mat-form-field>
+        <input matInput placeholder="Title:" formControlName="searchTitle"  required>
+      </mat-form-field>
+      <mat-error *ngIf="searchTitle.touched && searchTitle.invalid">
+        <mat-error *ngIf="searchTitle.errors.required">
+          Title is required
+        </mat-error>
+        <mat-error *ngIf="searchTitle.errors.minlength">
+          Title must be {{searchTitle.errors.minlength.requiredLength}} characters or more
+        </mat-error>
+      </mat-error>
+
+      <button mat-flat-button color="primary" [disabled]="!searchForm.valid" type="submit">Find Movie</button>
+    </form>
+  </mat-card>
+</section>
+<br>
+<br>
+
+
+  <section class="form-details">
+    <mat-card *ngIf="movieDetails" class="movie-details">
+      <mat-card-header>
+        <mat-card-title>{{movieDetails.Title}}</mat-card-title>
+        <mat-card-subtitle>{{movieDetails.Genre}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{movieDetails.Poster}}" alt="{{movieDetails.Title}}">
+      <mat-card-content>
+        <p>
+          {{movieDetails.Plot}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+    <div class="form">
+      <mat-card class="mat-elevation-z24">
+        <mat-card-title> Add Movie</mat-card-title>
+
+        <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <input matInput type="title" formControlName="title" placeholder="title:" required>
+          </mat-form-field>
+          <mat-error *ngIf="title.touched && title.invalid">
+            <mat-error *ngIf="title.errors.required">
+              Title is required
+            </mat-error>
+            <mat-error *ngIf="title.errors.title">
+              Title must have a valid format
+            </mat-error>
+            <mat-error *ngIf="title.errors.minlength">
+              Title must be {{title.errors.minlength.requiredLength}} characters or
+              more
+            </mat-error>
+          </mat-error>
+
+          <mat-form-field>
+            <input matInput placeholder="Genre:" formControlName="genre" required>
+          </mat-form-field>
+          <mat-error *ngIf="genre.touched && genre.invalid">
+            <mat-error *ngIf="genre.errors.required">
+              Genre is required
+            </mat-error>
+            <mat-error *ngIf="genre.errors.minlength">
+              Genre must be {{genre.errors.minlength.requiredLength}} characters or more
+            </mat-error>
+          </mat-error>
+
+          <mat-form-field>
+            <input matInput placeholder="Plot:" formControlName="plot">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Year:" formControlName="year">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Poster:" formControlName="poster">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Number in stock:" formControlName="numberInStock" required>
+          </mat-form-field>
+          <mat-error *ngIf="numberInStock.touched && numberInStock.invalid">
+            <mat-error *ngIf="numberInStock.errors.required">
+              Number in stock is required
+            </mat-error>
+            <mat-error *ngIf="numberInStock.errors.minlength">
+              Number in stock must be {{numberInStock.errors.minlength.requiredLength}} characters or more
+            </mat-error>
+          </mat-error>
+
+          <mat-form-field>
+            <input matInput placeholder="Daily Rental Rate:" formControlName="dailyRentalRate" required>
+          </mat-form-field>
+          <mat-error *ngIf="dailyRentalRate.touched && dailyRentalRate.invalid">
+            <mat-error *ngIf="dailyRentalRate.errors.required">
+              Daily Rent is required
+            </mat-error>
+            <mat-error *ngIf="dailyRentalRate.errors.minlength">
+              Daily Rent must be {{dailyRentalRate.errors.minlength.requiredLength}} characters or more
+            </mat-error>
+          </mat-error>
+
+
+          <button mat-flat-button color="primary" [disabled]="!form.valid" type="submit">Add New Movie</button>
+        </form>
+      </mat-card>
+    </div>
+  </section>
+
+</main>

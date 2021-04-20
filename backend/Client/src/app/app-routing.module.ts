@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './screens/login/login.component';
 import { RegisterComponent } from './screens/register/register.component';
+import { AddMoviesComponent } from './screens/admin/add-movies/add-movies.component';
 import { CustomerComponent } from './screens/customer/customer.component';
 import { RentalsComponent } from './screens/rentals/rentals.component';
 import {ReturnsComponent } from './screens/returns/returns.component';
@@ -26,6 +27,9 @@ const routes: Routes = [
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule) 
   },
   { path: 'register', component: RegisterComponent },
+  { path: 'AddMovies', component: AddMoviesComponent },
+  // { path: '404', component: NoPageFoundComponent },
+  // { path: '**', redirectTo: '/404', pathMatch: 'full'}
   { path: 'customers', canActivate: [AuthGuard], component: CustomerComponent },
   { path: 'returns', canActivate: [AuthGuard], component: ReturnsComponent },
   { path: 'rentals', canActivate: [AuthGuard], component: RentalsComponent },
