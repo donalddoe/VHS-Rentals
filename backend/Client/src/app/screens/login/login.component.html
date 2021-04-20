@@ -1,0 +1,40 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>VHS RENTALS LOGIN FORM</mat-card-title>
+      </mat-card-header>
+      <form class="example-form"  [formGroup]="reactiveForm" (ngSubmit)="upLoad(reactiveForm)">
+        <mat-card-content>
+          <mat-form-field appearance='outline' class="example-full-width" >
+            <input matInput placeholder="Email" formControlName="email" type="email" required>
+         <mat-icon matPrefix>email</mat-icon>
+          </mat-form-field>
+          <div class="err" *ngIf="reactiveForm.get('email').touched && reactiveForm.get('email').invalid">
+            <span *ngIf="reactiveForm.controls.email.errors.email">
+                *Invalid Email
+            </span>
+            <span *ngIf="reactiveForm.controls.email.errors.required">
+              *Email is Required
+          </span>
+        </div>
+          <mat-form-field appearance='outline' class="example-full-width">
+            <input matInput placeholder=" Password" formControlName="password" type="password" required [type]="hide ? 'password' : 'text'">
+         <mat-icon matPrefix>lock</mat-icon>
+         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+          </mat-form-field>
+          <div class="err" *ngIf="reactiveForm.get('password').touched && reactiveForm.get('password').invalid">
+           <span *ngIf="reactiveForm.controls.password.errors.password">
+               *Invalid Password
+           </span>
+           <span *ngIf="reactiveForm.controls.password.errors.required">
+            *Password is Required
+        </span>
+       </div>
+        </mat-card-content>
+        <button mat-stroked-button color="accent" type="submit" [disabled]="!reactiveForm.valid" class="btn-block">Log in</button>
+      </form>
+      <p>Don't have an account? <a mat-raised-button routerLink='/register' color='primary'>Register</a></p>
+    </mat-card>
+  </div>

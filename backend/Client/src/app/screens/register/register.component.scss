@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+
+}
+#card{
+    width: 50%;
+    height: 50%;
+}
+mat-card-title{
+    text-align: center;
+}
+
+.loader-container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(70, 69, 69);
+    opacity: 1.0;
+    z-index: 99;
+  }

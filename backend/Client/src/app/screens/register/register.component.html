@@ -1,0 +1,98 @@
+<br><br><br><br>
+<main class="container">
+    <div *ngIf="loaderService.isLoading | async" class="loader-container">
+        <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+      </div>
+    <mat-card class="mat-elevation-z24" id="card">
+        <mat-card-title> VHS RENTALS REGISTRATION FORM</mat-card-title>
+
+        <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <input matInput type="email" formControlName="email" placeholder="Email:" required>
+            </mat-form-field>
+            <mat-error *ngIf="email.touched && email.invalid">
+                <mat-error *ngIf="email.errors.required">
+                    Email is required
+                </mat-error>
+                <mat-error *ngIf="email.errors.email">
+                    Email must have a valid format
+                </mat-error>
+                <mat-error *ngIf="email.errors.minlength">
+                    Email must be {{email.errors.minlength.requiredLength}} characters or
+                    more
+                </mat-error>
+            </mat-error>
+
+            <mat-form-field>
+                <input matInput placeholder="Username:" formControlName="username"  required>
+            </mat-form-field>
+            <mat-error *ngIf="username.touched && username.invalid">
+                <mat-error *ngIf="username.errors.required">
+                    Username is required
+                </mat-error>
+                <mat-error *ngIf="username.errors.minlength">
+                    Username must be {{username.errors.minlength.requiredLength}} characters or more
+                </mat-error>
+            </mat-error>
+
+            <mat-form-field>
+                <input matInput placeholder="Password:" formControlName="password" required type="password">
+            </mat-form-field>
+            <mat-error *ngIf="password.touched && password.invalid">
+                <mat-error *ngIf="password.errors.required">
+                    Password is required
+                </mat-error>
+                <mat-error *ngIf="password.errors.minlength">
+                    Password must be {{password.errors.minlength.requiredLength}} characters or more
+                </mat-error>
+                <mat-error *ngIf="password.errors.pattern">
+                    <p>
+                        Password must contain at least one digit.
+                    </p>
+                    <p>
+                        Password must contain at least one lowercase letter.
+                    </p>
+                    <p>
+                        Password must contain at least one uppercase letter.
+                    </p>
+                </mat-error>
+            </mat-error>
+            <mat-error *ngIf="password.touched && confirmpassword.touched && confirmpassword.value !== password.value">
+                <mat-error>
+                    Passwords should match
+                </mat-error>
+            </mat-error>
+
+            <mat-form-field>
+                <input matInput placeholder="Password (confirm):" formControlName="confirmpassword" required
+                    type="password">
+            </mat-form-field>
+            <mat-error *ngIf="confirmpassword.touched && confirmpassword.invalid">
+                <mat-error *ngIf="confirmpassword.errors.required">
+                    Confirmation password is required
+                </mat-error>
+                <mat-error *ngIf="confirmpassword.errors.minlength">
+                    Password must be {{confirmpassword.errors.minlength.requiredLength}} characters or more
+                </mat-error>
+                <mat-error *ngIf="confirmpassword.errors.pattern">
+                    <p>
+                        Password must contain at least one digit.
+                    </p>
+                    <p>
+                        Password must contain at least one lowercase letter.
+                    </p>
+                    <p>
+                        Password must contain at least one uppercase letter.
+                    </p>
+                </mat-error>
+            </mat-error>
+            <mat-error *ngIf="password.touched && confirmpassword.touched && confirmpassword.value !== password.value">
+                <mat-error>
+                    Passwords should match
+                </mat-error>
+            </mat-error>
+
+            <button mat-flat-button color="primary" [disabled]="!form.valid" type="submit">SIGN UP</button>
+        </form>
+    </mat-card>
+</main>
