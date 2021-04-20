@@ -14,24 +14,6 @@ const Movie = mongoose.model('Movies', new mongoose.Schema({
     type: String,  
     required: true
   },
-  // year: {
-  //   type: String,
-  //   requred: true,
-  //   min: 2,
-  //   max: 255
-  // },
-  // plot: {
-  //   type: String,
-  //   required: true,
-  //   min: 0,
-  //   max: 255
-  // },
-  // poster: {
-  //   type: String,
-  //   required: true,
-  //   min: 0,
-  //   max: 255
-  // },
   numberInStock: { 
     type: Number,   
     required: true,
@@ -43,18 +25,30 @@ const Movie = mongoose.model('Movies', new mongoose.Schema({
     required: true,
     min: 0,
     max: 255
-  }
+  },
+    year: {
+    type: String,
+    requred: true,
+  },
+  plot: {
+    type: String,
+    required: true,
+  },
+  poster: {
+    type: String,
+    required: true,
+  },
 }));
 
 function validateMovie(movie) {
   const schema = {
     title: Joi.string().min(5).max(50).required(),
     genre: Joi.string().required(),
-    // year: Joi.string().min(2).max(50).required(),
-    // plot: Joi.string().min(2).max(50).required(),
-    // poster: Joi.string().min(2).max(50).required(),
     numberInStock: Joi.number().min(0).required(),
-    dailyRentalRate: Joi.number().min(0).required()
+    dailyRentalRate: Joi.number().min(0).required(),
+    year: Joi.string().required(),
+    plot: Joi.string().required(),
+    poster: Joi.string().required()
   };
 
   return Joi.validate(movie, schema);
