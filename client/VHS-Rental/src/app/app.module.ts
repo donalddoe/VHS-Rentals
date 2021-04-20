@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AddMoviesComponent } from './screens/admin/add-movies/add-movies.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     AdminComponent,
     RentalsComponent,
     ReturnsComponent,
-    NavBarComponent
+    NavBarComponent,
+    AddMoviesComponent
   ],
   imports: [
     BrowserModule,
