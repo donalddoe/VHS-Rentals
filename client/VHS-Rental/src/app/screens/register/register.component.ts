@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/loader/loader.service';
 import {RegisterService} from '../../register.service';
-// import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,8 @@ import {RegisterService} from '../../register.service';
 export class RegisterComponent implements OnInit {
   constructor(
     private router: Router,
-    private service:RegisterService
+    private service:RegisterService,
+    public loaderService: LoaderService
   ) { }
 
   ngOnInit(): void {
@@ -24,16 +26,16 @@ export class RegisterComponent implements OnInit {
       response => {
         // this.openDialog()
         console.log(response)
-        // Swal.fire({
-        //   position: 'top-end',
-        //   icon: 'success',
-        //   title: 'Registration successfull please signup ',
-        //   showConfirmButton: false,
-        //   timer: 1500
-        // })
-        // setTimeout(() => {
-        //   this.router.navigate(['/']);
-        // }, 5000)
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Registration successfull',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 5000)
        
       }, (error: Response) => {
         // this.dialog.open(FormErrorComponent,{data:{message:"test"}})

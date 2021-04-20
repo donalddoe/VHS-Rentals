@@ -44,6 +44,10 @@
   .login-wrapper .btn-block {
     width: 100%;
   }
+
+  .err{
+    color: red;
+  }
   
   .login-wrapper mat-card-header {
     text-align: center;
@@ -73,4 +77,73 @@
   .mat-icon{
       color: rgb(204, 203, 202);
   }
-   
+  
+  
+  // mat-icon-stepper selected color change 
+::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+  background-color: rgb(230, 211, 211)!important;
+  border-radius: 1px !important;
+  border-bottom: 1px solid   red;
+}
+
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color:rgb(230, 211, 211)!important;
+  opacity: 1!important;
+  
+  
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-gap {
+  border-radius: 1px !important;
+  border-bottom: 1px solid   red;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: rgb(85, 240, 150)!important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+  color: red!important;
+  opacity: 0.8!important;
+}
+
+// mat-input carent color
+::ng-deep .mat-input-element {
+  caret-color: red!important;
+}
+
+// mat-input error carent color
+::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+  caret-color: red!important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+  color: rgba(0,0,0,.6)!important;
+  // color: $mainColor!important;
+}
+
+// mat-label focused style
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: rgb(230, 211, 211)!important;
+}
+
+// mat-label error style
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: red!important;
+}
+
+::ng-deep {
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+     color: rgb(187, 177, 177);
+  }
+  mat-form-field {
+     input, ::placeholder, .mat-form-field-label {
+        color: rgb(51, 46, 46);
+     }
+  }
+}
+

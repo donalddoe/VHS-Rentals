@@ -6,10 +6,11 @@ const mongoose = require('mongoose');
 const Fawn = require('fawn')
 const express = require('express');
 const router = express.Router();
+const admin = require('../middlewares/admin')
 
 Fawn.init(mongoose);
 
-router.get('/', auth, async (req, res) => {
+router.get('/', [auth, admin], async (req, res) => {
   const rentals = await Rental.find().sort('-dateOut');
   res.send(rentals);
 });
