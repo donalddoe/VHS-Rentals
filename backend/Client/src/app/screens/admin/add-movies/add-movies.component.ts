@@ -59,8 +59,8 @@ onSubmit(){}
       Validators.minLength(2),
     ]),
     plot: new FormControl('', [
-      // Validators.required,
-      // Validators.minLength(2),
+       Validators.required,
+       Validators.minLength(2),
     ]),
     year: new FormControl('', [
       Validators.required,
