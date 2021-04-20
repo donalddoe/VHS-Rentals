@@ -93,9 +93,9 @@ console.log(response)
   }),
   setTimeout(() => {
     this.reactiveForm.reset();
-    console.log(this.userData());
+    // console.log(this.userData());
     if(this.userData() == true){
-    this.router.navigate(['/admin/admin']);
+    this.router.navigate(['/admin/add-movies']);
     }else 
    {this.router.navigate(['/users']);}
   }, 3000);

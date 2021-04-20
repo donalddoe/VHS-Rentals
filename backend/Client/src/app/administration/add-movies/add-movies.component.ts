@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {OmdbapiService} from '../../../omdbapi.service';
+import {OmdbapiService} from '../../omdbapi.service';
 import Swal from 'sweetalert2'
 import { LoaderService } from 'src/app/loader/loader.service';
 interface MovieDetails{
@@ -40,10 +40,7 @@ onSubmit(){}
     searchTitle: new FormControl('', [
       Validators.required,
       Validators.minLength(2),
-
     ]),
-
-    
   }
   )
  
@@ -52,7 +49,6 @@ onSubmit(){}
     title: new FormControl('', [
       Validators.required,
       Validators.minLength(2),
-
     ]),
     genre: new FormControl('', [
       Validators.required,
@@ -78,9 +74,6 @@ onSubmit(){}
       Validators.required,
       Validators.min(1),
     ]),
-    
-    
-    
   }
   )
   

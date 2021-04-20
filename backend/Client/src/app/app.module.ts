@@ -12,7 +12,7 @@ import { RentalsComponent } from './screens/rentals/rentals.component';
 import { ReturnsComponent } from './screens/returns/returns.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { AddMoviesComponent } from './screens/admin/add-movies/add-movies.component';
+import { AddMoviesComponent } from './administration/add-movies/add-movies.component';
 import { CustomerComponent } from './screens/customer/customer.component';
 import { NoPageFoundComponent } from './screens/no-page-found/no-page-found.component';
 import { NgxSpinnerModule } from "ngx-spinner";
