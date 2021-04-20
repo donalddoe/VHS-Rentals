@@ -23,7 +23,7 @@ router.get('/', auth, async (req, res) => {
     const movie = new Movie({ 
       title: req.body.title,
       genre: req.body.genre,
-      year: res.body.year,
+      // year: res.body.year,
       plot: res.body.plot,
       poster: res.body.poster,
       numberInStock: req.body.numberInStock,

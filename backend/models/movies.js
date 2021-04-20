@@ -14,12 +14,12 @@ const Movie = mongoose.model('Movies', new mongoose.Schema({
     type: String,  
     required: true
   },
-  year: {
-    type: String,
-    requred: true,
-    min: 2,
-    max: 255
-  },
+  // year: {
+  //   type: String,
+  //   requred: true,
+  //   min: 2,
+  //   max: 255
+  // },
   plot: {
     type: String,
     required: true,
