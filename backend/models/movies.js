@@ -15,7 +15,7 @@ const Movie = mongoose.model('Movies', new mongoose.Schema({
     required: true
   },
   year: {
-    type: Number,
+    type: String,
     requred: true,
     min: 2,
     max: 255
@@ -50,7 +50,7 @@ function validateMovie(movie) {
   const schema = {
     title: Joi.string().min(5).max(50).required(),
     genre: Joi.string().required(),
-    year: Joi.number().min(0).required(),
+    year: Joi.string().min(2).max(50).required(),
     plot: Joi.string().min(2).max(50).required(),
     poster: Joi.string().min(2).max(50).required(),
     numberInStock: Joi.number().min(0).required(),
