@@ -24,8 +24,8 @@ router.get('/', auth, async (req, res) => {
       title: req.body.title,
       genre: req.body.genre,
       // year: res.body.year,
-      plot: res.body.plot,
-      poster: res.body.poster,
+      // plot: res.body.plot,
+      // poster: res.body.poster,
       numberInStock: req.body.numberInStock,
       dailyRentalRate: req.body.dailyRentalRate
     });
@@ -45,9 +45,9 @@ router.get('/', auth, async (req, res) => {
       { 
         title: req.body.title,
         genre: req.body.genre,
-        year: res.body.year,
-        plot: res.body.plot,
-       poster: res.body.poster,
+      //   year: res.body.year,
+      //   plot: res.body.plot,
+      //  poster: res.body.poster,
         numberInStock: req.body.numberInStock,
         dailyRentalRate: req.body.dailyRentalRate
       }, { new: true });
