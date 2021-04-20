@@ -88,6 +88,7 @@ onSubmit(){}
   get searchTitle() {
     return this.searchForm.get('searchTitle')
   }
+  //form
   get genre() {
     return this.form.get('genre')
   }
@@ -110,6 +111,8 @@ onSubmit(){}
     return this.form.get('title')
   }
 }
+
+
 
 
 // Actors: "Mike Myers, Eddie Murphy, Cameron Diaz, John Lithgow"
