@@ -23,11 +23,12 @@ router.get('/', auth, async (req, res) => {
     const movie = new Movie({ 
       title: req.body.title,
       genre: req.body.genre,
+      year: req.body.year,
+      plot: req.body.plot,
+      poster: req.body.poster,
       numberInStock: req.body.numberInStock,
-      dailyRentalRate: req.body.dailyRentalRate,
-      year: res.body.year,
-      plot: res.body.plot,
-      poster: res.body.poster,
+      dailyRentalRate: req.body.dailyRentalRate
+     
     });
      await movie.save();
     
@@ -45,11 +46,12 @@ router.get('/', auth, async (req, res) => {
       { 
         title: req.body.title,
         genre: req.body.genre,
+        year: req.body.year,
+        plot: req.body.plot,
+        poster: req.body.poster,
         numberInStock: req.body.numberInStock,
-        dailyRentalRate: req.body.dailyRentalRate,
-        year: res.body.year,
-        plot: res.body.plot,
-        poster: res.body.poster,
+        dailyRentalRate: req.body.dailyRentalRate
+       
       }, { new: true });
   
     if (!movie) return res.status(404).send('The movie with the given ID was not found.');
