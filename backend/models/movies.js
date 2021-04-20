@@ -50,7 +50,7 @@ function validateMovie(movie) {
   const schema = {
     title: Joi.string().min(5).max(50).required(),
     genre: Joi.string().required(),
-    year: Joi.string().min(2).max(50).required(),
+    // year: Joi.string().min(2).max(50).required(),
     plot: Joi.string().min(2).max(50).required(),
     poster: Joi.string().min(2).max(50).required(),
     numberInStock: Joi.number().min(0).required(),
