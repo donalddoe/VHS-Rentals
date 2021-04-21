@@ -1,1 +1,32 @@
-<p>movies works!</p>
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+<main>
+    <mat-grid-list *ngIf="list" cols="4" rowHeight="5:5" [style.backgroundColor]="'lightgray'">
+      <mat-grid-tile 
+      *ngFor="let movieDetails of list"
+       [colspan]="movieDetails.cols"
+        gutterSize="1px"
+        > 
+
+        <span *ngIf="movieDetails" class="movie-details">    
+            <img 
+            mat-card-image src="{{movieDetails.data.poster}}"
+            alt="{{movieDetails.data.title}}" 
+            matTooltip="{{movieDetails.data.plot}}"
+            [matTooltipPosition]="position.value"
+            matTooltipHideDelay="100000"
+            >
+        </span>
+
+      </mat-grid-tile>
+    
+    </mat-grid-list>
+ 
+    <mat-paginator *ngIf="list" [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageEvent($event)"
+    (change)="onPageEvent($event)">
+    </mat-paginator>
+    </main>
+    

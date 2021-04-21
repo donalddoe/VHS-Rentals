@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {OmdbapiService} from '../../omdbapi.service';
 import Swal from 'sweetalert2'
 import { LoaderService } from 'src/app/loader/loader.service';
+import {SaveMoviesService} from '../../save-movies.service';
 interface MovieDetails{
   Title:string,
   genre:string,
@@ -19,6 +20,7 @@ interface MovieDetails{
 export class AddMoviesComponent implements OnInit {
 
   constructor(private omdbLookupservice:OmdbapiService,
+    private saveMoviesService:SaveMoviesService,
     public loaderService: LoaderService) {  }
 
   ngOnInit(): void {
@@ -35,7 +37,19 @@ export class AddMoviesComponent implements OnInit {
       this.searchForm.reset()
     })
   }
-onSubmit(){}
+onSubmit(){
+  this.saveMoviesService.save(this.form.value).subscribe(response=>{
+   console.log(response)
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Movie has been added',
+      showConfirmButton: false,
+      timer: 4000
+    })
+  
+  })
+}
   searchForm = new FormGroup({
     searchTitle: new FormControl('', [
       Validators.required,
