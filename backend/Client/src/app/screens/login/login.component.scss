@@ -77,6 +77,14 @@
   .mat-icon{
       color: rgb(204, 203, 202);
   }
+
+  .loader-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+    }
   
   
   // mat-icon-stepper selected color change 

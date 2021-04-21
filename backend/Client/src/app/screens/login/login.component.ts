@@ -89,7 +89,7 @@ console.log(response)
     icon: 'success',
     title: 'Login is successful, Welcome!!',
     showConfirmButton: false,
-    timer: 4000
+    timer:2000
   }),
   setTimeout(() => {
     this.reactiveForm.reset();
@@ -98,7 +98,7 @@ console.log(response)
     this.router.navigate(['/admin/add-movies']);
     }else 
    {this.router.navigate(['/users']);}
-  }, 3000);
+  }, 2000);
 };
     },
       err => {
