@@ -1,0 +1,45 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+body{
+  margin: 0;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.loader-container{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgb(97, 95, 95);
+  opacity: 0.9;
+  z-index: 99;
+}
+
+span{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFEFE;
+  }
+  
+  .spacer {
+    flex: 1 1 auto
+}

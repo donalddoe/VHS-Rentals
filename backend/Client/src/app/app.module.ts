@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './screens/login/login.component';
 import { RegisterComponent } from './screens/register/register.component';
-import { MoviesComponent } from './screens/movies/movies.component';
+import { MoviesComponent } from './administration/movies/movies.component';
 import { RentalsComponent } from './screens/rentals/rentals.component';
 import { ReturnsComponent } from './screens/returns/returns.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +19,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './loader/interceptor.service';
-
+// import{ MainNavComponent } from './administration/admin/main-nav/main-nav.component'
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import { InterceptorService } from './loader/interceptor.service';
     AddMoviesComponent,
     CustomerComponent,
     NoPageFoundComponent,
+    // MainNavComponent
   
   ],
   schemas: [

@@ -5,7 +5,7 @@ import { RegisterComponent } from './screens/register/register.component';
 import { CustomerComponent } from './screens/customer/customer.component';
 import { RentalsComponent } from './screens/rentals/rentals.component';
 import {ReturnsComponent } from './screens/returns/returns.component';
-import { MoviesComponent } from './screens/movies/movies.component';
+// import { MoviesComponent } from './administration/movies/movies.component';
 import { NoPageFoundComponent } from './screens/no-page-found/no-page-found.component';
 import {AuthGuard} from './auth.guard'
 
@@ -23,13 +23,13 @@ const routes: Routes = [
   },
   { 
     path: 'users', 
+    canActivate: [AuthGuard],
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule) 
   },
   { path: 'register', component: RegisterComponent },
   { path: 'customers', canActivate: [AuthGuard], component: CustomerComponent },
   { path: 'returns', canActivate: [AuthGuard], component: ReturnsComponent },
   { path: 'rentals', canActivate: [AuthGuard], component: RentalsComponent },
-  { path: 'movies', canActivate: [AuthGuard], component: MoviesComponent },
   { path: '404', component: NoPageFoundComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full'}
 ];

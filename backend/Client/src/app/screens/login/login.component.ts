@@ -95,7 +95,7 @@ console.log(response)
     this.reactiveForm.reset();
     // console.log(this.userData());
     if(this.userData() == true){
-    this.router.navigate(['/admin/add-movies']);
+    this.router.navigate(['/admin']);
     }else 
    {this.router.navigate(['/users']);}
   }, 2000);
