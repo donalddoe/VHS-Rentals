@@ -84,7 +84,7 @@
             <input matInput placeholder="Poster:" formControlName="poster">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Number in stock:" formControlName="numberInStock" required>
+            <input matInput placeholder="Number in stock:" formControlName="numberInStock"  type="number"  required>
           </mat-form-field>
           <mat-error *ngIf="numberInStock.touched && numberInStock.invalid">
             <mat-error *ngIf="numberInStock.errors.required">
@@ -96,7 +96,7 @@
           </mat-error>
 
           <mat-form-field>
-            <input matInput placeholder="Daily Rental Rate:" formControlName="dailyRentalRate" required>
+            <input matInput placeholder="Daily Rental Rate:" formControlName="dailyRentalRate"  type="number"  required>
           </mat-form-field>
           <mat-error *ngIf="dailyRentalRate.touched && dailyRentalRate.invalid">
             <mat-error *ngIf="dailyRentalRate.errors.required">
