@@ -48,7 +48,7 @@
 
         <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
           <mat-form-field>
-            <input matInput type="title" formControlName="title" placeholder="title:" required>
+            <input matInput type="title" formControlName="title" placeholder="Title:" required>
           </mat-form-field>
           <mat-error *ngIf="title.touched && title.invalid">
             <mat-error *ngIf="title.errors.required">
