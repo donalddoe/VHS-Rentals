@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', children :[
     { path : 'admin-dashboard', component :AdminDashboardComponent },
     { path: 'add-movies', component: AddMoviesComponent },
-  { path: 'movies', component: MoviesComponent },
+  // { path: 'movies', component: MoviesComponent },
   { path: 'rentals', component: RentalsComponent },
   { path: 'customers', component: CustomerComponent },
     { path: 'movies', component: MoviesComponent },
