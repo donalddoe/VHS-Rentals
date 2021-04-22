@@ -39,7 +39,6 @@ export class AddMoviesComponent implements OnInit {
   }
 onSubmit(){
   this.saveMoviesService.save(this.form.value).subscribe(response=>{
-   console.log(response)
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -47,7 +46,7 @@ onSubmit(){
       showConfirmButton: false,
       timer: 4000
     })
-  
+  this.form.reset()
   })
 }
   searchForm = new FormGroup({

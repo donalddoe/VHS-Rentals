@@ -19,6 +19,13 @@ import { AdministrationModule } from './administration/administration.module'
 import {  AdministrationRoutingModule } from './administration/administration-routing.module'
 import { UsersModule } from './users/users.module'
 import { UsersRoutingModule } from './users/users-routing.module';
+
+import { MovieDetailsComponent } from './administration/movie-details/movie-details.component';
+import { EditMovieComponent } from './edit-movie/edit-movie.component';
+import { DeleteRecordComponent } from './delete-record/delete-record.component';
+// import{ MainNavComponent } from './administration/admin/main-nav/main-nav.component'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +33,9 @@ import { UsersRoutingModule } from './users/users-routing.module';
     RegisterComponent,
     NavBarComponent,
     NoPageFoundComponent,
+    MovieDetailsComponent,
+    EditMovieComponent,
+    DeleteRecordComponent,
     // MainNavComponent
   
   ],

@@ -18,6 +18,7 @@
             matTooltip="{{movieDetails.data.plot}}"
             [matTooltipPosition]="position.value"
             matTooltipHideDelay="100000"
+            (click)="goToMovie(movieDetails.data._id)"
             >
         </span>
 

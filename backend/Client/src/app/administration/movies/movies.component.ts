@@ -14,7 +14,7 @@ import { FormControl } from '@angular/forms';
 export class MoviesComponent implements OnInit {
 
   constructor(private getMovies: GetMoviesService,
-    public loaderService: LoaderService) { }
+    public loaderService: LoaderService,private router: Router) { }
 
   ngOnInit(): void {
     this.getMovies.fetchMovies().subscribe(response => { this.movies = response, this.getList(0, 11) })
@@ -33,7 +33,9 @@ export class MoviesComponent implements OnInit {
     const limit = event.pageSize
     this.getList(start, limit)
   }
-
+  goToMovie(id){
+    this.router.navigate(['/admin/movie' , id]);
+  }
   getList(start: number, limit: number) {
     let row = 1
     let col = 1

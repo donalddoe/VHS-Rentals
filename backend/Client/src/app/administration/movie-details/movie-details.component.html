@@ -1,0 +1,43 @@
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+<main *ngIf="movie">
+    <mat-card >
+    <mat-card-header>
+      <mat-card-title><h1>{{movie.title}}</h1></mat-card-title>
+      <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
+    </mat-card-header>
+
+<section id ="card-details">
+    <span id="poster">
+        <img mat-card-image src="{{movie.poster}}" alt="{{movie.title}}">
+    </span>
+
+    <section id="movie-details">
+    <mat-card-content>
+          
+<dl>
+    <dt>Plot:</dt>
+    <dd>{{movie.plot}}</dd>
+
+    
+    <dt>Genre:</dt>
+    <dd>{{movie.genre}}</dd>
+
+    <dt>Number in stock:</dt>
+    <dd>{{movie.numberInStock}}</dd>
+
+    <dt>Daily Rental Rate:</dt>
+    <dd>{{movie.dailyRentalRate}}</dd>
+</dl>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn"  (click)="confirmDelete()">Delete</button>
+      <button mat-raised-button color="accent" (click)="editMovie()"> Edit</button>
+    </mat-card-actions>
+</section>
+</section>
+  </mat-card>
+</main>
