@@ -7,31 +7,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './screens/login/login.component';
 import { RegisterComponent } from './screens/register/register.component';
-import { MoviesComponent } from './administration/movies/movies.component';
-import { RentalsComponent } from './administration/rentals/rentals.component';
 import { ReturnsComponent } from './users/returns/returns.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { AddMoviesComponent } from './administration/add-movies/add-movies.component';
-import { CustomerComponent } from './administration/customer/customer.component';
 import { NoPageFoundComponent } from './screens/no-page-found/no-page-found.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './loader/interceptor.service';
-// import{ MainNavComponent } from './administration/admin/main-nav/main-nav.component'
-
+import { AdministrationModule } from './administration/administration.module'
+import {  AdministrationRoutingModule } from './administration/administration-routing.module'
+import { UsersModule } from './users/users.module'
+import { UsersRoutingModule } from './users/users-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    MoviesComponent,
-    RentalsComponent,
-    ReturnsComponent,
     NavBarComponent,
-    AddMoviesComponent,
-    CustomerComponent,
     NoPageFoundComponent,
     // MainNavComponent
   
@@ -55,6 +48,10 @@ import { InterceptorService } from './loader/interceptor.service';
       preventDuplicates: true,
       progressAnimation: 'decreasing'
     }),
+    AdministrationModule,
+    AdministrationRoutingModule,
+    UsersModule,
+    UsersRoutingModule
   ],
 
   providers: [

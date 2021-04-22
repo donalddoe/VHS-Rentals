@@ -66,6 +66,8 @@ export class LoginComponent implements OnInit {
     return this.getToken() ? this.helper.decodeToken(this.getToken()) : null;
   }
 
+  
+
   userData(): boolean {
     if (!this.decodeToken()) return null;
     const { isAdmin} = this.decodeToken();
@@ -95,7 +97,7 @@ console.log(response)
     this.reactiveForm.reset();
     // console.log(this.userData());
     if(this.userData() == true){
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/admin/admin-dashboard']);
     }else 
    {this.router.navigate(['/users']);}
   }, 2000);

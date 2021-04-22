@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AddMoviesComponent } from './add-movies/add-movies.component';
 import { MoviesComponent } from './movies/movies.component';
+import { CustomerComponent } from './customer/customer.component';
+import { RentalsComponent } from './rentals/rentals.component';
+
 
 
 const routes: Routes = [
@@ -10,6 +13,10 @@ const routes: Routes = [
     { path : 'admin-dashboard', component :AdminDashboardComponent },
     { path: 'add-movies', component: AddMoviesComponent },
   { path: 'movies', component: MoviesComponent },
+  { path: 'rentals', component: RentalsComponent },
+  { path: 'customers', component: CustomerComponent },
+
+
 
     { path : '', redirectTo : 'admin', pathMatch : 'full' }
   ] }

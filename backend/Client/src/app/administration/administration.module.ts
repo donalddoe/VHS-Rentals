@@ -9,10 +9,18 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AddMoviesComponent } from './add-movies/add-movies.component';
+import { MoviesComponent } from './movies/movies.component';
+import { CustomerComponent } from './customer/customer.component';
+import { RentalsComponent } from './rentals/rentals.component';
 
 
 @NgModule({
-  declarations: [ AdminDashboardComponent],
+    
+    
+  
+   
+    declarations: [ AdminDashboardComponent, AddMoviesComponent, MoviesComponent,  CustomerComponent,  RentalsComponent,],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,  
   ],

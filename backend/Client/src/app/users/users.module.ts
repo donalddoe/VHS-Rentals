@@ -9,10 +9,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { ReturnsComponent } from './returns/returns.component';
 
 
 @NgModule({
-  declarations: [UserDashboardComponent, UserDashboardComponent],
+  
+  declarations: [ UserDashboardComponent, ReturnsComponent,],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,  
   ],
