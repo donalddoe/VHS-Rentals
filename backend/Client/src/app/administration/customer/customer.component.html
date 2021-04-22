@@ -8,7 +8,7 @@
       <mat-card-header>
         <mat-card-title>Add Customer</mat-card-title>
       </mat-card-header>
-      <form class="example-form"  [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form class="example-form"  [formGroup]="form" (ngSubmit)="onSubmit(form)">
         <mat-card-content>
           <mat-form-field appearance='outline' class="example-full-width" >
             <input matInput placeholder="Name" formControlName="name" type="text" required>
@@ -22,15 +22,18 @@
               *Name is Required
           </span>
         </div>
-        <label for="number">Number</label>
           <mat-form-field appearance='outline' class="example-full-width">
             <input matInput placeholder="Phone Number" formControlName="number" type="text" required >
          <mat-icon matPrefix>phone</mat-icon>
           </mat-form-field>
-          <div *ngIf="f.number.touched && f.number.invalid" class="err">
-            <div *ngIf="f.number.errors.required">Number is required.</div>
-            <div *ngIf="f.number.errors.pattern">Enter only number.</div>
-        </div>
+          <div class="err" *ngIf="form.get('number').touched && form.get('number').invalid">
+           <span *ngIf="form.controls.number.errors.pattern">
+               *Enter only number
+           </span>
+           <span *ngIf="form.controls.number.errors.required">
+            *Phone Number is Required
+        </span>
+       </div>
         </mat-card-content>
         <button mat-stroked-button  type="submit" [disabled]="!form.valid" class="btn-block">Submit</button>
       </form>

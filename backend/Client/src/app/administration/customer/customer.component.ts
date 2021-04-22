@@ -28,9 +28,17 @@ export class CustomerComponent implements OnInit {
         "number": ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       })
     }
+
+    get number(){
+      return this.form.get('number');
+    }
+    get name(){
+      return this.form.get('name')
+    }
  
 
-  onSubmit(){
+  onSubmit(form){
+    console.log(form)
     this.customerService.addCustomer(this.form.value).subscribe(
       response => {
         console.log(response)
