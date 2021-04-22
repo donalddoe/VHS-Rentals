@@ -19,6 +19,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './loader/interceptor.service';
+import { MovieDetailsComponent } from './administration/movie-details/movie-details.component';
+import { EditMovieComponent } from './edit-movie/edit-movie.component';
+import { DeleteRecordComponent } from './delete-record/delete-record.component';
 // import{ MainNavComponent } from './administration/admin/main-nav/main-nav.component'
 
 @NgModule({
@@ -33,6 +36,9 @@ import { InterceptorService } from './loader/interceptor.service';
     AddMoviesComponent,
     CustomerComponent,
     NoPageFoundComponent,
+    MovieDetailsComponent,
+    EditMovieComponent,
+    DeleteRecordComponent,
     // MainNavComponent
   
   ],

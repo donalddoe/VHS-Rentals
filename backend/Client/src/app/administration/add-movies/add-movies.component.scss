@@ -24,11 +24,19 @@ align-items: center;
      width: 40%;
      height: max-content;
 }
+// .form-container{
+// display:flex;
+// flex-direction: column;
+//  width: 100%;
+// }
 .form-container{
-display:flex;
-flex-direction: column;
- width: 100%;
-}
+     display: flex;
+     flex-direction: column  ;
+     width: 50vw;
+ }
+ mat-form-field{
+     width: 100%;
+ }
 .search-container{
     display:flex;
     justify-content: center;
