@@ -5,11 +5,11 @@ import { map, shareReplay } from 'rxjs/operators';
 import { LoaderService } from 'src/app/loader/loader.service';
 
 @Component({
-  selector: 'app-main-nav',
-  templateUrl: './main-nav.component.html',
-  styleUrls: ['./main-nav.component.scss']
+  selector: 'app-user-dashboard',
+  templateUrl: './user-dashboard.component.html',
+  styleUrls: ['./user-dashboard.component.scss']
 })
-export class MainNavComponent {
+export class UserDashboardComponent {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -17,6 +17,6 @@ export class MainNavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, public loaderService: LoaderService) {}
+  constructor(private breakpointObserver: BreakpointObserver,  public loaderService: LoaderService) {}
 
 }
