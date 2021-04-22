@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './screens/login/login.component';
 import { RegisterComponent } from './screens/register/register.component';
-import { CustomerComponent } from './screens/customer/customer.component';
-import { RentalsComponent } from './screens/rentals/rentals.component';
-import {ReturnsComponent } from './screens/returns/returns.component';
+import { CustomerComponent } from './administration/customer/customer.component';
+import { RentalsComponent } from './administration/rentals/rentals.component';
+import {ReturnsComponent } from './users/returns/returns.component';
 // import { MoviesComponent } from './administration/movies/movies.component';
 import { NoPageFoundComponent } from './screens/no-page-found/no-page-found.component';
 import {AuthGuard} from './auth.guard'
