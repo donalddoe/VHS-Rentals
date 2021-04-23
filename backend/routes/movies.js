@@ -19,7 +19,12 @@ router.get('/', auth, async (req, res) => {
   
     // const genre = await Genre.findById(req.body.genreId);
     // if (!genre) return res.status(400).send('Invalid genre.');
-  
+    let movie = await Movie.findOne({ title: req.body.title });
+    if (movie) return res.status(400).send('Movie already exist');
+ 
+
+
+
     const movie = new Movie({ 
       title: req.body.title,
       genre: req.body.genre,
