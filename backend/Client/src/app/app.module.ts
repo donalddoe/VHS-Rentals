@@ -61,7 +61,8 @@ import { DeleteRecordComponent } from './delete-record/delete-record.component';
     AdministrationModule,
     AdministrationRoutingModule,
     UsersModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    FormsModule,
   ],
 
   providers: [

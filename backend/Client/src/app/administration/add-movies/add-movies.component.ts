@@ -28,13 +28,14 @@ export class AddMoviesComponent implements OnInit {
   lookupOmdb(){
      this.omdbLookupservice.find(this.searchTitle.value).subscribe(
       response => {
+        console.log(response);
       this.movieDetails={...response}
       this.title.setValue(this.movieDetails.Title)
       this.genre.setValue(this.movieDetails.Genre)
       this.plot.setValue(this.movieDetails.Plot)
       this.year.setValue(this.movieDetails.Year)
       this.poster.setValue(this.movieDetails.Poster)
-      this.searchForm.reset()
+      // this.searchForm.reset()
     })
   }
 onSubmit(){

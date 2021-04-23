@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
 
-  private url = "https://vhsrentals.herokuapp.com/api/movies/add-movie";
+  private url = "https://vhsrentals.herokuapp.com/api/customer/";
 
   httpOptions = {
     headers: new HttpHeaders({

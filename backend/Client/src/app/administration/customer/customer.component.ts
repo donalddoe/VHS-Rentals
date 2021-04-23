@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from 'src/app/customer.service';
 import Swal from 'sweetalert2';
 
@@ -19,8 +18,6 @@ export class CustomerComponent implements OnInit {
   constructor(
     private customerService: CustomerService,
     public loaderService: LoaderService,
-    private router: Router,
-    private route: ActivatedRoute,
     public fb: FormBuilder,
     ) { 
       this.form = this.fb.group({
