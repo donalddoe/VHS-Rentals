@@ -4,6 +4,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AddMoviesComponent } from './add-movies/add-movies.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { CustomerComponent } from './customer/customer.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,7 @@ const routes: Routes = [
     { path: 'add-movies', component: AddMoviesComponent },
     { path: 'movies', component: MoviesComponent },
     {path: "movie/:id", component: MovieDetailsComponent },
-    
+    { path: 'customers', component: CustomerComponent },
 
     { path : '', redirectTo : 'admin', pathMatch : 'full' }
   ] }
