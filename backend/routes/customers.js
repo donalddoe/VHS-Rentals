@@ -16,8 +16,8 @@ router.post('/', auth, async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
     
-    let customer = await Customer.findOne({ name: req.body.name  });
-  if (customer) return res.status(400).send('Customer already exist');
+    let customers = await Customer.findOne({ name: req.body.name  });
+  if (customers) return res.status(400).send('Customer already exist');
 
   let customer = new Customer({ 
     name: req.body.name,

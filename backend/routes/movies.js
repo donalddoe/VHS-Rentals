@@ -9,7 +9,7 @@ const router = express.Router();
 
 
 router.get('/', auth, async (req, res) => {
-    const movies = await Movie.find().sort('name');
+    let movies = await Movie.find().sort('name');
     res.send(movies);
   });
   //Add a new movie
@@ -19,8 +19,8 @@ router.get('/', auth, async (req, res) => {
   
     // const genre = await Genre.findById(req.body.genreId);
     // if (!genre) return res.status(400).send('Invalid genre.');
-    let movie = await Movie.findOne({ title: req.body.title });
-    if (movie) return res.status(400).send('Movie already exist');
+    let movies = await Movie.findOne({ title: req.body.title });
+    if (movies) return res.status(400).send('Movie already exist');
  
 
 
