@@ -6,7 +6,7 @@ const auth = require('../middlewares/auth')
 const admin = require('../middlewares/admin')
 
 
-router.get('/', admin, async (req, res) => {
+router.get('/', auth, async (req, res) => {
   const customers = await Customer.find().sort('name');
   res.send(customers);
 });
