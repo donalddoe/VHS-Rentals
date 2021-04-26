@@ -15,11 +15,7 @@ module.exports = function(app) {
     app.use(express.urlencoded({extended : false}));
     app.use(cors());
     app.use(express.json());
-    app.use(express.static( __dirname + "/public"));
-    app.get("/", (req, res)=>{
-      res.sendFile(path.join(__dirname + "/public/VHS-Rental/index.html"));
-    })
-    // app.use(express.static(path.join(__dirname, 'public', 'index.html')));
+    app.use(express.static(path.join(__dirname, 'public', 'index.html')));
     app.use('/api/users', users);
     app.use('/api/auth', auth);
     app.use('/api/movies', movies);
