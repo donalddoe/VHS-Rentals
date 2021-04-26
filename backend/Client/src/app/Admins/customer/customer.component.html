@@ -1,5 +1,4 @@
-
-   
+   <app-administration>
    <br><br><br><br>
 <div *ngIf="loaderService.isLoading | async" class="loader-container">
   <mat-spinner></mat-spinner>
@@ -7,13 +6,14 @@
 <div class="login-wrapper" fxLayoutAlign="center center" *ngIf="!(loaderService.isLoading | async)">
     <mat-card class="box">
       <mat-card-header>
-        <mat-card-title>Add Customer</mat-card-title>
+        <!-- <mat-card-title>Add Customer</mat-card-title> -->
       </mat-card-header>
       <form class="example-form"  [formGroup]="form" (ngSubmit)="onSubmit(form)">
         <mat-card-content>
+          <label>Name</label>
           <mat-form-field appearance='outline' class="example-full-width" >
             <input matInput placeholder="Name" formControlName="name" type="text" required>
-            <mat-icon matPrefix>user-alt</mat-icon>
+            <mat-icon matPrefix>user</mat-icon>
           </mat-form-field>
           <div class="err" *ngIf="form.get('name').touched && form.get('name').invalid">
             <span *ngIf="form.controls.name.errors.name">
@@ -23,6 +23,7 @@
               *Name is Required
           </span>
         </div>
+        <label>Phone Number</label>
           <mat-form-field appearance='outline' class="example-full-width">
             <input matInput placeholder="Phone Number" formControlName="phone" type="text" required >
          <mat-icon matPrefix>phone</mat-icon>
@@ -40,3 +41,4 @@
       </form>
     </mat-card>
   </div>
+</app-administration>

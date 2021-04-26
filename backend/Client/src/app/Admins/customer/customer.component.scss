@@ -1,3 +1,8 @@
+h1{
+  color: black;
+  text-align: center;
+  
+}
 
 .login-wrapper {
     height: 100%;
@@ -68,7 +73,8 @@
   .login-wrapper .mat-stroked-button {
     border: 1px solid currentColor;
     line-height: 54px;
-    background: #e7e7e3;
+    background: #FFCF73;
+    // color: #FFCF73;
     .button:disabled {
       cursor: not-allowed;
     }

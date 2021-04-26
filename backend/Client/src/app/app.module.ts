@@ -7,21 +7,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './screens/login/login.component';
 import { RegisterComponent } from './screens/register/register.component';
-import { MoviesComponent } from './administration/movies/movies.component';
-import { RentalsComponent } from './administration/rentals/rentals.component';
+import { MoviesComponent } from './Admins/movies/movies.component';
+import { RentalsComponent } from './Admins/rentals/rentals.component';
 import { ReturnsComponent } from './users/returns/returns.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { AddMoviesComponent } from './administration/add-movies/add-movies.component';
-import { CustomerComponent } from './administration/customer/customer.component';
+import { AddMoviesComponent } from './Admins/add-movies/add-movies.component';
+import { CustomerComponent } from './Admins/customer/customer.component';
 import { NoPageFoundComponent } from './screens/no-page-found/no-page-found.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './loader/interceptor.service';
-import { MovieDetailsComponent } from './administration/movie-details/movie-details.component';
+import { MovieDetailsComponent } from './Admins/movie-details/movie-details.component';
 import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { DeleteRecordComponent } from './delete-record/delete-record.component';
+import { AdministrationComponent } from './Admins/administration/administration.component';
 // import{ MainNavComponent } from './administration/admin/main-nav/main-nav.component'
 
 @NgModule({
@@ -39,6 +40,7 @@ import { DeleteRecordComponent } from './delete-record/delete-record.component';
     MovieDetailsComponent,
     EditMovieComponent,
     DeleteRecordComponent,
+    AdministrationComponent,
     // MainNavComponent
   
   ],

@@ -8,11 +8,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+// import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AllCustomersComponent } from '../Admins/all-customers/all-customers.component';
 
 
 @NgModule({
-  declarations: [ AdminDashboardComponent],
+  declarations: [],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,  
   ],
