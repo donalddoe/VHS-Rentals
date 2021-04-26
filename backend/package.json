@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --watchAll --verbose",
+    "heroku-postbuild": "ng build --prod",
     "start": "node server.js"
   },
   "engines": {
