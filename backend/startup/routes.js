@@ -15,7 +15,7 @@ module.exports = function(app) {
     app.use(express.urlencoded({extended : false}));
     app.use(cors());
     app.use(express.json());
-    app.use(express.static( root __dirname + "/dist/VHS-Rental"));
+    app.use(express.static( __dirname + "/dist/VHS-Rental"));
     app.get("/", (req, res)=>{
       res.sendFile(path.join(__dirname + "/dist/VHS-Rental/index.html"));
     })
