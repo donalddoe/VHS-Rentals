@@ -10,7 +10,7 @@ const admin = require('../middlewares/admin')
 
 Fawn.init(mongoose);
 
-router.get('/', [auth, admin], async (req, res) => {
+router.get('/', auth, async (req, res) => {
   const rentals = await Rental.find().sort('-dateOut');
   res.send(rentals);
 });

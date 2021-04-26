@@ -37,12 +37,8 @@
           *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <!-- <div *ngIf="loaderService.isLoading | async" class="loader-container">
-          <mat-spinner></mat-spinner>
-        </div> -->
         <span>VHS-Rental Admin Dashboard</span>
         <div class="spacer"></div>
-        <!-- <a mat-button routerLink='movies'>Logout</a> -->
         <div [ngSwitch]="isTokenExpired">
           <div *ngSwitchCase="false">
               <button mat-button [matMenuTriggerFor]="menu">

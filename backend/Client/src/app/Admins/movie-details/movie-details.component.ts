@@ -39,7 +39,7 @@ export class MovieDetailsComponent implements OnInit {
             timer: 4000
           })
         )
-        this.router.navigate(['/admin/movies']);
+        this.router.navigate(['/movies']);
      }
     })
 
