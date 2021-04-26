@@ -19,7 +19,7 @@ module.exports = function(app) {
     // app.get("*", (req, res)=>{
     //   res.sendFile(path.join(__dirname, "client/dist",'index.html'));
     // })
-    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static(path.join(__dirname, 'public', 'index.html')));
     app.use('/api/users', users);
     app.use('/api/auth', auth);
     app.use('/api/movies', movies);
