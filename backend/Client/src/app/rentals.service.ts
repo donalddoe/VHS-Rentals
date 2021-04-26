@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class RentalsService {
 
 
-  private url = "https://vhsrentals.herokuapp.com/api/rentals";
+  private url = "https://vhsrentals.herokuapp.com/api/rentals/";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -19,7 +19,7 @@ export class RentalsService {
     })
   };
   constructor(private http: HttpClient) { }
-  fetchMovies() {
+  allRentals() {
     return this.http.get(this.url,  this.httpOptions)
   };
 

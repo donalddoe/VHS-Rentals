@@ -24,7 +24,7 @@ import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { DeleteRecordComponent } from './delete-record/delete-record.component';
 import { AdministrationComponent } from './Admins/administration/administration.component';
 // import{ MainNavComponent } from './administration/admin/main-nav/main-nav.component'
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +63,7 @@ import { AdministrationComponent } from './Admins/administration/administration.
       preventDuplicates: true,
       progressAnimation: 'decreasing'
     }),
+   MatProgressBarModule 
   ],
 
   providers: [
