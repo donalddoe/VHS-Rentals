@@ -34,7 +34,7 @@ export class MoviesComponent implements OnInit {
     this.getList(start, limit)
   }
   goToMovie(id){
-    this.router.navigate(['/admin/movie' , id]);
+    this.router.navigate(['/movie' , id]);
   }
   getList(start: number, limit: number) {
     let row = 1
