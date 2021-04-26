@@ -8,7 +8,7 @@ const customers = require('../routes/customers');
 const rentals = require('../routes/rentals');
 const returns = require('../routes/returns')
 const error = require('../middlewares/error');
-
+const path = require('path');
 
 
 module.exports = function(app) {
