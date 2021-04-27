@@ -23,6 +23,7 @@ module.exports = function(app) {
     
         if (err) throw err;
       });
+      
     });
     app.use('/api/users', users);
     app.use('/api/auth', auth);
