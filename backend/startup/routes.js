@@ -15,12 +15,15 @@ module.exports = function(app) {
     app.use(express.urlencoded({extended : false}));
     app.use(cors());
     app.use(express.json());
-    app.use(express.static('/startup/public/VHS-Rental'));
-app.get('*', (req, res)=> {
-  const index = path.join(__dirname, '/', '/startup/public/VHS-Rental', 'index.html' );
-  res.sendFile(index);
-});
-    // app.use(express.static(path.join(__dirname, '/', 'public/VHS-Rental/index.html')));
+    const fileDirectory = path.resolve(__dirname, "/Client/dist")
+    app.use(express.static(fileDirectory));
+    app.get("*", (req, res) => {
+      res.sendFile("index.html", { root: fileDirectory }, (err) => {
+        res.end();
+    
+        if (err) throw err;
+      });
+    });
     app.use('/api/users', users);
     app.use('/api/auth', auth);
     app.use('/api/movies', movies);
