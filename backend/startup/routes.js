@@ -15,9 +15,9 @@ module.exports = function(app) {
     app.use(express.urlencoded({extended : false}));
     app.use(cors());
     app.use(express.json());
-    const fileDirectory = path.resolve(__dirname, "/Client/dist")
+    const fileDirectory = path.resolve(__dirname, "/Client/dist/VHS-Rental")
     app.use(express.static(fileDirectory));
-    app.get("*", (req, res) => {
+    app.get("**", (req, res) => {
       res.sendFile("index.html", { root: fileDirectory }, (err) => {
         res.end();
     
