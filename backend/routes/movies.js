@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/', auth, async (req, res) => {
     let movies = await Movie.find().sort('name');
     console.log(movies)
-    res.json({ movies });
+    res.json( movies );
   });
   //Add a new movie
   router.post('/add-movie', auth, async (req, res) => {
