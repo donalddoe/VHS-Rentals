@@ -25,6 +25,8 @@ import { DeleteRecordComponent } from './delete-record/delete-record.component';
 import { AdministrationComponent } from './Admins/administration/administration.component';
 // import{ MainNavComponent } from './administration/admin/main-nav/main-nav.component'
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MdbModule } from 'mdb-angular-ui-kit';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +43,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     EditMovieComponent,
     DeleteRecordComponent,
     AdministrationComponent,
+    FooterComponent,
     // MainNavComponent
   
   ],
@@ -63,7 +66,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
       preventDuplicates: true,
       progressAnimation: 'decreasing'
     }),
-   MatProgressBarModule 
+   MatProgressBarModule,
+   MdbModule 
   ],
 
   providers: [

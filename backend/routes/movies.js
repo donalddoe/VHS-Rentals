@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get('/', auth, async (req, res) => {
     let movies = await Movie.find().sort('name');
-    console.log(movies)
+    // console.log(movies)
     res.json( movies );
   });
   //Add a new movie

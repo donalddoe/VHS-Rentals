@@ -1,4 +1,4 @@
-<br><br><br><br>
+<!-- <br><br><br><br>
 <div *ngIf="loaderService.isLoading | async" class="loader-container">
   <mat-spinner></mat-spinner>
 </div>
@@ -41,4 +41,60 @@
       </form>
       <p>Don't have an account? <a mat-raised-button routerLink='/register' color='primary'>Register</a></p>
     </mat-card>
-  </div>
+  </div> -->
+
+  <br><br><br><br>
+<main class="container">
+    <div *ngIf="loaderService.isLoading | async" class="loader-container">
+        <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+      </div>
+    <mat-card class="mat-elevation-z24" id="card">
+        <mat-card-title> VHS RENTALS LOGIN FORM</mat-card-title>
+
+        <form class="form-container"  [formGroup]="reactiveForm" (ngSubmit)="upLoad(reactiveForm)">
+            <mat-form-field appearance='outline' >
+                <input matInput placeholder="Email" formControlName="email"  required>
+         <mat-icon matPrefix>email</mat-icon>
+
+            </mat-form-field>
+            <mat-error *ngIf="email.touched && email.invalid">
+                <mat-error *ngIf="email.errors.required">
+                    Email is required
+                </mat-error>
+                <mat-error *ngIf="email.errors.minlength">
+                    Email must be {{eamil.errors.minlength.requiredLength}} characters or more
+                </mat-error>
+            </mat-error>
+
+            <mat-form-field appearance='outline'>
+                <input matInput placeholder="Password:" formControlName="password" required type="password">
+                <mat-icon matPrefix>lock</mat-icon>
+         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+            </mat-form-field>
+            <mat-error *ngIf="password.touched && password.invalid">
+                <mat-error *ngIf="password.errors.required">
+                    Password is required
+                </mat-error>
+                <mat-error *ngIf="password.errors.minlength">
+                    Password must be {{password.errors.minlength.requiredLength}} characters or more
+                </mat-error>
+                <mat-error *ngIf="password.errors.pattern">
+                    <p>
+                        Password must contain at least one digit.
+                    </p>
+                    <p>
+                        Password must contain at least one lowercase letter.
+                    </p>
+                    <p>
+                        Password must contain at least one uppercase letter.
+                    </p>
+                </mat-error>
+            </mat-error>
+           
+            <button mat-stroked-button color="accent" type="submit" [disabled]="!reactiveForm.valid" class="btn-block">Log in</button>
+          </form>
+          <p>Don't have an account? <a mat-raised-button routerLink='/register' color='primary'>Register</a></p>
+    </mat-card>
+</main>
