@@ -15,10 +15,10 @@ module.exports = function(app) {
     app.use(express.urlencoded({extended : false}));
     app.use(cors());
     app.use(express.json());
-    const fileDirectory = (path.join(__dirname, "Client/dist/VHS-Rental"))
+    const fileDirectory = (path.join(__dirname, "public/VHS-Rental"))
     app.use(express.static(fileDirectory));
     app.get("**", (req, res) => {
-      res.sendFile(path.join(__dirname, "Client/dist/VHS-Rental/index.html"));
+      res.sendFile(path.join(__dirname, "public/VHS-Rental/index.html"));
       // res.sendFile("index.html", { root: fileDirectory }, (err) => {
       //   res.end();
     
