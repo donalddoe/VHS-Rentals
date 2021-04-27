@@ -22,6 +22,8 @@ import { InterceptorService } from './loader/interceptor.service';
 import { MovieDetailsComponent } from './administration/movie-details/movie-details.component';
 import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { DeleteRecordComponent } from './delete-record/delete-record.component';
+import { StoreFrontComponent } from './store-front/store-front.component';
+import { RentMovieComponent } from './rent-movie/rent-movie.component';
 // import{ MainNavComponent } from './administration/admin/main-nav/main-nav.component'
 
 @NgModule({
@@ -39,6 +41,8 @@ import { DeleteRecordComponent } from './delete-record/delete-record.component';
     MovieDetailsComponent,
     EditMovieComponent,
     DeleteRecordComponent,
+    StoreFrontComponent,
+    RentMovieComponent,
     // MainNavComponent
   
   ],

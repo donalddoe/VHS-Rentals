@@ -1,0 +1,39 @@
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+<main>
+    <mat-grid-list *ngIf="list" cols="3" rowHeight="60em" [style.backgroundColor]="'lightgray'">
+      <mat-grid-tile 
+      *ngFor="let movieDetails of list"
+       [colspan]="movieDetails.cols"
+        gutterSize="1px"
+        > 
+
+        <mat-card  *ngIf="movieDetails" class="movie-details">
+          <mat-card-header>
+            <mat-card-title> <span class="header-title">{{movieDetails.data.title}}</span></mat-card-title>
+            <mat-card-subtitle>{{movieDetails.data.genre}}</mat-card-subtitle>
+          </mat-card-header>
+          <img 
+          mat-card-image src="{{movieDetails.data.poster}}"
+          alt="{{movieDetails.data.title}}" 
+          (click)="goToMovie(movieDetails.data._id)"
+          >
+          <mat-card-actions class ="card-footer">
+                <button mat-button > <span class="footer-text" >&#8373; {{movieDetails.data.dailyRentalRate | number }} per week ({{movieDetails.data.numberInStock}} copies available for renting)</span> </button>
+          </mat-card-actions>
+        </mat-card>
+   
+  
+
+      </mat-grid-tile>
+    
+    </mat-grid-list>
+ 
+    <mat-paginator *ngIf="list" [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageEvent($event)"
+    (change)="onPageEvent($event)">
+    </mat-paginator>
+    </main>
+    

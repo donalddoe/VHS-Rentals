@@ -8,6 +8,7 @@ import {ReturnsComponent } from './users/returns/returns.component';
 // import { MoviesComponent } from './administration/movies/movies.component';
 import { NoPageFoundComponent } from './screens/no-page-found/no-page-found.component';
 import {AuthGuard} from './auth.guard'
+import { StoreFrontComponent } from './store-front/store-front.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule) 
   },
+  { path: 'store', component: StoreFrontComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'customers', canActivate: [AuthGuard], component: CustomerComponent },
   { path: 'returns', canActivate: [AuthGuard], component: ReturnsComponent },
