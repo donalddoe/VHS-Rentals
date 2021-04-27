@@ -38,3 +38,5 @@
 {"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-27T09:08:38.515Z"}
 {"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T09:18:13.746Z"}
 {"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-27T09:18:20.508Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T09:19:39.048Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-04-27T09:19:47.639Z"}
