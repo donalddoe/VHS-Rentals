@@ -1,10 +1,10 @@
-<admin-dashboard>
+
+  <app-administration>
 <br><br><br><br>
 <div *ngIf="loaderService.isLoading | async" class="loader-container">
   <mat-spinner></mat-spinner>
 </div>
 <main class="container"  *ngIf="!(loaderService.isLoading | async)">
- 
   <section  class="search-container">
   <mat-card class="mat-elevation-z24" id="card">
     <form  [formGroup]="searchForm" (ngSubmit)="lookupOmdb()">
@@ -20,15 +20,12 @@
           Title must be {{searchTitle.errors.minlength.requiredLength}} characters or more
         </mat-error>
       </mat-error>
-
       <button mat-flat-button color="primary" [disabled]="!searchForm.valid" type="submit">Find Movie</button>
     </form>
   </mat-card>
 </section>
 <br>
 <br>
-
-
   <section class="form-details">
     <mat-card *ngIf="movieDetails" class="movie-details">
       <mat-card-header>
@@ -45,7 +42,6 @@
     <div class="form">
       <mat-card class="mat-elevation-z24">
         <mat-card-title> Add Movie</mat-card-title>
-
         <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
           <mat-form-field>
             <input matInput type="title" formControlName="title" placeholder="Title:" required>
@@ -62,7 +58,6 @@
               more
             </mat-error>
           </mat-error>
-
           <mat-form-field>
             <input matInput placeholder="Genre:" formControlName="genre" required>
           </mat-form-field>
@@ -74,7 +69,6 @@
               Genre must be {{genre.errors.minlength.requiredLength}} characters or more
             </mat-error>
           </mat-error>
-
           <mat-form-field>
             <textarea matInput placeholder="Plot:" formControlName="plot" cdkTextareaAutosize ></textarea>
           </mat-form-field>
@@ -107,8 +101,6 @@
               Daily Rent must be {{dailyRentalRate.errors.minlength.requiredLength}} characters or more
             </mat-error>
           </mat-error>
-
-
           <button mat-flat-button color="primary" [disabled]="!form.valid" type="submit">Add New Movie</button>
         </form>
       </mat-card>
@@ -116,4 +108,4 @@
   </section>
 
 </main>
-</admin-dashboard>
+</app-administration>
