@@ -1,0 +1,71 @@
+<main>
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Please confirm your order and tell us how to contact you</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table>
+        <thead>
+          <tr>
+            <th>Movie</th>
+            <th>Price per day(&#8373;) </th>
+            <th>Remove from cart</th>
+            <th>Rental period in days</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of cart">
+          <tr>
+            <td>{{item.title}}</td>
+            <td>{{item.dailyRentalRate}}</td>
+            <td>
+              <button class="remove-movie" (click)="removeMovie(item._id)">Remove</button>
+            </td>
+            <td>
+              <input (change)="setNumberOfDays(item._id)" id="{{item._id}}" min="1"
+                value="{{item.daysBooked ? item.daysBooked :1 }}" class="numOfDays" type="number" />
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+    <mat-card-actions>
+
+      <mat-divider></mat-divider>
+      <h2> Total = &#8373;{{getTotal()}}</h2>
+      <mat-divider></mat-divider>
+      <form   [formGroup]="form" (ngSubmit)="processOrders()">
+        
+          <label>Name</label>
+          <mat-form-field appearance='outline' class="example-full-width" >
+            <input matInput placeholder="Name" formControlName="name" type="text" required>
+            <mat-icon matPrefix>user</mat-icon>
+          </mat-form-field>
+          <div class="err" *ngIf="form.get('name').touched && form.get('name').invalid">
+            <mat-error *ngIf="form.controls.name.errors.name">
+                *Invalid Name
+            </mat-error>
+            <mat-error *ngIf="form.controls.name.errors.required">
+              *Name is Required
+          </mat-error>
+        </div>
+        <label>Phone Number</label>
+          <mat-form-field appearance='outline' class="example-full-width">
+            <input matInput placeholder="Phone Number" formControlName="phone" type="tel" required >
+         <mat-icon matPrefix>phone</mat-icon>
+          </mat-form-field>
+          <div class="err" *ngIf="form.get('phone').touched && form.get('phone').invalid">
+           <mat-error *ngIf="form.controls.phone.errors.pattern">
+               *Enter only Number
+           </mat-error>
+           <mat-error *ngIf="form.controls.phone.errors.required">
+            *Phone Number is Required
+           </mat-error>
+       </div>
+      
+        <button mat-flat-button color="primary" type="submit" [disabled]="!form.valid" class="btn-block">Submit</button>
+      </form>
+    </mat-card-actions>
+  </mat-card>
+</main>

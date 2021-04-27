@@ -1,13 +1,13 @@
 .loader-container{
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100vw;
-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
 }
 img{
-     max-width: 80%;
-    max-height: 80%;
+    max-width: 25vw;
+    max-height: 30vh;
     display: block;
     margin-left: auto;
     margin-right: auto; 
@@ -15,10 +15,12 @@ img{
 .form-details{
 display:flex;
 justify-content : center;
-align-items: center;
+align-items: stretch;
 }
 .form{
      width: auto;
+     height: 100%;
+     
 }
 .movie-details{
      width: 40%;
@@ -33,20 +35,22 @@ align-items: center;
      display: flex;
      flex-direction: column  ;
      width: 50vw;
- }
- mat-form-field{
+}
+mat-form-field{
      width: 100%;
- }
+}
 .search-container{
     display:flex;
     justify-content: center;
     flex-direction: row;
     // width: 40%;
-    }
-    mat-card{
-        width:max-content;
-    }
-    p{
-        text-align: center;
-     font-size: 1.5vw;
-    }
+}
+mat-card{
+    width:max-content;
+    box-sizing: border-box;
+    height: 100%;
+}
+p{
+    text-align: center;
+    font-size: 1.5vw;
+}

@@ -27,6 +27,7 @@ import { AdministrationComponent } from './Admins/administration/administration.
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { StoreFrontComponent } from './store-front/store-front.component';
 import { RentMovieComponent } from './rent-movie/rent-movie.component';
+import { CheckOutComponent } from './check-out/check-out.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { RentMovieComponent } from './rent-movie/rent-movie.component';
     AdministrationComponent,
     StoreFrontComponent,
     RentMovieComponent,
+    CheckOutComponent,
     // MainNavComponent
   
   ],

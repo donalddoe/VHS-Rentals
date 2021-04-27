@@ -13,6 +13,7 @@ import { AddMoviesComponent } from './Admins/add-movies/add-movies.component';
 import { AdministrationComponent } from './Admins/administration/administration.component';
 import { MovieDetailsComponent } from './Admins/movie-details/movie-details.component';
 import { StoreFrontComponent } from './store-front/store-front.component';
+import { CheckOutComponent } from './check-out/check-out.component';
 
 
 
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'customers', canActivate: [AuthGuard], component: CustomerComponent },
   { path: 'returns', canActivate: [AuthGuard], component: ReturnsComponent },
   { path: 'rentals', canActivate: [AuthGuard], component: RentalsComponent },
+  { path: 'shopping-cart', canActivate: [AuthGuard], component: CheckOutComponent },
   { path: '404', component: NoPageFoundComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full'}
 ];

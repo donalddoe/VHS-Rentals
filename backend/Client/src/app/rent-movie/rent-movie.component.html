@@ -1,40 +1,41 @@
-
 <main *ngIf="movie">
-    <mat-card >
+  <mat-card>
     <mat-card-header>
-      <mat-card-title><h1>{{movie.title}}</h1></mat-card-title>
+      <mat-card-title>
+        <h1>{{movie.title}}</h1>
+      </mat-card-title>
       <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
     </mat-card-header>
 
-<section id ="card-details">
-    <span id="poster">
+    <section id="card-details">
+      <span id="poster">
         <img mat-card-image src="{{movie.poster}}" alt="{{movie.title}}">
-    </span>
+      </span>
 
-    <section id="movie-details">
-    <mat-card-content>
-          
-<dl>
-    <dt>Plot:</dt>
-    <dd>{{movie.plot}}</dd>
+      <section id="movie-details">
+        <mat-card-content>
 
-    
-    <dt>Genre:</dt>
-    <dd>{{movie.genre}}</dd>
+          <dl>
+            <dt>Plot:</dt>
+            <dd>{{movie.plot}}</dd>
 
-    <dt>Number in stock:</dt>
-    <dd>{{movie.numberInStock}}</dd>
 
-    <dt>Daily Rental Rate:</dt>
-    <dd>{{movie.dailyRentalRate}}</dd>
-</dl>
+            <dt>Genre:</dt>
+            <dd>{{movie.genre}}</dd>
 
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="warn"  (click)="confirmDelete()">Delete</button>
-      <button mat-raised-button color="accent" (click)="editMovie()"> Edit</button>
-    </mat-card-actions>
-</section>
-</section>
+            <dt>Number in stock:</dt>
+            <dd>{{movie.numberInStock}}</dd>
+
+            <dt>Daily Rental Rate:</dt>
+            <dd>&#8373; {{movie.dailyRentalRate}}</dd>
+          </dl>
+
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="addToCart()">Rent for &#8373; {{movie.dailyRentalRate}}
+          </button>
+        </mat-card-actions>
+      </section>
+    </section>
   </mat-card>
 </main>

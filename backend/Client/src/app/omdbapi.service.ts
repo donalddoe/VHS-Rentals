@@ -15,7 +15,7 @@ export class OmdbapiService {
   };
   constructor(private http: HttpClient) { }
   find(movieTitle): Observable<any> {
-    return this.http.get(this.url+ movieTitle+"&apikey=5ccdc80e&plot=full")
+    return this.http.get(this.url+ movieTitle+"&apikey=5ccdc80e")
   };
 
 }
