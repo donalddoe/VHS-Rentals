@@ -11,6 +11,9 @@ import { LoaderService } from 'src/app/loader/loader.service';
 })
 export class UserDashboardComponent {
 
+  username = null;
+  isTokenExpired = true;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
