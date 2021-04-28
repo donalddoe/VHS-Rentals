@@ -22,4 +22,14 @@ export class UserService {
   fetchUsers() {
     return this.http.get(this.url,  this.httpOptions)
   };
+  
+  deleteUser(id){
+    return this.http.delete(this.url+id, this.httpOptions)
+  }
+
+  updateUser(id, data) {
+    return this.http.put(this.url+id, data, this.httpOptions)
+  }
+
+  
 }

@@ -31,6 +31,7 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { FooterComponent } from './footer/footer.component';
 //import { MdbModule } from 'mdb-angular-ui-kit';
 import { UserComponent } from './user/user.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 // import { MdbModule } from 'mdb-angular-ui-kit';
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { UserComponent } from './user/user.component';
     RentMovieComponent,
     CheckOutComponent,
     UserComponent,
+    EditUserComponent,
 
     // MainNavComponent
   

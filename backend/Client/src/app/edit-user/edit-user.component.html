@@ -1,0 +1,42 @@
+
+
+<main class="container">
+    <mat-card class="mat-elevation-z24" id="card">
+        <mat-card-title> Edit User</mat-card-title>
+
+        <form class="form-container" [formGroup]="form" (ngSubmit)="onUpdate()">
+            <mat-form-field appearance='outline' >
+                <input matInput type="email" formControlName="email" placeholder="Email:" required>
+            </mat-form-field>
+            <mat-error *ngIf="email.touched && email.invalid">
+                <mat-error *ngIf="email.errors.required">
+                    Email is required
+                </mat-error>
+                <mat-error *ngIf="email.errors.email">
+                    Email must have a valid format
+                </mat-error>
+                <mat-error *ngIf="email.errors.minlength">
+                    Email must be {{email.errors.minlength.requiredLength}} characters or
+                    more
+                </mat-error>
+            </mat-error>
+
+            <mat-form-field appearance='outline' >
+                <input matInput placeholder="Username:" formControlName="username"  required>
+            </mat-form-field>
+            <mat-error *ngIf="username.touched && username.invalid">
+                <mat-error *ngIf="username.errors.required">
+                    Username is required
+                </mat-error>
+                <mat-error *ngIf="username.errors.minlength">
+                    Username must be {{username.errors.minlength.requiredLength}} characters or more
+                </mat-error>
+            </mat-error>
+
+
+
+            <button mat-flat-button color="primary" [disabled]="!form.valid" type="submit">Edit User</button>
+        </form>
+    
+    </mat-card>
+</main>

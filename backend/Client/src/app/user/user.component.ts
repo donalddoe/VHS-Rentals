@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { UserService } from '../user.service';
 import { DeleteRecordComponent } from 'src/app/delete-record/delete-record.component';
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 
 export interface UserData {
   username: string
@@ -23,6 +25,9 @@ export interface UserData {
 export class UserComponent implements OnInit {
   users
   ngOnInit(): void {
+    this.setUpTable()
+  }
+  setUpTable() {
     this.userservice.fetchUsers().subscribe(response => {
       this.users = response
       this.dataSource = new MatTableDataSource(this.users);
@@ -37,7 +42,7 @@ export class UserComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   constructor(private userservice: UserService,
     public dialog: MatDialog
-    ) {
+  ) {
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -51,22 +56,24 @@ export class UserComponent implements OnInit {
     let openDialog = this.dialog.open(DeleteRecordComponent)
     this.dialog.getDialogById(openDialog.id).afterClosed().subscribe(result => {
       if (result) {
-        // this.deleteMovies.deleteMovie(this.movie._id).subscribe(()=>
-        //   Swal.fire({
-        //     position: 'center',
-        //     icon: 'success',
-        //     title: 'User has been deleted',
-        //     showConfirmButton: false,
-        //     timer: 4000
-        //   })
-        // )
-        // this.router.navigate(['/movies']);
-     }
+        this.userservice.deleteUser(id).subscribe(() =>
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'User has been deleted',
+            showConfirmButton: false,
+            timer: 4000
+          })
+        )
+    this.setUpTable()
+      }
     })
-    alert(id)
   }
 
-  editUser(id) {
-    alert(id)
+  editUser(user) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = user
+    this.dialog.afterAllClosed.subscribe(() => { this.setUpTable() })
+    this.dialog.open(EditUserComponent, dialogConfig)
   }
 }
