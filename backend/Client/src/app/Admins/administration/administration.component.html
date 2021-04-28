@@ -3,7 +3,9 @@
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'"
         [opened]="(isHandset$ | async) === false">
-      <mat-toolbar>Menu</mat-toolbar>
+      <mat-toolbar>
+        <mat-icon>dashboard</mat-icon> Dashboard
+      </mat-toolbar>
       <mat-nav-list>
         <mat-list-item [matMenuTriggerFor]="menu">
           <mat-icon>movie</mat-icon>
@@ -13,11 +15,17 @@
         <button mat-menu-item routerLink="/add-movies" >Add Movie</button>
         <button mat-menu-item routerLink="/movies" >Movies</button>
       </mat-menu>
-      <a mat-list-item routerLink="/customers">Add Users</a>
-      <a mat-list-item routerLink="/all-users">View Users</a>
+      <a mat-list-item routerLink="/customers">
+        <mat-icon>person</mat-icon>
+        Add Users
+      </a>
+      <a mat-list-item routerLink="/all-users">
+        <mat-icon>content_paste</mat-icon> 
+        View Users
+      </a>
 
         <a mat-list-item routerLink="/rentals">
-          <!-- <mat-icon matPrefix>logout</mat-icon> -->
+          <mat-icon>library_books</mat-icon>
           Rentals
         </a>
       </mat-nav-list>

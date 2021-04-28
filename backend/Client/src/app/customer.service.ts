@@ -7,7 +7,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class CustomerService {
 
-  private url = "https://vhsrentals.herokuapp.com/api/customers/";
+  private url = "https://vhsrentals.herokuapp.com/api/users/";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -23,9 +23,17 @@ export class CustomerService {
   constructor(private http: HttpClient) { }
 
 
-  addCustomer(data): Observable <any> {
-    return this.http.post(this.url, data, this.httpOptions)
+  viewUsers(): Observable <any> {
+    return this.http.get(`{this.url}/me`, this.httpOptions)
   };
+
+  deleteUser(id): Observable <any> {
+    return this.http.delete(this.url+id, this.httpOptions)
+  }
+
+  updateUser(id, data): Observable <any> {
+    return this.http.put(this.url+id, data, this.httpOptions)
+  }
 
   
 }
