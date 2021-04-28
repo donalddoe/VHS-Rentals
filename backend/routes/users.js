@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 
-
+//Get all users
 router.get('/me', auth, async (req, res) => {
   const user = await User.find().select('-password');
   res.send(user)
@@ -34,6 +34,8 @@ router.post('/', async (req, res) => {
     res.header('x-auth-token', token).send(_.pick(user, ['id', 'username', 'email']))
 });
 
+//Update a single user
+
 router.put('/:id', auth, async (req, res) => {
   const user = await User.findByIdAndUpdate(req.params.id,
     { 
@@ -47,6 +49,8 @@ router.put('/:id', auth, async (req, res) => {
   res.send(user);
 });
 
+// Delete a signle user
+
 router.delete('/:id', auth, async (req, res) => {
   const user = await User.findByIdAndRemove(req.params.id);
 
@@ -55,5 +59,13 @@ router.delete('/:id', auth, async (req, res) => {
   res.send(user);
 });
 
+//Get a single User
+router.get('/:id', auth, async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) return res.status(404).send('The movie with the given ID was not found.');
+
+  res.send(user);
+});
 
 module.exports = router;
