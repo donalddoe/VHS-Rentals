@@ -44,7 +44,11 @@ const rentalSchema =  new mongoose.Schema({
         required: true,
         min: 0,
         max: 255
-      }   
+      } ,
+      daysBooked: {
+        type: String,
+        require: true
+      }  
     }),
     required: true
   },
