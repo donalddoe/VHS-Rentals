@@ -62,7 +62,7 @@ get email() {
     console.log(form)
     this.service.register(this.form.value).subscribe(
       response => {
-        console.log(response)
+        // console.log(response)
         Swal.fire({
           position: 'center',
           icon: 'success',
