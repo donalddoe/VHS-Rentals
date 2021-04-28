@@ -97,7 +97,7 @@ console.log(response)
     if(this.userData() == true){
     this.router.navigate(['/admin']);
     }else 
-   {this.router.navigate(['/users']);}
+   {this.router.navigate(['/store']);}
   }, 2000);
 };
     },

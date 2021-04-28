@@ -26,6 +26,7 @@ export class StoreFrontComponent implements OnInit {
     private getMovie:MovieService
     ) { }
 
+    
   ngOnInit(): void {
     this.getMovies.fetchMovies().subscribe(response => { this.movies = response, this.getList(0, 11) })
   }

@@ -1,7 +1,9 @@
 const auth = require('../middlewares/auth');
 const {Rental, validate} = require('../models/rental'); 
 const {Movie} = require('../models/movies'); 
-const {Customer} = require('../models/customer'); 
+// const {Customer} = require('../models/customer'); 
+const {User} = require('../models/users'); 
+
 const mongoose = require('mongoose');
 const Fawn = require('fawn')
 const express = require('express');
@@ -19,8 +21,8 @@ router.post('/', auth, async (req, res) => {
   const { error } = validate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
 
-  const customer = await Customer.findById(req.body.customerId);
-  if (!customer) return res.status(400).send('Invalid customer.');
+  const user = await User.findById(req.body.userId);
+  if (!user) return res.status(400).send('Invalid User.');
 
   const movie = await Movie.findById(req.body.movieId);
   if (!movie) return res.status(400).send('Invalid movie.');
@@ -28,10 +30,9 @@ router.post('/', auth, async (req, res) => {
   if (movie.numberInStock === 0) return res.status(400).send('Movie not in stock.');
 
   let rental = new Rental({ 
-    customer: {
-      _id: customer._id,
-      name: customer.name, 
-      phone: customer.phone
+    user: {
+      _id: user._id,
+      // username: user.username,
     },
     movie: {
       _id: movie._id,

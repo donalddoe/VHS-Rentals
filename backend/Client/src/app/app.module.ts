@@ -29,8 +29,9 @@ import { StoreFrontComponent } from './store-front/store-front.component';
 import { RentMovieComponent } from './rent-movie/rent-movie.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { FooterComponent } from './footer/footer.component';
-import { MdbModule } from 'mdb-angular-ui-kit';
+//import { MdbModule } from 'mdb-angular-ui-kit';
 import { UserComponent } from './user/user.component';
+// import { MdbModule } from 'mdb-angular-ui-kit';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +77,7 @@ import { UserComponent } from './user/user.component';
       progressAnimation: 'decreasing'
     }),
    MatProgressBarModule,
-   MdbModule 
+  //  MdbModule 
   ],
 
   providers: [

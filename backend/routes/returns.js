@@ -9,7 +9,7 @@ const router = express.Router();
 
 
 router.post('/', [auth, validate(validateReturn)], async (req, res) => {
-  const rental = await Rental.lookup(req.body.customerId, req.body.movieId)
+  const rental = await Rental.lookup(req.body.userId, req.body.movieId)
 
     if (!rental) return res.status(404).send('Rental not found');
 
@@ -29,7 +29,7 @@ router.post('/', [auth, validate(validateReturn)], async (req, res) => {
 
 function validateReturn(req) {
     const schema = {
-      customerId: Joi.objectId().required(),
+      userId: Joi.objectId().required(),
       movieId: Joi.objectId().required(),
     };
   
