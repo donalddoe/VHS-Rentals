@@ -28,6 +28,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { StoreFrontComponent } from './store-front/store-front.component';
 import { RentMovieComponent } from './rent-movie/rent-movie.component';
 import { CheckOutComponent } from './check-out/check-out.component';
+import { FooterComponent } from './footer/footer.component';
+import { MdbModule } from 'mdb-angular-ui-kit';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,9 +46,11 @@ import { CheckOutComponent } from './check-out/check-out.component';
     EditMovieComponent,
     DeleteRecordComponent,
     AdministrationComponent,
+    FooterComponent,
     StoreFrontComponent,
     RentMovieComponent,
     CheckOutComponent,
+
     // MainNavComponent
   
   ],
@@ -69,7 +73,8 @@ import { CheckOutComponent } from './check-out/check-out.component';
       preventDuplicates: true,
       progressAnimation: 'decreasing'
     }),
-   MatProgressBarModule 
+   MatProgressBarModule,
+   MdbModule 
   ],
 
   providers: [

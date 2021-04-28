@@ -7,7 +7,7 @@ const app = express();
 
 connectDB();
 require('./startup/loggings')();
-require('./startup/routes')(app);
+require('./routes')(app);
 require('./startup/config')();
 require('./startup/validation')();
 require('./startup/prod')(app);

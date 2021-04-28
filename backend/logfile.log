@@ -16,3 +16,29 @@
 {"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-20T20:21:37.863Z"}
 {"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-24T11:06:30.586Z"}
 {"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-02.ldcjl.mongodb.net","timestamp":"2021-04-24T11:06:35.491Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-26T23:21:06.694Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-04-26T23:21:09.872Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T07:38:37.940Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-27T07:38:44.047Z"}
+{"message":"ENOENT: no such file or directory, stat 'D:\\Projects\\VHS Rentals\\backend\\startup\\startup\\public\\VHS-Rental\\index.html'","stack":"Error: ENOENT: no such file or directory, stat 'D:\\Projects\\VHS Rentals\\backend\\startup\\startup\\public\\VHS-Rental\\index.html'","errno":-4058,"code":"ENOENT","syscall":"stat","path":"D:\\Projects\\VHS Rentals\\backend\\startup\\startup\\public\\VHS-Rental\\index.html","expose":false,"statusCode":404,"status":404,"level":"error","timestamp":"2021-04-27T07:39:05.161Z"}
+{"message":"ENOENT: no such file or directory, stat 'D:\\Projects\\VHS Rentals\\backend\\startup\\startup\\public\\VHS-Rental\\index.html'","stack":"Error: ENOENT: no such file or directory, stat 'D:\\Projects\\VHS Rentals\\backend\\startup\\startup\\public\\VHS-Rental\\index.html'","errno":-4058,"code":"ENOENT","syscall":"stat","path":"D:\\Projects\\VHS Rentals\\backend\\startup\\startup\\public\\VHS-Rental\\index.html","expose":false,"statusCode":404,"status":404,"level":"error","timestamp":"2021-04-27T07:39:05.608Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T07:40:07.533Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-04-27T07:40:12.237Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T07:43:26.699Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-27T07:43:31.667Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T07:44:08.919Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-27T07:44:11.116Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T07:56:49.441Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-04-27T07:56:57.114Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T08:19:03.200Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-04-27T08:19:10.679Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T09:02:39.850Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-04-27T09:02:48.386Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T09:08:33.313Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-27T09:08:38.515Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T09:18:13.746Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-27T09:18:20.508Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T09:19:39.048Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-04-27T09:19:47.639Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T10:11:47.193Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-27T10:11:53.529Z"}
