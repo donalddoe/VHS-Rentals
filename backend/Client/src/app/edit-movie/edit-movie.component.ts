@@ -50,11 +50,9 @@ export class EditMovieComponent implements OnInit {
     ]),
     numberInStock: new FormControl('', [
       Validators.required,
-      Validators.minLength(2),
     ]),
     dailyRentalRate: new FormControl('', [
       Validators.required,
-      Validators.min(1),
     ]),
   }
   )

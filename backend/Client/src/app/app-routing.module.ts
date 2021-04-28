@@ -7,12 +7,13 @@ import { RentalsComponent } from './Admins/rentals/rentals.component';
 import {ReturnsComponent } from './users/returns/returns.component';
 import { MoviesComponent } from './Admins/movies/movies.component';
 import { NoPageFoundComponent } from './screens/no-page-found/no-page-found.component';
-import {AuthGuard} from './auth.guard';
-import { AdministrationComponent } from './Admins/administration/administration.component';
-import { AddMoviesComponent } from './Admins/add-movies/add-movies.component';
-import { MovieDetailsComponent } from './Admins/movie-details/movie-details.component';
 import { AllCustomersComponent } from './Admins/all-customers/all-customers.component';
-
+import { AuthGuard } from './auth.guard';
+import { AddMoviesComponent } from './Admins/add-movies/add-movies.component';
+import { AdministrationComponent } from './Admins/administration/administration.component';
+import { MovieDetailsComponent } from './Admins/movie-details/movie-details.component';
+import { StoreFrontComponent } from './store-front/store-front.component';
+import { CheckOutComponent } from './check-out/check-out.component';
 
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: AdministrationComponent
   },
+  { path: 'store', component: StoreFrontComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'movies', canActivate: [AuthGuard], component: MoviesComponent },
   { path: 'add-movies',  canActivate: [AuthGuard], component: AddMoviesComponent },
@@ -40,6 +42,7 @@ const routes: Routes = [
   { path: 'customers', canActivate: [AuthGuard], component: CustomerComponent },
   { path: 'returns', canActivate: [AuthGuard], component: ReturnsComponent },
   { path: 'rentals', canActivate: [AuthGuard], component: RentalsComponent },
+  { path: 'shopping-cart', canActivate: [AuthGuard], component: CheckOutComponent },
   { path: '404', component: NoPageFoundComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full'}
 ];

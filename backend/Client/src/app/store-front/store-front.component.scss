@@ -1,0 +1,38 @@
+img {
+    width:85%;
+}
+.loader-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+}
+mat-card-header{
+    justify-content: center;
+}
+.movie-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.header-title{
+    font-size: 1vw;
+}
+
+mat-card{
+    width: 25vw;
+    background-color: inherit;
+}
+.card-footer{
+    display: flex;
+
+    align-items: center;
+
+}
+.footer-text{
+    font-size: 1vw;
+
+}

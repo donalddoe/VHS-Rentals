@@ -91,7 +91,7 @@
           </mat-error>
 
           <mat-form-field>
-            <input matInput placeholder="Daily Rental Rate:" formControlName="dailyRentalRate"  type="number"  required>
+            <input matInput placeholder="Daily Rental Rate (&#8373;):" formControlName="dailyRentalRate"  type="number"  required>
           </mat-form-field>
           <mat-error *ngIf="dailyRentalRate.touched && dailyRentalRate.invalid">
             <mat-error *ngIf="dailyRentalRate.errors.required">

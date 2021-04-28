@@ -15,9 +15,7 @@
             <img 
             mat-card-image src="{{movieDetails.data.poster}}"
             alt="{{movieDetails.data.title}}" 
-            matTooltip="{{movieDetails.data.plot}}"
-            [matTooltipPosition]="position.value"
-            matTooltipHideDelay="100000"
+       
             (click)="goToMovie(movieDetails.data._id)"
             >
         </span>
