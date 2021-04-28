@@ -2,7 +2,6 @@
     <mat-spinner></mat-spinner>
   </div>
 
-<main>
     <mat-grid-list *ngIf="list" cols="3" rowHeight="60em" [style.backgroundColor]="'lightgray'">
       <mat-grid-tile 
       *ngFor="let movieDetails of list"
@@ -35,5 +34,4 @@
     (page)="onPageEvent($event)"
     (change)="onPageEvent($event)">
     </mat-paginator>
-    </main>
     
