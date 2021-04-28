@@ -24,7 +24,7 @@ export class CustomerService {
 
 
   viewUsers(): Observable <any> {
-    return this.http.get(`{this.url}/me`, this.httpOptions)
+    return this.http.get(this.url, this.httpOptions)
   };
 
   deleteUser(id): Observable <any> {

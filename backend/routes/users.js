@@ -8,7 +8,7 @@ const express = require('express');
 const router = express.Router();
 
 //Get all users
-router.get('/me', auth, async (req, res) => {
+router.get('/', auth, async (req, res) => {
   const user = await User.find().select('-password');
   res.send(user)
 })
