@@ -32,7 +32,7 @@ router.post('/', auth, async (req, res) => {
   let rental = new Rental({ 
     user: {
       _id: user._id,
-      username: user.username,
+      // username: user.username,
     },
     movie: {
       _id: movie._id,
