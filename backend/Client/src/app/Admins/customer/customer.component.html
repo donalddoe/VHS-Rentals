@@ -10,35 +10,50 @@
       </mat-card-header>
       <form class="example-form"  [formGroup]="form" (ngSubmit)="onSubmit(form)">
         <mat-card-content>
-          <label>Name</label>
+          <label>Username</label>
           <mat-form-field appearance='outline' class="example-full-width" >
-            <input matInput placeholder="Name" formControlName="name" type="text" required>
+            <input matInput placeholder="Username" formControlName="username" type="text" required>
             <mat-icon matPrefix>user</mat-icon>
           </mat-form-field>
-          <div class="err" *ngIf="form.get('name').touched && form.get('name').invalid">
-            <span *ngIf="form.controls.name.errors.name">
-                *Invalid Name
+          <div class="err" *ngIf="form.get('username').touched && form.get('username').invalid">
+            <span *ngIf="form.controls.username.errors.username">
+                *Invalid Username
             </span>
-            <span *ngIf="form.controls.name.errors.required">
-              *Name is Required
+            <span *ngIf="form.controls.username.errors.required">
+              *Username is Required
           </span>
         </div>
-        <label>Phone Number</label>
-          <mat-form-field appearance='outline' class="example-full-width">
-            <input matInput placeholder="Phone Number" formControlName="phone" type="text" required >
-         <mat-icon matPrefix>phone</mat-icon>
-          </mat-form-field>
-          <div class="err" *ngIf="form.get('phone').touched && form.get('phone').invalid">
-           <span *ngIf="form.controls.phone.errors.pattern">
-               *Enter only Number
-           </span>
-           <span *ngIf="form.controls.phone.errors.required">
-            *Phone Number is Required
+        <label>Email</label>
+        <mat-form-field appearance='outline' class="example-full-width" >
+          <input matInput placeholder="Email" formControlName="email" type="email" required>
+       <mat-icon matPrefix>email</mat-icon>
+        </mat-form-field>
+        <div class="err" *ngIf="form.get('email').touched && form.get('email').invalid">
+          <span *ngIf="form.controls.email.errors.email">
+              *Invalid Email
+          </span>
+          <span *ngIf="form.controls.email.errors.required">
+            *Email is Required
         </span>
-       </div>
+      </div>
+      <label>Password</label>
+        <mat-form-field appearance='outline' class="example-full-width">
+          <input matInput placeholder=" Password" formControlName="password" type="password" required [type]="hide ? 'password' : 'text'">
+       <mat-icon matPrefix>lock</mat-icon>
+       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+        </mat-form-field>
+        <div class="err" *ngIf="form.get('password').touched && form.get('password').invalid">
+         <span *ngIf="form.controls.password.errors.password">
+             *Invalid Password
+         </span>
+         <span *ngIf="form.controls.password.errors.required">
+          *Password is Required
+      </span>
+     </div>
         </mat-card-content>
         <button mat-stroked-button  type="submit" [disabled]="!form.valid" class="btn-block">Submit</button>
       </form>
     </mat-card>
   </div>
-</app-administration>
