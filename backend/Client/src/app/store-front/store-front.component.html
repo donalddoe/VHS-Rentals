@@ -1,3 +1,4 @@
+<app-nav-bar></app-nav-bar>
 <div *ngIf="loaderService.isLoading | async" class="loader-container">
     <mat-spinner></mat-spinner>
   </div>
@@ -36,4 +37,5 @@
     (change)="onPageEvent($event)">
     </mat-paginator>
     </main>
+    <!-- <app-footer></app-footer> -->
     
