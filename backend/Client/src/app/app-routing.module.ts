@@ -14,6 +14,7 @@ import { AdministrationComponent } from './Admins/administration/administration.
 import { MovieDetailsComponent } from './Admins/movie-details/movie-details.component';
 import { StoreFrontComponent } from './store-front/store-front.component';
 import { CheckOutComponent } from './check-out/check-out.component';
+import { UserComponent } from './user/user.component';
 
 
 
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'customers',  canActivate: [AuthGuard], component: CustomerComponent },
   { path: 'all-customers',  canActivate: [AuthGuard], component: AllCustomersComponent },
   { path: 'customers', canActivate: [AuthGuard], component: CustomerComponent },
+  { path: 'view-users', canActivate: [AuthGuard], component: UserComponent },
   { path: 'returns', canActivate: [AuthGuard], component: ReturnsComponent },
   { path: 'rentals', canActivate: [AuthGuard], component: RentalsComponent },
   { path: 'shopping-cart', canActivate: [AuthGuard], component: CheckOutComponent },

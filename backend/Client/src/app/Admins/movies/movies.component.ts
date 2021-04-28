@@ -17,7 +17,12 @@ export class MoviesComponent implements OnInit {
     public loaderService: LoaderService,private router: Router) { }
 
   ngOnInit(): void {
+   this.setList()
+  }
+  setList()
+  {
     this.getMovies.fetchMovies().subscribe(response => { this.movies = response, this.getList(0, 11) })
+
   }
   list=[]
   movies;

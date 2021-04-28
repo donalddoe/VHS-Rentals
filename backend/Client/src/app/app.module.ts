@@ -30,6 +30,7 @@ import { RentMovieComponent } from './rent-movie/rent-movie.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { FooterComponent } from './footer/footer.component';
 import { MdbModule } from 'mdb-angular-ui-kit';
+import { UserComponent } from './user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { MdbModule } from 'mdb-angular-ui-kit';
     StoreFrontComponent,
     RentMovieComponent,
     CheckOutComponent,
+    UserComponent,
 
     // MainNavComponent
   

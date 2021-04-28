@@ -16,7 +16,7 @@
         </thead>
         <tbody >
           <tr *ngFor="let item of cart">
-            <td>{{item.title}}</td>
+            <td><i>{{item.title}}</i></td>
             <td>{{item.dailyRentalRate}}</td>
             <td>
               <button class="remove-movie" (click)="removeMovie(item._id)">Remove</button>
