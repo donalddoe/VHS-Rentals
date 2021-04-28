@@ -1,5 +1,5 @@
 <form class="form-container" [formGroup]="form" (ngSubmit)="onUpdate()">
-    <mat-form-field>
+    <mat-form-field appearance='outline'>
 
       <input matInput formControlName="title" placeholder="Title:" required>
     </mat-form-field>
@@ -16,7 +16,7 @@
       </mat-error>
     </mat-error>
 
-    <mat-form-field>
+    <mat-form-field appearance='outline'>
       <input matInput placeholder="Genre:" formControlName="genre" required>
     </mat-form-field>
     <mat-error *ngIf="genre.touched && genre.invalid">
@@ -28,16 +28,16 @@
       </mat-error>
     </mat-error>
 
-    <mat-form-field>
+    <mat-form-field appearance='outline'>
       <textarea matInput  placeholder="Plot:"  formControlName="plot" cdkTextareaAutosize ></textarea>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance='outline'>
       <input matInput placeholder="Year:" formControlName="year">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance='outline'>
       <input matInput placeholder="Poster:" formControlName="poster">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance='outline'>
       <input matInput placeholder="Number in stock:" formControlName="numberInStock"  type="number"  required>
     </mat-form-field>
     <mat-error *ngIf="numberInStock.touched && numberInStock.invalid">
@@ -49,7 +49,7 @@
       </mat-error>
     </mat-error>
 
-    <mat-form-field>
+    <mat-form-field appearance='outline'>
       <input matInput placeholder="Daily Rental Rate:" formControlName="dailyRentalRate"  type="number"  required>
     </mat-form-field>
     <mat-error *ngIf="dailyRentalRate.touched && dailyRentalRate.invalid">

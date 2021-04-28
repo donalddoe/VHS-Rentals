@@ -57,7 +57,7 @@ export class CheckOutComponent implements OnInit {
       let movieId:string=element._id+""
       //TODO change backend 
       // this.rent.rent({movie:{...element},customer:{...this.form.value},customerId:id,movieId:movieId}).subscribe(response=>{
-        this.rent.rent({customerId:id,movieId:movieId}).subscribe(response=>{
+        this.rent.rent({userId:id,movieId:movieId}).subscribe(response=>{
         Swal.fire({
           position: 'center',
           icon: 'success',

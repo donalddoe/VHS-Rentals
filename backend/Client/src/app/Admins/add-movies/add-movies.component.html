@@ -9,7 +9,7 @@
   <mat-card class="mat-elevation-z24" id="card">
     <form  [formGroup]="searchForm" (ngSubmit)="lookupOmdb()">
       <div>Find Movie</div>
-      <mat-form-field>
+      <mat-form-field appearance='outline'>
         <input matInput placeholder="Title:" formControlName="searchTitle"  required>
       </mat-form-field>
       <mat-error *ngIf="searchTitle.touched && searchTitle.invalid">
@@ -20,14 +20,15 @@
           Title must be {{searchTitle.errors.minlength.requiredLength}} characters or more
         </mat-error>
       </mat-error>
-      <button mat-flat-button color="primary" [disabled]="!searchForm.valid" type="submit">Find Movie</button>
+      
+      <button mat-flat-button color="primary" [disabled]="!searchForm.valid" class="btn-block"> type="submit">Find Movie</button>
     </form>
   </mat-card>
 </section>
 <br>
 <br>
   <section class="form-details">
-    <mat-card *ngIf="movieDetails" class="movie-details">
+    <mat-card *ngIf="movieDetails" class="movie-details mat-elevation-z24" >
       <mat-card-header>
         <mat-card-title>{{movieDetails.Title}}</mat-card-title>
         <mat-card-subtitle>{{movieDetails.Genre}}</mat-card-subtitle>
@@ -43,7 +44,7 @@
       <mat-card class="mat-elevation-z24">
         <mat-card-title> Add Movie</mat-card-title>
         <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
-          <mat-form-field>
+          <mat-form-field appearance='outline'>
             <input matInput type="title" formControlName="title" placeholder="Title:" required>
           </mat-form-field>
           <mat-error *ngIf="title.touched && title.invalid">
@@ -58,7 +59,7 @@
               more
             </mat-error>
           </mat-error>
-          <mat-form-field>
+          <mat-form-field appearance='outline'>
             <input matInput placeholder="Genre:" formControlName="genre" required>
           </mat-form-field>
           <mat-error *ngIf="genre.touched && genre.invalid">
@@ -69,16 +70,16 @@
               Genre must be {{genre.errors.minlength.requiredLength}} characters or more
             </mat-error>
           </mat-error>
-          <mat-form-field>
+          <mat-form-field appearance='outline'>
             <textarea matInput placeholder="Plot:" formControlName="plot" cdkTextareaAutosize ></textarea>
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field appearance='outline'>
             <input matInput placeholder="Year:" formControlName="year">
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field appearance='outline'>
             <input matInput placeholder="Poster:" formControlName="poster">
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field appearance='outline'>
             <input matInput placeholder="Number in stock:" formControlName="numberInStock"  type="number"  required>
           </mat-form-field>
           <mat-error *ngIf="numberInStock.touched && numberInStock.invalid">
@@ -90,7 +91,7 @@
             </mat-error>
           </mat-error>
 
-          <mat-form-field>
+          <mat-form-field appearance='outline'>
             <input matInput placeholder="Daily Rental Rate (&#8373;):" formControlName="dailyRentalRate"  type="number"  required>
           </mat-form-field>
           <mat-error *ngIf="dailyRentalRate.touched && dailyRentalRate.invalid">
