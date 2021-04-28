@@ -7,6 +7,8 @@ import { DeleteRecordComponent } from 'src/app/delete-record/delete-record.compo
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { EditUserComponent } from '../edit-user/edit-user.component';
+import { RegisterComponent } from '../screens/register/register.component';
+import { AddUserComponent } from '../add-user/add-user.component';
 
 export interface UserData {
   username: string
@@ -65,7 +67,7 @@ export class UserComponent implements OnInit {
             timer: 4000
           })
         )
-    this.setUpTable()
+        this.setUpTable()
       }
     })
   }
@@ -76,4 +78,10 @@ export class UserComponent implements OnInit {
     this.dialog.afterAllClosed.subscribe(() => { this.setUpTable() })
     this.dialog.open(EditUserComponent, dialogConfig)
   }
+  onAddNew() {
+    const dialogConfig = new MatDialogConfig();
+    this.dialog.afterAllClosed.subscribe(() => { this.setUpTable() })
+    this.dialog.open(AddUserComponent, dialogConfig)
+  }
+
 }

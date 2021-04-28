@@ -52,6 +52,7 @@ export class CheckOutComponent implements OnInit {
     this.setCart()
   }
   processOrders(){
+    alert()
     this.cart.forEach(element => {
       let id=localStorage.getItem("id")
       let movieId:string=element._id+""
@@ -70,25 +71,7 @@ export class CheckOutComponent implements OnInit {
       )
    });
   }
-  form = new FormGroup({
-    name: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5)
-    ]),
-    phone: new FormControl('', [
-      Validators.required,
-      Validators.minLength(10),
-      Validators.pattern("^[0-9]*$")
-    ])
-  })
 
-
-  get phone() {
-    return this.form.get('phone')
-  }
-  get name() {
-    return this.form.get('name')
-  }
   ngOnInit(): void {
     this.setCart()
   }

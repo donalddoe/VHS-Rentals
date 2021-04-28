@@ -4,6 +4,10 @@
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Enter search query here" #input>
+    <button mat-raised-button color="primary" (click) ="onAddNew()" >
+      <mat-icon >add</mat-icon>
+      New User
+    </button>
   </mat-form-field>
   
   <table mat-table [dataSource]="dataSource" matSort>

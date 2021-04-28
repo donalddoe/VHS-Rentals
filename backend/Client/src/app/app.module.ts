@@ -32,6 +32,9 @@ import { FooterComponent } from './footer/footer.component';
 //import { MdbModule } from 'mdb-angular-ui-kit';
 import { UserComponent } from './user/user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { EditRentalComponent } from './edit-rental/edit-rental.component';
+import { AddRentalComponent } from './add-rental/add-rental.component';
 // import { MdbModule } from 'mdb-angular-ui-kit';
 @NgModule({
   declarations: [
@@ -55,6 +58,9 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     CheckOutComponent,
     UserComponent,
     EditUserComponent,
+    AddUserComponent,
+    EditRentalComponent,
+    AddRentalComponent,
 
     // MainNavComponent
   
