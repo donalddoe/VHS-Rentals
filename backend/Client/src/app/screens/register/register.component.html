@@ -6,7 +6,7 @@
         <mat-card-title> VHS RENTALS REGISTRATION FORM</mat-card-title>
 
         <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
-            <mat-form-field>
+            <mat-form-field appearance='outline' >
                 <input matInput type="email" formControlName="email" placeholder="Email:" required>
             </mat-form-field>
             <mat-error *ngIf="email.touched && email.invalid">
@@ -22,7 +22,7 @@
                 </mat-error>
             </mat-error>
 
-            <mat-form-field>
+            <mat-form-field appearance='outline' >
                 <input matInput placeholder="Username:" formControlName="username"  required>
             </mat-form-field>
             <mat-error *ngIf="username.touched && username.invalid">
@@ -34,7 +34,7 @@
                 </mat-error>
             </mat-error>
 
-            <mat-form-field>
+            <mat-form-field appearance='outline' >
                 <input matInput placeholder="Password:" formControlName="password" required type="password">
             </mat-form-field>
             <mat-error *ngIf="password.touched && password.invalid">
@@ -62,7 +62,7 @@
                 </mat-error>
             </mat-error>
 
-            <mat-form-field>
+            <mat-form-field appearance='outline' >
                 <input matInput placeholder="Password (confirm):" formControlName="confirmpassword" required
                     type="password">
             </mat-form-field>
