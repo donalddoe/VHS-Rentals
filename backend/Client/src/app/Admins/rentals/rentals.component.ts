@@ -16,4 +16,5 @@ export class RentalsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }
