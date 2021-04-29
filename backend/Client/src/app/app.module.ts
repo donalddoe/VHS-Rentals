@@ -23,13 +23,11 @@ import { MovieDetailsComponent } from './Admins/movie-details/movie-details.comp
 import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { DeleteRecordComponent } from './delete-record/delete-record.component';
 import { AdministrationComponent } from './Admins/administration/administration.component';
-// import{ MainNavComponent } from './administration/admin/main-nav/main-nav.component'
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { StoreFrontComponent } from './store-front/store-front.component';
 import { RentMovieComponent } from './rent-movie/rent-movie.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { FooterComponent } from './footer/footer.component';
-//import { MdbModule } from 'mdb-angular-ui-kit';
 import { UserComponent } from './user/user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 // import { MdbModule } from 'mdb-angular-ui-kit';

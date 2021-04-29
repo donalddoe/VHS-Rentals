@@ -1,13 +1,13 @@
 <div *ngIf="loaderService.isLoading | async" class="loader-container">
     <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
   </div>
+  <div class="register-bg-image">
 <main class="container">
    
     <mat-card class="mat-elevation-z24" id="card">
         <mat-card-title> VHS RENTALS REGISTRATION FORM</mat-card-title>
-
         <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
-            <mat-form-field appearance='outline' >
+            <mat-form-field appearance='outline'  class="example-full-width" >
                 <input matInput type="email" formControlName="email" placeholder="Email:" required>
                 <mat-icon matPrefix>
                     email
@@ -26,7 +26,7 @@
                 </mat-error>
             </mat-error>
 
-            <mat-form-field appearance='outline' >
+            <mat-form-field appearance='outline'  class="example-full-width" >
                 <input matInput placeholder="Username:" formControlName="username"  required>
              <mat-icon matPrefix>person</mat-icon>
 
@@ -40,7 +40,7 @@
                 </mat-error>
             </mat-error>
 
-            <mat-form-field appearance='outline' >
+            <mat-form-field appearance='outline'  class="example-full-width" >
                 <input matInput placeholder="Password:" formControlName="password" required type="password">
                 <mat-icon matPrefix>lock</mat-icon>
             </mat-form-field>
@@ -69,7 +69,7 @@
                 </mat-error>
             </mat-error>
 
-            <mat-form-field appearance='outline' >
+            <mat-form-field appearance='outline'  class="example-full-width" >
                 <input matInput placeholder="Password (confirm):" formControlName="confirmpassword" required
                     type="password">
                     <mat-icon matPrefix>lock</mat-icon>
@@ -104,3 +104,5 @@
          <p>Already have an account? <a mat-button routerLink='/login' color='primary'>login</a></p>
     </mat-card>
 </main>
+
+</div>
