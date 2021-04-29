@@ -42,3 +42,17 @@
 {"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-04-27T09:19:47.639Z"}
 {"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-27T10:11:47.193Z"}
 {"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-27T10:11:53.529Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-29T12:38:36.492Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-02.ldcjl.mongodb.net","timestamp":"2021-04-29T12:38:41.841Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-29T12:45:52.462Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-29T12:45:55.801Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-29T12:48:25.689Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-02.ldcjl.mongodb.net","timestamp":"2021-04-29T12:48:31.462Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-29T12:51:27.489Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-02.ldcjl.mongodb.net","timestamp":"2021-04-29T12:51:32.912Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-29T12:56:33.708Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-04-29T12:56:40.633Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-29T12:57:53.598Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-04-29T12:57:59.597Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-04-29T13:01:23.338Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-04-29T13:01:29.503Z"}

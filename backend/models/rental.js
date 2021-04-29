@@ -12,20 +12,18 @@ const rentalSchema =  new mongoose.Schema({
         type: String,
         require: true,
         minLength: 5,
-        maxLenght: 50,
+        maxLength: 50,
     },
     email: {
         type: String,
-        require: true,
-        unique: true,
         minLength: 5,
-        maxLenght: 245,
+        maxLength: 245,
     },
     password: {
         type: String,
         require: true,
         minLength: 5,
-        maxLenght: 2000,
+        maxLength: 2000,
     },     
     }),  
     required: true
@@ -45,19 +43,17 @@ const rentalSchema =  new mongoose.Schema({
         min: 0,
         max: 255
       },
-      daysBooked: {
-        type: String,
-        require: true
-      } ,
-      total: {
-        type: Number,
-        min: 0
-      },
-      
     }),
     required: true
   },
- 
+  daysBooked: {
+    type: String,
+    require: true
+  } ,
+  total: {
+    type: Number,
+    min: 0
+  },
   dateOut: { 
     type: Date, 
     required: true,

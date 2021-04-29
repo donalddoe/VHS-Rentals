@@ -13,7 +13,7 @@ const admin = require('../middlewares/admin')
 Fawn.init(mongoose);
 
 router.get('/', auth, async (req, res) => {
-  const rentals = await Rental.find().sort('-dateOut');
+  const rentals = await Rental.find().sort('-daysBooked');
   res.send(rentals);
 });
 
@@ -33,6 +33,7 @@ router.post('/', auth, async (req, res) => {
     user: {
       _id: user._id,
       username: user.username,
+      email: user.email
     },
     movie: {
       _id: movie._id,
