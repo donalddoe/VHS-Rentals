@@ -8,6 +8,7 @@ import { DeleteRecordComponent } from 'src/app/delete-record/delete-record.compo
 import { EditRentalComponent } from 'src/app/edit-rental/edit-rental.component';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { RentalsService } from 'src/app/rentals.service';
+import Swal from 'sweetalert2';
 
 export interface RentalData {
   user: object
@@ -73,15 +74,15 @@ export class RentalsComponent implements OnInit {
     let openDialog = this.dialog.open(DeleteRecordComponent)
     this.dialog.getDialogById(openDialog.id).afterClosed().subscribe(result => {
       if (result) {
-        // this.userservice.deleteUser(id).subscribe(() =>
-        //   Swal.fire({
-        //     position: 'center',
-        //     icon: 'success',
-        //     title: 'User has been deleted',
-        //     showConfirmButton: false,
-        //     timer: 4000
-        //   })
-        // )
+         this.getRentals.deleteRental(id).subscribe(() =>
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Record has been deleted',
+            showConfirmButton: false,
+            timer: 4000
+          })
+        )
         this.setUpTable()
       }
     })

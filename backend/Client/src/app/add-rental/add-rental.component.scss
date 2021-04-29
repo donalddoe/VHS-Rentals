@@ -1,0 +1,28 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#card {
+    width: 50vw;
+    //     // height: 50%;
+}
+
+mat-card-title {
+    text-align: center;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+p {
+    text-align: center;
+}
+
+button {
+    width: 100%;
+}

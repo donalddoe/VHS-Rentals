@@ -1,1 +1,46 @@
-<p>add-rental works!</p>
+<mat-card class="mat-elevation-z24" id="card">
+    <mat-card-title>Rent Movie</mat-card-title>
+
+    <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Rentee username</mat-label>
+            <mat-select     [formControl]="userId">
+              <mat-option *ngFor="let user of users" [value]="user._id">
+                {{user.username}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+            <mat-error *ngIf="userId.touched && userId.invalid">
+                <mat-error *ngIf="userId.errors.required">
+                    Please select the username of customer
+                </mat-error>
+            </mat-error>
+            <mat-form-field appearance="outline">
+                <mat-label>Movie Title</mat-label>
+                <mat-select     [formControl]="movieId">
+                  <mat-option *ngFor="let movie of movies" [value]="movie._id">
+                    {{movie.title}}
+                  </mat-option>
+                </mat-select>
+                </mat-form-field>
+                <mat-error *ngIf="movieId.touched && movieId.invalid">
+                    <mat-error *ngIf="movieId.errors.required">
+                        Movie is required
+                    </mat-error>
+                </mat-error>
+                <mat-form-field appearance='outline' >
+                    <input matInput placeholder="Rental Period in days:" formControlName="daysBooked" type="number" required>
+                </mat-form-field>
+                <mat-error *ngIf="daysBooked.touched && daysBooked.invalid">
+                    <mat-error *ngIf="daysBooked.errors.required">
+                    Rntal period is required
+                    </mat-error>
+                    <mat-error *ngIf="daysBooked.errors.min">
+                        Min value allowed is 1
+                    </mat-error>
+                </mat-error>
+
+        <button mat-flat-button color="primary" [disabled]="!form.valid" type="submit">Rent Movie</button>
+    </form>
+</mat-card>

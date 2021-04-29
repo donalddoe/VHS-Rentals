@@ -52,8 +52,7 @@ export class CheckOutComponent implements OnInit {
     this.setCart()
   }
   processOrders(){
-    alert()
-    this.cart.forEach(element => {
+     this.cart.forEach(element => {
       let id=localStorage.getItem("id")
       let movieId:string=element._id+""
       //TODO change backend 
@@ -66,6 +65,7 @@ export class CheckOutComponent implements OnInit {
           showConfirmButton: false,
           timer: 4000
         })
+        localStorage.removeItem("cart")
       }
 
       )
