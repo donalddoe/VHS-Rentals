@@ -98,12 +98,13 @@
   }
 
   .loader-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 80vh;
-    }
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(26, 26, 26, 0.75);
+    opacity: 1.0;
+    z-index: 99;
+  }
   
     p{
       color: #E8F0FE;

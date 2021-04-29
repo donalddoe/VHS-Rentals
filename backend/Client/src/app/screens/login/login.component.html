@@ -1,6 +1,6 @@
 
 <div *ngIf="loaderService.isLoading | async" class="loader-container">
-  <mat-spinner></mat-spinner>
+  <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
 </div>
 <div class="login-bg-image">
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" *ngIf="!(loaderService.isLoading | async)">
