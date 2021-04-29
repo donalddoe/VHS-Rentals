@@ -2,45 +2,16 @@ const Joi = require('joi');
 const moment = require('moment');
 Joi.objectId = require('joi-objectid')(Joi)
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 
 
 const rentalSchema =  new mongoose.Schema({
-  user: { 
-    type: new mongoose.Schema({
-      username: {
-        type: String,
-        require: true,
-        minLength: 5,
-        maxLength: 50,
-    },
-    email: {
-        type: String,
-        minLength: 5,
-        maxLength: 245,
-    },
-       
-    }),  
-    required: true
-  },
-  movie: {
-    type: new mongoose.Schema({
-      title: {
-        type: String,
-        required: true,
-        trim: true, 
-        minlength: 5,
-        maxlength: 255
-      },
-      dailyRentalRate: { 
-        type: Number, 
-        required: true,
-        min: 0,
-        max: 255
-      },
-    }),
-    required: true
-  },
+  rental: {
+    // _id: Schema.Types.ObjectId,
+    userid: {type: Schema.Types.ObjectId, ref: 'Users'},
+    movieid: {type: Schema.Types.ObjectId, ref: 'Movies'},
+  
   daysBooked: {
     type: String,
     require: true
@@ -59,6 +30,7 @@ const rentalSchema =  new mongoose.Schema({
     type: Number, 
     min: 0
   }
+}
 })
 
 
