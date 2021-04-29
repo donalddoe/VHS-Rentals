@@ -13,7 +13,9 @@
           <label>Username</label>
           <mat-form-field appearance='outline' class="example-full-width" >
             <input matInput placeholder="Username" formControlName="username" type="text" required>
-            <mat-icon matPrefix>user</mat-icon>
+            <mat-icon matPrefix>
+              person
+              </mat-icon>
           </mat-form-field>
           <div class="err" *ngIf="form.get('username').touched && form.get('username').invalid">
             <span *ngIf="form.controls.username.errors.username">
@@ -53,7 +55,7 @@
       </span>
      </div>
         </mat-card-content>
-        <button mat-stroked-button  type="submit" [disabled]="!form.valid" class="btn-block">Submit</button>
+        <button mat-stroked-button color="accent" type="submit" [disabled]="!form.valid" class="btn-block">Submit</button>
       </form>
     </mat-card>
   </div>

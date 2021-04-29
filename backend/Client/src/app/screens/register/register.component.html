@@ -8,6 +8,9 @@
         <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
             <mat-form-field appearance='outline' >
                 <input matInput type="email" formControlName="email" placeholder="Email:" required>
+                <mat-icon matPrefix>
+                    email
+                    </mat-icon>
             </mat-form-field>
             <mat-error *ngIf="email.touched && email.invalid">
                 <mat-error *ngIf="email.errors.required">
@@ -24,6 +27,8 @@
 
             <mat-form-field appearance='outline' >
                 <input matInput placeholder="Username:" formControlName="username"  required>
+             <mat-icon matPrefix>person</mat-icon>
+
             </mat-form-field>
             <mat-error *ngIf="username.touched && username.invalid">
                 <mat-error *ngIf="username.errors.required">
@@ -36,6 +41,7 @@
 
             <mat-form-field appearance='outline' >
                 <input matInput placeholder="Password:" formControlName="password" required type="password">
+                <mat-icon matPrefix>lock</mat-icon>
             </mat-form-field>
             <mat-error *ngIf="password.touched && password.invalid">
                 <mat-error *ngIf="password.errors.required">
@@ -65,6 +71,7 @@
             <mat-form-field appearance='outline' >
                 <input matInput placeholder="Password (confirm):" formControlName="confirmpassword" required
                     type="password">
+                    <mat-icon matPrefix>lock</mat-icon>
             </mat-form-field>
             <mat-error *ngIf="confirmpassword.touched && confirmpassword.invalid">
                 <mat-error *ngIf="confirmpassword.errors.required">
@@ -91,7 +98,7 @@
                 </mat-error>
             </mat-error>
 
-            <button mat-flat-button color="primary" [disabled]="!form.valid" type="submit">SIGN UP</button>
+            <button mat-stroked-button color="accent" [disabled]="!form.valid" type="submit">SIGN UP</button>
         </form>
          <p>Already have an account? <a mat-button routerLink='/login' color='primary'>login</a></p>
     </mat-card>

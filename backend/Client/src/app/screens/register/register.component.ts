@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  hide = true;
+
   constructor(
     private router: Router,
     private service:RegisterService,
