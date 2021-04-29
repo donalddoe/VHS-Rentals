@@ -19,12 +19,7 @@ const rentalSchema =  new mongoose.Schema({
         minLength: 5,
         maxLength: 245,
     },
-    password: {
-        type: String,
-        require: true,
-        minLength: 5,
-        maxLength: 2000,
-    },     
+       
     }),  
     required: true
   },
@@ -85,7 +80,7 @@ const Rental = mongoose.model('Rental', rentalSchema);
 
 function validateRental(rental) {
   const schema = {
-    userId: Joi.objectId().required(),
+    // userId: Joi.objectId().required(),
     movieId: Joi.objectId().required()
   };
 
