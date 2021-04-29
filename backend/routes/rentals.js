@@ -14,7 +14,7 @@ Fawn.init(mongoose);
 
 router.get('/', auth, async (req, res) => {
   const rentals = await Rental.find().sort('-dateOut');
-  res.json(rentals);
+  res.send(rentals);
 });
 
 router.post('/', auth, async (req, res) => {
@@ -52,7 +52,7 @@ router.post('/', auth, async (req, res) => {
     })
     .run();
       
-      res.json( rental );
+      res.send(rental);
   }
   catch (ex) {
     res.status(500).send('Something failed')
