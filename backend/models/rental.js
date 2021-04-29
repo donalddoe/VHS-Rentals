@@ -44,27 +44,26 @@ const rentalSchema =  new mongoose.Schema({
         required: true,
         min: 0,
         max: 255
-      } 
+      },
+      daysBooked: {
+        type: String,
+        require: true
+      } ,
+      total: {
+        type: Number,
+        min: 0
+      },
       
     }),
     required: true
   },
-  daysBooked: {
-    type: String,
-    require: true
-  } ,
-  total: {
-    type: Number,
-    min: 0
-  },
+ 
   dateOut: { 
     type: Date, 
     required: true,
     default: Date.now
   },
-  dateReturned: { 
-    type: Date
-  },
+ 
   rentalFee: { 
     type: Number, 
     min: 0
