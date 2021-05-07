@@ -2,8 +2,7 @@
     <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
   </div>
   <div class="register-bg-image">
-<main class="container">
-   
+<main class="container" fxLayout="row" fxLayoutAlign="center center" *ngIf="!(loaderService.isLoading | async)">
     <mat-card class="mat-elevation-z24" id="card">
         <mat-card-title> VHS RENTALS REGISTRATION FORM</mat-card-title>
         <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -106,3 +105,4 @@
 </main>
 
 </div>
+

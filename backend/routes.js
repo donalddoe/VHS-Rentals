@@ -8,6 +8,7 @@ const customers = require('./routes/customers');
 const rentals = require('./routes/rentals');
 const returns = require('./routes/returns')
 const error = require('./middlewares/error');
+var favicon = require('serve-favicon')
 const path = require('path');
 
 
@@ -19,7 +20,7 @@ module.exports = function(app) {
     app.use('/api/users', users);
     app.use('/api/auth', auth);
     app.use('/api/movies', movies);
-    app.use('/api/genres', genres);
+    // app.use('/api/genres', genres);
     app.use('/api/customers', customers);
     app.use('/api/rentals', rentals);
     app.use('/api/returns', returns);
@@ -28,5 +29,6 @@ module.exports = function(app) {
     app.get("**", (req, res) => {
       res.sendFile(path.join(__dirname, "public/VHS-Rental/index.html")); 
      });
+     app.use(favicon(path.join(__dirname, 'public/VHS-Rental/favicon.ico')))
     app.use(error)
     }

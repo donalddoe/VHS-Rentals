@@ -24,6 +24,11 @@ const userSchema =  new mongoose.Schema({
         minLength: 5,
         maxLenght: 2000,
     },
+    money: {
+        type: Number,
+        default: true,
+        require: true,
+       },
     date:{
         type:Date,
         default:Date.now
@@ -32,6 +37,7 @@ const userSchema =  new mongoose.Schema({
        type: Boolean,
        default: false
    }
+   
 });
 
 //generate user token
@@ -49,8 +55,7 @@ function validateUser(user) {
         email: Joi.string().min(5).max(245).required().email(),
         password: Joi.string().min(5).max(50).required()
     };
-  return Joi.validate(user, schema);
-    
+  return Joi.validate(user, schema);  
 }
 
 exports.User = User;
