@@ -4,8 +4,10 @@
     <a mat-button routerLink='store'>Movies</a>
     <a mat-button routerLink='/users'>Rentals</a>
     <!-- <a mat-button routerLink='/return'>Returns</a> -->
-    <a mat-button routerLink='/shopping-cart'>Shopping Cart</a>
+    <a mat-button routerLink='/shopping-cart'>
+        Shopping Cart
+        <mat-icon matBadge="{{getNumberOfItemsInCart()}}" matBadgeColor="primary">shopping_cart</mat-icon>
+    </a>
     <a mat-raised-button routerLink='/'>Logout</a>
     </mat-toolbar>
 
-    

@@ -8,6 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class NavBarComponent implements OnInit {
 
   constructor() { }
+  
+  getNumberOfItemsInCart() {
+    let cart=[]
+    if(localStorage.getItem("cart")){
+      cart = JSON.parse(localStorage.getItem("cart"))
+
+    }
+    return cart.length
+  }
 
   ngOnInit(): void {
   }

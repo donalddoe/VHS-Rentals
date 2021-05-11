@@ -79,6 +79,9 @@ export class AddUserComponent implements OnInit {
       Validators.pattern(/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]))/g)
       //at least 1 digit ,at least one lowercase char , at lease 1 uppercase char and one special char
     ]),
+    isAdmin: new FormControl('true', [
+      Validators.required,
+    ]),
   })
 
   get email() {
@@ -92,5 +95,8 @@ export class AddUserComponent implements OnInit {
   }
   get confirmpassword() {
     return this.form.get('confirmpassword')
+  }
+  get isAdmin() {
+    return this.form.get('isAdmin')
   }
 }

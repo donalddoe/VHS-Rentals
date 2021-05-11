@@ -14,3 +14,10 @@ mat-form-field{
 input{
     width: 85%;
 }
+.loader-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+}

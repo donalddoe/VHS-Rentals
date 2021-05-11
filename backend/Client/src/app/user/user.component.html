@@ -1,5 +1,9 @@
 <app-administration>
-<main>
+  <div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <main>
+
 <div class="mat-elevation-z8">
   <mat-form-field>
     <mat-label>Filter</mat-label>
@@ -22,6 +26,10 @@
       <td mat-cell *matCellDef="let row"> {{row.email}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="isAdmin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Admin </th>
+      <td mat-cell *matCellDef="let row"> {{row.isAdmin}} </td>
+    </ng-container>
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Registered </th>
       <td mat-cell *matCellDef="let row"> {{row.date}} </td>
