@@ -1,13 +1,17 @@
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+  </div>
+  <div class="register-bg-image">
 <main class="container">
-    <div *ngIf="loaderService.isLoading | async" class="loader-container">
-        <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
-      </div>
+   
     <mat-card class="mat-elevation-z24" id="card">
         <mat-card-title> VHS RENTALS REGISTRATION FORM</mat-card-title>
-
         <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
-            <mat-form-field appearance='outline' >
+            <mat-form-field appearance='outline'  class="example-full-width" >
                 <input matInput type="email" formControlName="email" placeholder="Email:" required>
+                <mat-icon matPrefix>
+                    email
+                    </mat-icon>
             </mat-form-field>
             <mat-error *ngIf="email.touched && email.invalid">
                 <mat-error *ngIf="email.errors.required">
@@ -22,8 +26,10 @@
                 </mat-error>
             </mat-error>
 
-            <mat-form-field appearance='outline' >
+            <mat-form-field appearance='outline'  class="example-full-width" >
                 <input matInput placeholder="Username:" formControlName="username"  required>
+             <mat-icon matPrefix>person</mat-icon>
+
             </mat-form-field>
             <mat-error *ngIf="username.touched && username.invalid">
                 <mat-error *ngIf="username.errors.required">
@@ -34,8 +40,9 @@
                 </mat-error>
             </mat-error>
 
-            <mat-form-field appearance='outline' >
+            <mat-form-field appearance='outline'  class="example-full-width" >
                 <input matInput placeholder="Password:" formControlName="password" required type="password">
+                <mat-icon matPrefix>lock</mat-icon>
             </mat-form-field>
             <mat-error *ngIf="password.touched && password.invalid">
                 <mat-error *ngIf="password.errors.required">
@@ -62,9 +69,10 @@
                 </mat-error>
             </mat-error>
 
-            <mat-form-field appearance='outline' >
+            <mat-form-field appearance='outline'  class="example-full-width" >
                 <input matInput placeholder="Password (confirm):" formControlName="confirmpassword" required
                     type="password">
+                    <mat-icon matPrefix>lock</mat-icon>
             </mat-form-field>
             <mat-error *ngIf="confirmpassword.touched && confirmpassword.invalid">
                 <mat-error *ngIf="confirmpassword.errors.required">
@@ -91,8 +99,10 @@
                 </mat-error>
             </mat-error>
 
-            <button mat-flat-button color="primary" [disabled]="!form.valid" type="submit">SIGN UP</button>
+            <button mat-stroked-button color="accent" [disabled]="!form.valid" type="submit">SIGN UP</button>
         </form>
          <p>Already have an account? <a mat-button routerLink='/login' color='primary'>login</a></p>
     </mat-card>
 </main>
+
+</div>

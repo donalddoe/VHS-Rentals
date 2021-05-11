@@ -7,7 +7,6 @@ import { RentalsComponent } from './Admins/rentals/rentals.component';
 import {ReturnsComponent } from './users/returns/returns.component';
 import { MoviesComponent } from './Admins/movies/movies.component';
 import { NoPageFoundComponent } from './screens/no-page-found/no-page-found.component';
-import { AllCustomersComponent } from './Admins/all-customers/all-customers.component';
 import { AuthGuard } from './auth.guard';
 import { AddMoviesComponent } from './Admins/add-movies/add-movies.component';
 import { AdministrationComponent } from './Admins/administration/administration.component';
@@ -39,8 +38,7 @@ const routes: Routes = [
   // { path: 'movies', component: MoviesComponent },
   {path: "movie/:id",  canActivate: [AuthGuard], component: MovieDetailsComponent },
   { path: 'customers',  canActivate: [AuthGuard], component: CustomerComponent },
-  { path: 'all-users',  canActivate: [AuthGuard], component: AllCustomersComponent },
-  { path: 'customers', canActivate: [AuthGuard], component: CustomerComponent },
+  { path: 'add-users', canActivate: [AuthGuard], component: CustomerComponent },
   { path: 'view-users', canActivate: [AuthGuard], component: UserComponent },
   { path: 'returns', canActivate: [AuthGuard], component: ReturnsComponent },
   { path: 'rentals', canActivate: [AuthGuard], component: RentalsComponent },

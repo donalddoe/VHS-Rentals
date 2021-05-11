@@ -1,7 +1,8 @@
-<br><br><br><br>
+
 <div *ngIf="loaderService.isLoading | async" class="loader-container">
-  <mat-spinner></mat-spinner>
+  <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
 </div>
+<div class="login-bg-image">
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" *ngIf="!(loaderService.isLoading | async)">
     <mat-card class="box">
       <mat-card-header>
@@ -39,6 +40,7 @@
         </mat-card-content>
         <button mat-stroked-button color="accent" type="submit" [disabled]="!reactiveForm.valid" class="btn-block">Log in</button>
       </form>
-      <p>Don't have an account? <a mat-raised-button routerLink='/register' color='primary'>Register</a></p>
+      <p>Don't have an account? <a mat-button routerLink='/register' color='primary'>Register</a></p>
     </mat-card>
   </div>
+</div>

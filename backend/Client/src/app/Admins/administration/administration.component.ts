@@ -24,4 +24,5 @@ export class AdministrationComponent implements OnInit {
   );
 
 constructor(private breakpointObserver: BreakpointObserver,  public loaderService: LoaderService) {}
+
 }

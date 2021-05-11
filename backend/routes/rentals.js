@@ -33,12 +33,14 @@ router.post('/', auth, async (req, res) => {
     user: {
       _id: user._id,
       username: user.username,
+      email: user.email
     },
     movie: {
       _id: movie._id,
       title: movie.title,
       dailyRentalRate: movie.dailyRentalRate,
-      // daysBooked: movie.daysBooked
+      daysBooked: movie.daysBooked,
+      total: movie.total
     }
   });
 

@@ -86,7 +86,8 @@ export class LoginComponent implements OnInit {
   userData(): boolean {
     if (!this.decodeToken()) return null;
     const { isAdmin} = this.decodeToken();
-    return  isAdmin as boolean;
+    return isAdmin as boolean;
+    
   }
  upLoad(reactiveForm){
    if (reactiveForm.valid){
