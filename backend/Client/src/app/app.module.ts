@@ -65,7 +65,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     AngularMaterialModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularMaterialModule,
+    // AngularMaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
     FlexLayoutModule,
