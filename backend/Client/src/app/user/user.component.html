@@ -1,9 +1,17 @@
 <app-administration>
-<main>
+  <div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <main>
+
 <div class="mat-elevation-z8">
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Enter search query here" #input>
+    <button mat-raised-button color="primary" (click) ="onAddNew()" >
+      <mat-icon >add</mat-icon>
+      New User
+    </button>
   </mat-form-field>
   
   <table mat-table [dataSource]="dataSource" matSort>
@@ -18,6 +26,10 @@
       <td mat-cell *matCellDef="let row"> {{row.email}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="isAdmin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Admin </th>
+      <td mat-cell *matCellDef="let row"> {{row.isAdmin}} </td>
+    </ng-container>
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Registered </th>
       <td mat-cell *matCellDef="let row"> {{row.date}} </td>

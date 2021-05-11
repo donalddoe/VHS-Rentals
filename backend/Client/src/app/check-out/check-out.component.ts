@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { EditMovieService } from '../edit-movie.service';
 import { RentalService } from '../rental.service';
 
 @Component({
@@ -11,7 +12,11 @@ import { RentalService } from '../rental.service';
 })
 export class CheckOutComponent implements OnInit {
 
-  constructor(private rent:RentalService) {}
+  constructor(
+    private rent:RentalService,
+    private update:EditMovieService,
+    private router: Router
+    ) {}
   
 
   cart
@@ -52,16 +57,37 @@ export class CheckOutComponent implements OnInit {
     this.setCart()
   }
   processOrders(){
-    this.cart.forEach(element => {
+    console.log(this.cart)
+     this.cart.forEach(element => {
       let id=localStorage.getItem("id")
       let movieId:string=element._id+""
       //TODO change backend 
       // this.rent.rent({movie:{...element},customer:{...this.form.value},customerId:id,movieId:movieId}).subscribe(response=>{
+//         dailyRentalRate: 9
+// genre: "Action, Crime, Drama, Thriller"
+// numberInStock: 6
+// plot: "Set within a year after the events of Batman Begins, Batman, Lieutenant James Gordon, and new district attorney Harvey Dent successfully begin to round up the criminals that plague Gotham City until a mysterious and sadistic criminal mastermind known only as the Joker appears in Gotham, creating a new wave of chaos. Batman's struggle against the Joker becomes deeply personal, forcing him to \"confront everything he believes\" and improve his technology to stop him. A love triangle develops between Bruce Wayne, Dent and Rachel Dawes."
+// poster: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg"
+// title: "The Dark Knight"
+// year: "2008"
         this.rent.rent({userId:id,movieId:movieId}).subscribe(response=>{
+          console.log(response)
+          let numberInStock=element.numberInStock-1
+          let movie=new FormData()
+          movie.set("genre",element.genre)
+          movie.set("numberInStock",numberInStock.toString())
+          movie.set("plot",element.plot)
+          movie.set("poster",element.poster)
+          movie.set("title",element.title)
+          movie.set("year",element.year)
+          
+          this.update.editMovies(element._id,movie).subscribe(result=>{
+            console.log(result)
+          })
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: element.title+' has been rented',
+          title: 'Your order has been processed, please remember to return your videos on time',
           showConfirmButton: false,
           timer: 4000
         })
@@ -69,26 +95,11 @@ export class CheckOutComponent implements OnInit {
 
       )
    });
-  }
-  form = new FormGroup({
-    name: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5)
-    ]),
-    phone: new FormControl('', [
-      Validators.required,
-      Validators.minLength(10),
-      Validators.pattern("^[0-9]*$")
-    ])
-  })
+   localStorage.removeItem("cart")
+   this.router.navigate(['/store']);
 
+  }
 
-  get phone() {
-    return this.form.get('phone')
-  }
-  get name() {
-    return this.form.get('name')
-  }
   ngOnInit(): void {
     this.setCart()
   }

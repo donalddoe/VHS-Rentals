@@ -20,6 +20,7 @@ export class EditUserComponent implements OnInit {
   ngOnInit(): void {
     this.email.setValue(this.data.email)
     this.username.setValue(this.data.username)
+    this.isAdmin.setValue(this.data.isAdmin)
   }
   form = new FormGroup({
     email: new FormControl('', [
@@ -31,14 +32,19 @@ export class EditUserComponent implements OnInit {
       Validators.required,
       Validators.minLength(5)
     ]),
- 
+    isAdmin: new FormControl('false', [
+      Validators.required, 
+    ]),
   })
-
+ 
   get email() {
     return this.form.get('email')
   }
   get username() {
     return this.form.get('username')
+  }
+  get isAdmin() {
+    return this.form.get('isAdmin')
   }
   onUpdate(){
     this.userservice.updateUser(this.data._id,this.form.value).subscribe(response=>{

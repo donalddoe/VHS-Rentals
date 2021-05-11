@@ -23,4 +23,8 @@ export class RentalsService {
     return this.http.get(this.url,  this.httpOptions)
   };
 
+  deleteRental(id){
+    return this.http.delete(this.url+id, this.httpOptions)
+  }
+
 }

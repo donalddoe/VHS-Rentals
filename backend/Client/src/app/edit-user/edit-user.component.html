@@ -20,7 +20,15 @@
                     more
                 </mat-error>
             </mat-error>
-
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button [checked]="isAdmin.value == true" value="true">Admin</mat-radio-button>
+                <mat-radio-button [checked]="isAdmin.value == false" value="false">Customer</mat-radio-button>
+              </mat-radio-group>
+              <mat-error *ngIf="isAdmin.touched && isAdmin.invalid">
+                <mat-error *ngIf="isAdmin.errors.required">
+                    Is the user an admin?
+                </mat-error>
+            </mat-error>
             <mat-form-field appearance='outline' >
                 <input matInput placeholder="Username:" formControlName="username"  required>
             </mat-form-field>

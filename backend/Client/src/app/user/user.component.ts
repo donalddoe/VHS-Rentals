@@ -7,6 +7,9 @@ import { DeleteRecordComponent } from 'src/app/delete-record/delete-record.compo
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { EditUserComponent } from '../edit-user/edit-user.component';
+import { RegisterComponent } from '../screens/register/register.component';
+import { AddUserComponent } from '../add-user/add-user.component';
+import { LoaderService } from '../loader/loader.service';
 
 export interface UserData {
   username: string
@@ -35,13 +38,15 @@ export class UserComponent implements OnInit {
       this.dataSource.sort = this.sort;
     })
   }
-  displayedColumns: string[] = ['username', 'email', 'date', 'delete', 'edit'];
+  displayedColumns: string[] = ['username', 'email', 'date', 'isAdmin','delete', 'edit'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(private userservice: UserService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public loaderService: LoaderService,
+
   ) {
   }
   applyFilter(event: Event) {
@@ -65,7 +70,7 @@ export class UserComponent implements OnInit {
             timer: 4000
           })
         )
-    this.setUpTable()
+        this.setUpTable()
       }
     })
   }
@@ -76,4 +81,10 @@ export class UserComponent implements OnInit {
     this.dialog.afterAllClosed.subscribe(() => { this.setUpTable() })
     this.dialog.open(EditUserComponent, dialogConfig)
   }
+  onAddNew() {
+    const dialogConfig = new MatDialogConfig();
+    this.dialog.afterAllClosed.subscribe(() => { this.setUpTable() })
+    this.dialog.open(AddUserComponent, dialogConfig)
+  }
+
 }

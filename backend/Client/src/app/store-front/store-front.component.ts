@@ -46,12 +46,8 @@ export class StoreFrontComponent implements OnInit {
   }
   goToMovie(id){
    let movie
-    this.getMovie.fetchMovie(id).subscribe(response=>{
-      
-      
+    this.getMovie.fetchMovie(id).subscribe(response=>{      
       movie=response
-    
-    
       const dialogConfig = new MatDialogConfig();
       dialogConfig.data = movie
       let openDialog = this.dialog.open(RentMovieComponent,dialogConfig)

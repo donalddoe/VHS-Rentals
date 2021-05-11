@@ -52,7 +52,24 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+  this.signOut()
+  }
+  signOut(){
+    if(localStorage.getItem("token")){
+      localStorage.removeItem("token")
+    }
+    if(localStorage.getItem("id")){
+      localStorage.removeItem("id")
+    }
+    if(localStorage.getItem("email")){
+      localStorage.removeItem("email")
+    }
+    if(localStorage.getItem("username")){
+      localStorage.removeItem("username")
+    }
+    if(localStorage.getItem("isAdmin")){
+      localStorage.removeItem("isAdmin")
+    }
   }
 
   private helper = new JwtHelperService();
