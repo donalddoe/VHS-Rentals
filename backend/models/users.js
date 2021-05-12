@@ -24,10 +24,11 @@ const userSchema =  new mongoose.Schema({
         minLength: 5,
         maxLenght: 2000,
     },
-    money: {
+    wallet: {
         type: Number,
-        default: true,
         require: true,
+        min: 0,
+        max: 255
        },
     date:{
         type:Date,
@@ -42,7 +43,7 @@ const userSchema =  new mongoose.Schema({
 
 //generate user token
 userSchema.methods.generateAuthToken = function() {
-  const token = jwt.sign({ _id: this.id,isAdmin: this.isAdmin, email: this.email, username: this.username }, config.get('jwtPrivateKey'));
+  const token = jwt.sign({ _id: this.id,isAdmin: this.isAdmin, email: this.email, username: this.username, money: this.money }, config.get('jwtPrivateKey'));
     return token
 }
 const User = mongoose.model('User', userSchema);
@@ -53,7 +54,9 @@ function validateUser(user) {
     const schema = {
         username: Joi.string().min(2).max(50).required(),
         email: Joi.string().min(5).max(245).required().email(),
-        password: Joi.string().min(5).max(50).required()
+        password: Joi.string().min(5).max(50).required(),
+        wallet: Joi.number().min(0).max(255).required()
+
     };
   return Joi.validate(user, schema);  
 }
