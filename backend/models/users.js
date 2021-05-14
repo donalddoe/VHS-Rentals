@@ -7,26 +7,26 @@ const config = require('config')
 const userSchema =  new mongoose.Schema({
     username: {
         type: String,
-        require: true,
+        required: true,
         minLength: 5,
         maxLenght: 50,
     },
     email: {
         type: String,
-        require: true,
+        required: true,
         // unique: true,
         minLength: 5,
         maxLenght: 245,
     },
     password: {
         type: String,
-        require: true,
+        required: true,
         minLength: 5,
         maxLenght: 2000,
     },
     wallet: {
         type: Number,
-        require: true,
+        required: true,
         min: 0,
         max: 255
        },
@@ -43,7 +43,7 @@ const userSchema =  new mongoose.Schema({
 
 //generate user token
 userSchema.methods.generateAuthToken = function() {
-  const token = jwt.sign({ _id: this.id,isAdmin: this.isAdmin, email: this.email, username: this.username, money: this.money }, config.get('jwtPrivateKey'));
+  const token = jwt.sign({ _id: this.id,isAdmin: this.isAdmin, email: this.email, username: this.username }, config.get('jwtPrivateKey'));
     return token
 }
 const User = mongoose.model('User', userSchema);

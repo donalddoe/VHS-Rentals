@@ -24,14 +24,14 @@ router.post('/', async (req, res) => {
    if (user) return res.status(400).send('User already registered');
 
     //Lodash helps to return the req.body
-    user = new User(_.pick(req.body, ['username', 'email', 'password']))
+    user = new User(_.pick(req.body, ['username', 'email', 'password', 'wallet']))
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt)
     await user.save();
 
     //sending user token
     const token = user.generateAuthToken();
-    res.header('x-auth-token', token).send(_.pick(user, ['id', 'username', 'email']))
+    res.header('x-auth-token', token).send(_.pick(user, ['id', 'username', 'email', 'wallet']))
 });
 
 //Update a single user

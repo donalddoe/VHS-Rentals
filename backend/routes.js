@@ -29,6 +29,5 @@ module.exports = function(app) {
     app.get("**", (req, res) => {
       res.sendFile(path.join(__dirname, "public/VHS-Rental/index.html")); 
      });
-    //  app.use(favicon(path.join(__dirname, "public/VHS-Rental/favicon.ico")))
     app.use(error)
     }
