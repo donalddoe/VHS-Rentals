@@ -59,6 +59,7 @@ export class RegisterComponent implements OnInit {
     this.form.updateValueAndValidity();
   }
   form = new FormGroup({
+    wallet: new FormControl('200'),
     email: new FormControl('', [
       Validators.required,
       Validators.email,

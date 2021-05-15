@@ -70,6 +70,9 @@ export class LoginComponent implements OnInit {
     if(localStorage.getItem("isAdmin")){
       localStorage.removeItem("isAdmin")
     }
+    if(localStorage.getItem("wallet")){
+      localStorage.removeItem("wallet")
+    }
   }
 
   private helper = new JwtHelperService();
@@ -99,6 +102,7 @@ export class LoginComponent implements OnInit {
   localStorage.setItem('email',response['email']);
   localStorage.setItem('username',response['username']);
   localStorage.setItem('isAdmin', this.userData().toString());
+  localStorage.setItem('wallet', response['wallet']);
 
 
 console.log(response)
