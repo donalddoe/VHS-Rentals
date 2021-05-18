@@ -17,9 +17,7 @@ router.get('/', auth, async (req, res) => {
   router.post('/add-movie', auth, async (req, res) => {
     const { error } = validate(req.body); 
     if (error) return res.status(400).send(error.details[0].message);
-  
-    // const genre = await Genre.findById(req.body.genreId);
-    // if (!genre) return res.status(400).send('Invalid genre.');
+
     let movies = await Movie.findOne({ title: req.body.title });
     if (movies) return res.status(400).send('Movie already exist');
  

@@ -31,7 +31,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: AdministrationComponent
   },
-  { path: 'store', component: StoreFrontComponent },
+  { path: 'store', 
+  canActivate: [AuthGuard],
+  component: StoreFrontComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'movies', canActivate: [AuthGuard], component: MoviesComponent },
   { path: 'add-movies',  canActivate: [AuthGuard], component: AddMoviesComponent },

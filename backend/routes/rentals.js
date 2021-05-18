@@ -23,6 +23,8 @@ router.post('/', auth, async (req, res) => {
 
   const user = await User.findById(req.body.userId);
   if (!user) return res.status(400).send('Invalid User.');
+  
+  if(user.wallet === 0) return res.status(400).send('Not enough funds')
 
   const movie = await Movie.findById(req.body.movieId);
   if (!movie) return res.status(400).send('Invalid movie.');
@@ -40,7 +42,7 @@ router.post('/', auth, async (req, res) => {
     new Fawn.Task()
     .save('rentals', rental)
     .update('movies', { _id: movie.id}, {
-      $inc: { numberInStock: -1 }
+      $inc: { numberInStock: -1,  }
     })
     .run();
       

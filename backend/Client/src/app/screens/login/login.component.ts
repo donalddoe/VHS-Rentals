@@ -90,7 +90,6 @@ export class LoginComponent implements OnInit {
     if (!this.decodeToken()) return null;
     const { isAdmin} = this.decodeToken();
     return isAdmin as boolean;
-    
   }
  upLoad(reactiveForm){
    if (reactiveForm.valid){
@@ -102,7 +101,7 @@ export class LoginComponent implements OnInit {
   localStorage.setItem('email',response['email']);
   localStorage.setItem('username',response['username']);
   localStorage.setItem('isAdmin', this.userData().toString());
-  localStorage.setItem('wallet', response['wallet']);
+  localStorage.setItem('wallet', response['wallet'] );
 
 
 console.log(response)
