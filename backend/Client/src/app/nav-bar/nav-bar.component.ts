@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { NavigationEnd, Router } from '@angular/router';
+// import { LoginService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,8 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-
-  constructor() { }
+wallet = null; 
+  constructor(
+    // private auth: AuthService, 
+    private router: Router
+  ) {
+    this.router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        const userCredential = localStorage.getItem('wallet');
+        if(userCredential) {
+          const wallet = userCredential;
+          this.wallet = wallet;
+        }
+      }
+    })
+   }
   
   getNumberOfItemsInCart() {
     let cart=[]

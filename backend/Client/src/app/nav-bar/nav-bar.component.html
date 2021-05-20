@@ -8,6 +8,19 @@
         Shopping Cart
         <mat-icon matBadge="{{getNumberOfItemsInCart()}}" matBadgeColor="primary">shopping_cart</mat-icon>
     </a>
-    <a mat-raised-button routerLink='/'>Logout</a>
+    <div [ngSwitch]="wallet">
+        <div *ngSwitchCase="wallet">
+            <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon matBadgeColor="primary" matBadge="{{wallet}}">account_balance_wallet</mat-icon><mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                    <span color='primary' routerLink="/login">Logout</span>
+                </button>
+            </mat-menu>
+        </div>
+        <a *ngSwitchDefault mat-button routerLink="logout"></a>
+    </div>
     </mat-toolbar>
 
