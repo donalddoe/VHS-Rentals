@@ -3,7 +3,6 @@
     <div class="spacer"></div>
     <a mat-button routerLink='/store'>Movies</a>
     <a mat-button routerLink='/users'>Rentals</a>
-    <!-- <a mat-button routerLink='/return'>Returns</a> -->
     <a mat-button routerLink='/shopping-cart'>
         Shopping Cart
         <mat-icon matBadge="{{getNumberOfItemsInCart()}}" matBadgeColor="primary">shopping_cart</mat-icon>
@@ -11,16 +10,17 @@
     <div [ngSwitch]="wallet">
         <div *ngSwitchCase="wallet">
             <button mat-button [matMenuTriggerFor]="menu">
-            <mat-icon matBadgeColor="primary" matBadge="{{wallet}}">account_balance_wallet</mat-icon><mat-icon>more_vert</mat-icon>
+            <mat-icon class="wallet" matBadgeColor="primary" matBadge="{{wallet}}">account_balance_wallet</mat-icon>
+            <mat-icon color= "accent">more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="logout()">
-                    <mat-icon>logout</mat-icon>
+                    <mat-icon >logout</mat-icon>
                     <span color='primary' routerLink="/login">Logout</span>
                 </button>
             </mat-menu>
         </div>
-        <a *ngSwitchDefault mat-button routerLink="logout"></a>
+        <a *ngSwitchDefault mat-button color='primary' routerLink="logout"></a>
     </div>
     </mat-toolbar>
 
