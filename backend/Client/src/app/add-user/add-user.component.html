@@ -41,6 +41,17 @@
             </mat-error>
             
             <mat-form-field appearance='outline' >
+                <input matInput placeholder="Wallet:" formControlName="wallet" type="number" required>
+            </mat-form-field>
+            <mat-error *ngIf="wallet.touched && wallet.invalid">
+                <mat-error *ngIf="wallet.errors.required">
+                    wallet is required
+                </mat-error>
+                <mat-error *ngIf="wallet.errors.min">
+                Ammount must be greater than {{wallet.errors.min.min}} 
+                </mat-error>
+            </mat-error>
+            <mat-form-field appearance='outline' >
                 <input matInput placeholder="Password:" formControlName="password" required type="password">
             </mat-form-field>
             <mat-error *ngIf="password.touched && password.invalid">

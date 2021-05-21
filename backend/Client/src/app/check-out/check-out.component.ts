@@ -72,6 +72,8 @@ export class CheckOutComponent implements OnInit {
 // year: "2008"
         this.rent.rent({userId:id,movieId:movieId}).subscribe(response=>{
           console.log(response)
+    
+          })
           let numberInStock=element.numberInStock-1
           let movie=new FormData()
           movie.set("genre",element.genre)
@@ -81,19 +83,18 @@ export class CheckOutComponent implements OnInit {
           movie.set("title",element.title)
           movie.set("year",element.year)
           
-          this.update.editMovies(element._id,movie).subscribe(result=>{
-            console.log(result)
-          })
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Your order has been processed, please remember to return your videos on time',
-          showConfirmButton: false,
-          timer: 4000
-        })
-      }
+      //     this.update.editMovies(element._id,movie).subscribe(result=>{
+      //       console.log(result)
+      //   Swal.fire({
+      //     position: 'center',
+      //     icon: 'success',
+      //     title: 'Your order has been processed',
+      //     showConfirmButton: false,
+      //     timer: 4000
+      //   })
+      // }
 
-      )
+      // )
    });
    localStorage.removeItem("cart")
    this.router.navigate(['/store']);

@@ -1,0 +1,24 @@
+<main class="container">
+    <mat-card class="mat-elevation-z24" id="card">
+        <mat-card-title> Edit Wallet</mat-card-title>
+
+        <form class="form-container" [formGroup]="form" (ngSubmit)="onUpdate()">
+            <mat-form-field appearance='outline'>
+                {{username.value}}
+            </mat-form-field>
+            <mat-form-field appearance='outline'>
+                <input matInput placeholder="Wallet:" formControlName="wallet" type="number" required>
+            </mat-form-field>
+            <mat-error *ngIf="wallet.touched && wallet.invalid">
+                <mat-error *ngIf="wallet.errors.required">
+                    wallet is required
+                </mat-error>
+                <mat-error *ngIf="wallet.errors.min">
+                    Ammount must be greater than {{wallet.errors.min.min}}
+                </mat-error>
+            </mat-error>
+            <button mat-flat-button color="primary" [disabled]="!form.valid" type="submit">Edit Wallet</button>
+        </form>
+
+    </mat-card>
+</main>

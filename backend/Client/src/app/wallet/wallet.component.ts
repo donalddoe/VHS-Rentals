@@ -10,6 +10,7 @@ import { EditUserComponent } from '../edit-user/edit-user.component';
 import { RegisterComponent } from '../screens/register/register.component';
 import { AddUserComponent } from '../add-user/add-user.component';
 import { LoaderService } from '../loader/loader.service';
+import { EditWalletComponent } from '../edit-wallet/edit-wallet.component';
 
 export interface UserData {
   username: string
@@ -21,11 +22,11 @@ export interface UserData {
 
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  selector: 'app-wallet',
+  templateUrl: './wallet.component.html',
+  styleUrls: ['./wallet.component.scss']
 })
-export class UserComponent implements OnInit {
+export class WalletComponent implements OnInit {
   users
   ngOnInit(): void {
     this.setUpTable()
@@ -38,7 +39,7 @@ export class UserComponent implements OnInit {
       this.dataSource.sort = this.sort;
     })
   }
-  displayedColumns: string[] = ['username', 'email', 'date', 'isAdmin','wallet','delete', 'edit'];
+  displayedColumns: string[] = ['username','wallet','edit'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -79,7 +80,7 @@ export class UserComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = user
     this.dialog.afterAllClosed.subscribe(() => { this.setUpTable() })
-    this.dialog.open(EditUserComponent, dialogConfig)
+    this.dialog.open(EditWalletComponent, dialogConfig)
   }
   onAddNew() {
     const dialogConfig = new MatDialogConfig();

@@ -21,8 +21,8 @@
           (click)="goToMovie(movieDetails.data._id)"
           >
           <mat-card-actions class ="card-footer">
-                <button mat-button disabled="{{movieDetails.data.count < 1 ? true: false }}" >
-                   <span class="footer-text" >&#8373; {{movieDetails.data.dailyRentalRate | number }} per day ({{movieDetails.data.numberInStock}} copies available for renting)</span> 
+                <button mat-button disabled="{{(movieDetails.data.count < 1 ? true: false) || !hasEnoughFunds(movieDetails.data.dailyRentalRate) }}" >
+                   <span class="{{setDailyRentalDisplayClass(movieDetails.data.dailyRentalRate)}}" >&#8373; {{movieDetails.data.dailyRentalRate | number }} </span> per day <span class="footer-text"> ({{movieDetails.data.numberInStock}} copies available for renting)</span> 
                   </button>
           </mat-card-actions>
         </mat-card>

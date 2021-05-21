@@ -14,6 +14,7 @@ import { MovieDetailsComponent } from './Admins/movie-details/movie-details.comp
 import { StoreFrontComponent } from './store-front/store-front.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { UserComponent } from './user/user.component';
+import { WalletComponent } from './wallet/wallet.component';
 
 
 
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'returns', canActivate: [AuthGuard], component: ReturnsComponent },
   { path: 'rentals', canActivate: [AuthGuard], component: RentalsComponent },
   { path: 'shopping-cart', canActivate: [AuthGuard], component: CheckOutComponent },
+  { path: 'wallet', canActivate: [AuthGuard], component: WalletComponent },
   { path: '404', component: NoPageFoundComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full'}
 ];
