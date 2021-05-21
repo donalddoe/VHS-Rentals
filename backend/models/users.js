@@ -28,7 +28,7 @@ const userSchema =  new mongoose.Schema({
         type: Number,
         required: true,
         min: 0,
-        max: 255
+        max: 2000
        },
     date:{
         type:Date,
@@ -55,7 +55,7 @@ function validateUser(user) {
         username: Joi.string().min(2).max(50).required(),
         email: Joi.string().min(5).max(245).required().email(),
         password: Joi.string().min(5).max(50).required(),
-        wallet: Joi.number().min(0).max(255).required()
+        wallet: Joi.number().min(0).max(4000).required()
 
     };
   return Joi.validate(user, schema);  
