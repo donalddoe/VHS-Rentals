@@ -8,7 +8,6 @@ const Schema = mongoose.Schema;
 
 const rentalSchema =  new mongoose.Schema({
   rental: {
-    // _id: Schema.Types.ObjectId,
     userid: {type: Schema.Types.ObjectId, ref: 'Users'},
     movieid: {type: Schema.Types.ObjectId, ref: 'Movies'},
   
@@ -51,7 +50,7 @@ rentalSchema.methods.return = function() {
 const Rental = mongoose.model('Rental', rentalSchema);
 
 function validateRental(rental) {
-  const schema = {
+  const schema = { 
     userId: Joi.objectId().required(),
     movieId: Joi.objectId().required()
   };
