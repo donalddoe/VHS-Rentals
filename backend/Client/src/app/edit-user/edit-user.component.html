@@ -40,6 +40,17 @@
                     Username must be {{username.errors.minlength.requiredLength}} characters or more
                 </mat-error>
             </mat-error>
+            <mat-form-field appearance='outline' >
+                <input matInput placeholder="Wallet:" formControlName="wallet" type="number" required>
+            </mat-form-field>
+            <mat-error *ngIf="wallet.touched && wallet.invalid">
+                <mat-error *ngIf="wallet.errors.required">
+                    wallet is required
+                </mat-error>
+                <mat-error *ngIf="wallet.errors.min">
+                Ammount must be greater than {{wallet.errors.min.min}} 
+                </mat-error>
+            </mat-error>
 
 
 

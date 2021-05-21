@@ -3,16 +3,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { UserService } from '../user.service';
-
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.scss']
+  selector: 'app-edit-wallet',
+  templateUrl: './edit-wallet.component.html',
+  styleUrls: ['./edit-wallet.component.scss']
 })
-export class EditUserComponent implements OnInit {
+export class EditWalletComponent implements OnInit {
 
+ 
   constructor(
-    public dialogRef:MatDialogRef<EditUserComponent>,
+    public dialogRef:MatDialogRef<EditWalletComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private userservice:UserService  
   ) { }
@@ -59,7 +59,7 @@ export class EditUserComponent implements OnInit {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'User details have been edited',
+        title: 'Wallet has been updated',
         showConfirmButton: false,
         timer: 4000
         })

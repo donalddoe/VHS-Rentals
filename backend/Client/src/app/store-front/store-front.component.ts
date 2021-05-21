@@ -23,14 +23,14 @@ export class StoreFrontComponent implements OnInit {
     public loaderService: LoaderService,
     private router: Router,
     public dialog: MatDialog,
-    private getMovie:MovieService
-    ) { }
+    private getMovie: MovieService
+  ) { }
 
-    
+
   ngOnInit(): void {
     this.getMovies.fetchMovies().subscribe(response => { this.movies = response, this.getList(0, 11) })
   }
-  list=[]
+  list = []
   movies;
   length = 100;
   pageSize = 10;
@@ -44,27 +44,43 @@ export class StoreFrontComponent implements OnInit {
     const limit = event.pageSize
     this.getList(start, limit)
   }
-  goToMovie(id){
-   let movie
-    this.getMovie.fetchMovie(id).subscribe(response=>{      
-      movie=response
+  hasEnoughFunds(price): boolean {
+    if (parseFloat(localStorage.getItem("wallet")) >= price) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  setDailyRentalDisplayClass(price):string{
+    console.log(price)
+    console.log(this.hasEnoughFunds(price))
+    if(this.hasEnoughFunds(price)){
+      return "footer-text";
+    }else{
+      return "footer-text-red";
+    }
+  }
+  goToMovie(id) {
+    let movie
+    this.getMovie.fetchMovie(id).subscribe(response => {
+      movie = response
       const dialogConfig = new MatDialogConfig();
       dialogConfig.data = movie
-      let openDialog = this.dialog.open(RentMovieComponent,dialogConfig)
+      let openDialog = this.dialog.open(RentMovieComponent, dialogConfig)
       this.dialog.getDialogById(openDialog.id).afterClosed().subscribe(result => {
         if (result) {
           // this.deleteMovies.deleteMovie(this.movie._id).subscribe(()=>
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Movie has been deleted',
-              showConfirmButton: false,
-              timer: 4000
-            })
-          
-       }
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Movie has been deleted',
+            showConfirmButton: false,
+            timer: 4000
+          })
+
+        }
       })
-       
+
     })
 
 

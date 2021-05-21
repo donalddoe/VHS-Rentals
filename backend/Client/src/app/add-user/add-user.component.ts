@@ -82,6 +82,10 @@ export class AddUserComponent implements OnInit {
     isAdmin: new FormControl('true', [
       Validators.required,
     ]),
+    wallet: new FormControl('true', [
+      Validators.required,
+      Validators.min(0)
+    ]),
   })
 
   get email() {
@@ -98,5 +102,8 @@ export class AddUserComponent implements OnInit {
   }
   get isAdmin() {
     return this.form.get('isAdmin')
+  }
+  get wallet() {
+    return this.form.get('wallet')
   }
 }
