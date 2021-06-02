@@ -30,6 +30,9 @@ export class UserService {
   updateUser(id, data) {
     return this.http.put(this.url+id, data, this.httpOptions)
   }
-
+  getCurrentUser(id=localStorage.getItem("id")){
+    return this.http.get(this.url+id,  this.httpOptions)
+    
+  }
   
 }

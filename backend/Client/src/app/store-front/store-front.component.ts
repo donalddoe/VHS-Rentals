@@ -9,6 +9,7 @@ import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/d
 import { RentMovieComponent } from '../rent-movie/rent-movie.component';
 import Swal from 'sweetalert2';
 import { MovieService } from '../movie.service';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -23,11 +24,14 @@ export class StoreFrontComponent implements OnInit {
     public loaderService: LoaderService,
     private router: Router,
     public dialog: MatDialog,
-    private getMovie: MovieService
+    private getMovie: MovieService,
+    private userService:UserService
   ) { }
 
 
   ngOnInit(): void {
+    // this.userService.getCurrentUser().subscribe(response=>{localStorage.setItem("wallet",response["wallet"])})
+    this.userService.getCurrentUser().subscribe(response=>{console.log(response["wallet"])})
     this.getMovies.fetchMovies().subscribe(response => { this.movies = response, this.getList(0, 11) })
   }
   list = []
@@ -35,7 +39,7 @@ export class StoreFrontComponent implements OnInit {
   length = 100;
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
-
+  userHasEnoughFunds:boolean
   pageEvent: PageEvent;
   positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
   position = new FormControl(this.positionOptions[1]);
@@ -44,16 +48,17 @@ export class StoreFrontComponent implements OnInit {
     const limit = event.pageSize
     this.getList(start, limit)
   }
+
   hasEnoughFunds(price): boolean {
-    if (parseFloat(localStorage.getItem("wallet")) >= price) {
+    let wallet:number=parseFloat(localStorage.getItem("wallet"))
+    // this.userService.getCurrentUser().subscribe(response=>{wallet= response["wallet"]})
+    if (wallet >= price) {
       return true;
     } else {
       return false;
     }
   }
   setDailyRentalDisplayClass(price):string{
-    console.log(price)
-    console.log(this.hasEnoughFunds(price))
     if(this.hasEnoughFunds(price)){
       return "footer-text";
     }else{
