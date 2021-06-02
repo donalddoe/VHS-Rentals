@@ -30,11 +30,17 @@ router.post('/', auth, async (req, res) => {
   if (movie.numberInStock === 0) return res.status(400).send('Movie not in stock.');
 
   const rental = new Rental({ 
-    userid: user.userId,
-    movieid: movie.movieId,
-    // daysBooked: rental.daysBooked,
-    // total: rental.total
+    user: {
+      _id: user._id,
+      username: user.username
+    },
+    movie: {
+      _id: movie._id,
+      title: movie.title,
+      dailyRentalRate: movie.dailyRentalRate
+    }
   });
+
 
   try {
     new Fawn.Task()

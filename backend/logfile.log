@@ -182,3 +182,32 @@
 {"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T09:13:18.202Z"}
 {"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T09:26:45.566Z"}
 {"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T09:26:52.578Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T09:26:58.636Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T09:27:01.501Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:41:02.178Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:41:12.296Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T10:41:14.474Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:41:18.080Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T10:41:20.202Z"}
+{"message":"Cannot read property 'required' of undefined","stack":"TypeError: Cannot read property 'required' of undefined\n    at validateRental (D:\\Projects\\VHS Rentals\\backend\\models\\rental.js:56:28)\n    at D:\\Projects\\VHS Rentals\\backend\\routes\\rentals.js:19:21\n    at newFn (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at auth (D:\\Projects\\VHS Rentals\\backend\\middlewares\\auth.js:11:3)\n    at newFn (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\Projects\\VHS Rentals\\backend\\node_modules\\express\\lib\\router\\index.js:335:12)","level":"error","timestamp":"2021-06-02T10:41:23.623Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:41:49.210Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T10:41:54.040Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:43:31.888Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:43:46.478Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T10:43:50.244Z"}
+{"message":"customer is not defined","stack":"ReferenceError: customer is not defined\n    at D:\\Projects\\VHS Rentals\\backend\\routes\\rentals.js:34:12","level":"error","timestamp":"2021-06-02T10:44:38.178Z"}
+{"message":"customer is not defined","stack":"ReferenceError: customer is not defined\n    at D:\\Projects\\VHS Rentals\\backend\\routes\\rentals.js:34:12","level":"error","timestamp":"2021-06-02T10:46:24.139Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:47:36.761Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T10:47:40.126Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:47:42.062Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T10:47:44.263Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:47:49.998Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T10:47:52.946Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:47:54.945Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T10:47:59.006Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:48:03.475Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T10:48:05.635Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:48:11.084Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T10:48:13.493Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-02T10:48:16.600Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-00.ldcjl.mongodb.net","timestamp":"2021-06-02T10:48:19.299Z"}
