@@ -34,8 +34,8 @@ router.post('/', auth, async (req, res) => {
   let rental = new Rental({ 
     userid: user.userId,
     movieid: movie.movieId,
-    // daysBooked: rental.daysBooked
-    // total:
+    daysBooked: rental.daysBooked,
+    total: rental.total
   });
 
   try {

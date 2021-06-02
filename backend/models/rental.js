@@ -8,12 +8,12 @@ const Schema = mongoose.Schema;
 
 const rentalSchema =  new mongoose.Schema({
   rental: {
-    userid: {type: Schema.Types.ObjectId, ref: 'Users'},
-    movieid: {type: Schema.Types.ObjectId, ref: 'Movies'},
+    userid: {type: Schema.Types.ObjectId, ref: 'User'},
+    movieid: {type: Schema.Types.ObjectId, ref: 'Movie'},
   
   daysBooked: {
     type: String,
-    require: true
+    required: true
   } ,
   total: {
     type: Number,
@@ -52,7 +52,9 @@ const Rental = mongoose.model('Rental', rentalSchema);
 function validateRental(rental) {
   const schema = { 
     userId: Joi.objectId().required(),
-    movieId: Joi.objectId().required()
+    movieId: Joi.objectId().required(),
+    daysBooked: Joi.String.required(),
+    total: Joi.String.required()
   };
 
   return Joi.validate(rental, schema);
