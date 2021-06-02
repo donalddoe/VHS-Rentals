@@ -1,19 +1,17 @@
 const auth = require('../middlewares/auth');
 const {Rental, validate} = require('../models/rental'); 
 const {Movie} = require('../models/movies'); 
-// const {Customer} = require('../models/customer'); 
 const {User} = require('../models/users'); 
-
 const mongoose = require('mongoose');
 const Fawn = require('fawn')
 const express = require('express');
 const router = express.Router();
-const admin = require('../middlewares/admin')
+// const admin = require('../middlewares/admin')
 
 Fawn.init(mongoose);
 
 router.get('/', auth, async (req, res) => {
-  const rentals = await Rental.find().sort('-dateOut');
+  const rentals = await Rental.find().sort('-dateOut total daysBooked');
   res.send(rentals);
 });
 
@@ -31,11 +29,11 @@ router.post('/', auth, async (req, res) => {
 
   if (movie.numberInStock === 0) return res.status(400).send('Movie not in stock.');
 
-  let rental = new Rental({ 
+  const rental = new Rental({ 
     userid: user.userId,
     movieid: movie.movieId,
-    daysBooked: rental.daysBooked,
-    total: rental.total
+    // daysBooked: rental.daysBooked,
+    // total: rental.total
   });
 
   try {
@@ -44,8 +42,7 @@ router.post('/', auth, async (req, res) => {
     .update('movies', { _id: movie.id}, {
       $inc: { numberInStock: -1,  }
     })
-    .run();
-      
+    .run(); 
       res.send(rental);
   }
   catch (ex) {
