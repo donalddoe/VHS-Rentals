@@ -14,7 +14,7 @@ const userSchema =  new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        // unique: true,
+        unique: true,
         minLength: 5,
         maxLenght: 245,
     },
@@ -46,6 +46,7 @@ userSchema.methods.generateAuthToken = function() {
   const token = jwt.sign({ _id: this.id,isAdmin: this.isAdmin, email: this.email, username: this.username, wallet: this.wallet }, config.get('jwtPrivateKey'));
     return token
 }
+
 const User = mongoose.model('User', userSchema);
 
 

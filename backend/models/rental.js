@@ -7,10 +7,9 @@ const Schema = mongoose.Schema;
 
 
 const rentalSchema =  new mongoose.Schema({
-  rental: {
+
     userid: {type: Schema.Types.ObjectId, ref: 'User'},
     movieid: {type: Schema.Types.ObjectId, ref: 'Movie'},
-  
   daysBooked: {
     type: String,
     required: true
@@ -21,7 +20,7 @@ const rentalSchema =  new mongoose.Schema({
   },
   dateOut: { 
     type: Date, 
-    required: true,
+    // required: true,
     default: Date.now
   },
  
@@ -29,7 +28,7 @@ const rentalSchema =  new mongoose.Schema({
     type: Number, 
     min: 0
   }
-}
+
 })
 
 
@@ -50,11 +49,12 @@ rentalSchema.methods.return = function() {
 const Rental = mongoose.model('Rental', rentalSchema);
 
 function validateRental(rental) {
-  const schema = { 
-    userId: Joi.objectId().required(),
-    movieId: Joi.objectId().required(),
-    // daysBooked: Joi.String.required(),
-    // total: Joi.String.required()
+  const schema = {
+  
+      userid: Joi.objectId().required(),
+      movieid: Joi.objectId().required(),
+    daysBooked: Joi.string().required(),
+    total: Joi.number().required()
   };
 
   return Joi.validate(rental, schema);

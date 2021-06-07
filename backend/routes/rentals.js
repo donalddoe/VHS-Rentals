@@ -19,28 +19,24 @@ router.post('/', auth, async (req, res) => {
   const { error } = validate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
 
-  const user = await User.findById(req.body.userId);
+  const user = await User.findById(req.body.userid);
   if (!user) return res.status(400).send('Invalid User.');
   
   if(user.wallet === 0) return res.status(400).send('Not enough funds')
 
-  const movie = await Movie.findById(req.body.movieId);
+  const movie = await Movie.findById(req.body.movieid);
   if (!movie) return res.status(400).send('Invalid movie.');
 
   if (movie.numberInStock === 0) return res.status(400).send('Movie not in stock.');
 
   const rental = new Rental({ 
-    user: {
-      _id: user._id,
-      username: user.username
-    },
-    movie: {
-      _id: movie._id,
-      title: movie.title,
-      dailyRentalRate: movie.dailyRentalRate
-    }
-  });
 
+    userid: req.body.userid,
+    movieid: req.body.movieid,
+   daysBooked: req.body.daysBooked,
+   total: req.body.total,
+  //  rentalFee: req.body.rentalFee
+  });
 
   try {
     new Fawn.Task()
