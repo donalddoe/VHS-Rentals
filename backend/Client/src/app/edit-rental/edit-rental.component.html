@@ -5,27 +5,27 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Rentee username</mat-label>
-            <mat-select     [formControl]="userId">
+            <mat-select     [formControl]="userid">
               <mat-option *ngFor="let user of users" [value]="user._id">
                 {{user.username}}
               </mat-option>
             </mat-select>
         </mat-form-field>
-            <mat-error *ngIf="userId.touched && userId.invalid">
-                <mat-error *ngIf="userId.errors.required">
+            <mat-error *ngIf="userid.touched && userid.invalid">
+                <mat-error *ngIf="userid.errors.required">
                     Please select the username of customer
                 </mat-error>
             </mat-error>
             <mat-form-field appearance="outline">
                 <mat-label>Movie Title</mat-label>
-                <mat-select     [formControl]="movieId"  (change)="getTotal()"  >
+                <mat-select     [formControl]="movieid"  (change)="getTotal()"  >
                   <mat-option *ngFor="let movie of movies" [value]="movie._id" >
                     {{movie.title}}
                   </mat-option>
                 </mat-select>
                 </mat-form-field>
-                <mat-error *ngIf="movieId.touched && movieId.invalid">
-                    <mat-error *ngIf="movieId.errors.required">
+                <mat-error *ngIf="movieid.touched && movieid.invalid">
+                    <mat-error *ngIf="movieid.errors.required">
                         Movie is required
                     </mat-error>
                 </mat-error>

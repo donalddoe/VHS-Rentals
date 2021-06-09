@@ -60,8 +60,10 @@ export class CheckOutComponent implements OnInit {
     console.log(this.cart)
      this.cart.forEach(element => {
       let id=localStorage.getItem("id")
-      let movieId:string=element._id+""   
-        this.rent.rent({userId:id,movieId:movieId,daysBooked:element.daysBooked,total:(element.daysBooked*element.dailyRentalRate)}).subscribe(response=>{
+      let movieid:string=element._id+""
+      this.setNumberOfDays(movieid)
+      let daysBooked=element.daysBooked ? element.daysBooked : 1   
+        this.rent.rent({userid:id,movieid:movieid,daysBooked:element.daysBooked+"",total:(daysBooked*element.dailyRentalRate)}).subscribe(response=>{
           console.log(response)
     
           })

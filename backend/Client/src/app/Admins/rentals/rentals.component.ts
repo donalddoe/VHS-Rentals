@@ -51,6 +51,7 @@ export class RentalsComponent implements OnInit {
   setUpTable() {
     this.getRentals.allRentals().subscribe(response => {
       this.rentals = response
+      console.log(this.rentals)
       this.rentals.forEach(element => {
         element["username"]=this.usersHashTable[element.userid]
         element["title"]=this.moviesHashTable[element.movieid]["title"]
