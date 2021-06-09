@@ -17,7 +17,7 @@ wallet = null;
   ) {
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        const userCredential = localStorage.getItem('wallet');
+        const userCredential = JSON.parse(localStorage.getItem('wallet'));
         if(userCredential) {
           const wallet = userCredential;
           this.wallet = wallet;
