@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class LoginService {
 
   private url = "https://vhsrentals.herokuapp.com/api/auth";
+  //private url = "localhost:4000/api/auth";
+
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin': '*',

@@ -8,6 +8,8 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class RegisterService {
   private url = "https://vhsrentals.herokuapp.com/api/users";
+  //private url = "localhost:4000/api/users/";
+
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin': '*',

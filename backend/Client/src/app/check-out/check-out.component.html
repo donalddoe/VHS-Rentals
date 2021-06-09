@@ -12,7 +12,7 @@
             <th>Movie</th>
             <th>Price per day(&#8373;) </th>
             <th>Remove from cart</th>
-            <!-- <th>Rental period in days</th> -->
+            <th>Rental period in days</th>
           </tr>
         </thead>
         <tbody >
@@ -22,11 +22,11 @@
             <td>
               <button class="remove-movie" (click)="removeMovie(item._id)">Remove</button>
             </td>
-            <!-- <td> -->
-              <!-- <input (change)="setNumberOfDays(item._id)" id="{{item._id}}" min="1"
-                value="{{item.daysBooked ? item.daysBooked :1 }}" class="numOfDays" type="number" /> -->
+            <td> 
+              <input (change)="setNumberOfDays(item._id)" id="{{item._id}}" min="1"
+                value="{{item.daysBooked ? item.daysBooked :1 }}" class="numOfDays" type="number" />
 
-            <!-- </td> -->
+            </td>
           </tr>
         </tbody>
       </table>

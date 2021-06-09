@@ -8,6 +8,7 @@ export class UserService {
 
 
   private url = "https://vhsrentals.herokuapp.com/api/users/";
+  // private url = "localhost:4000/api/users/";
 
   httpOptions = {
     headers: new HttpHeaders({

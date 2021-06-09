@@ -7,6 +7,7 @@ import { HttpClient ,HttpHeaders} from '@angular/common/http';
 export class GetMoviesService {
 
   private url = "https://vhsrentals.herokuapp.com/api/movies/";
+  //private url = "localhost:4000/api/movies/";
 
   httpOptions = {
     headers: new HttpHeaders({

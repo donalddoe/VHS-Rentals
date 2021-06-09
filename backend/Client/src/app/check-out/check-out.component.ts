@@ -50,52 +50,30 @@ export class CheckOutComponent implements OnInit {
       days = parseInt((document.getElementById(`${id}`) as HTMLInputElement).value)
     }
     let currentMovie = this.cart.findIndex(movie => movie._id === id)
-    //TODO add days Booked to scheme
-    this.cart[currentMovie].daysBooked = days
+     this.cart[currentMovie].daysBooked = days
     this.cart[currentMovie].dateOut = new Date()
     localStorage.setItem("cart", JSON.stringify(this.cart))
     this.setCart()
+    console.log(this.cart)
   }
   processOrders(){
     console.log(this.cart)
      this.cart.forEach(element => {
       let id=localStorage.getItem("id")
-      let movieId:string=element._id+""
-      //TODO change backend 
-      // this.rent.rent({movie:{...element},customer:{...this.form.value},customerId:id,movieId:movieId}).subscribe(response=>{
-//         dailyRentalRate: 9
-// genre: "Action, Crime, Drama, Thriller"
-// numberInStock: 6
-// plot: "Set within a year after the events of Batman Begins, Batman, Lieutenant James Gordon, and new district attorney Harvey Dent successfully begin to round up the criminals that plague Gotham City until a mysterious and sadistic criminal mastermind known only as the Joker appears in Gotham, creating a new wave of chaos. Batman's struggle against the Joker becomes deeply personal, forcing him to \"confront everything he believes\" and improve his technology to stop him. A love triangle develops between Bruce Wayne, Dent and Rachel Dawes."
-// poster: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg"
-// title: "The Dark Knight"
-// year: "2008"
-        this.rent.rent({userId:id,movieId:movieId}).subscribe(response=>{
+      let movieId:string=element._id+""   
+        this.rent.rent({userId:id,movieId:movieId,daysBooked:element.daysBooked,total:(element.daysBooked*element.dailyRentalRate)}).subscribe(response=>{
           console.log(response)
     
           })
-          let numberInStock=element.numberInStock-1
-          let movie=new FormData()
-          movie.set("genre",element.genre)
-          movie.set("numberInStock",numberInStock.toString())
-          movie.set("plot",element.plot)
-          movie.set("poster",element.poster)
-          movie.set("title",element.title)
-          movie.set("year",element.year)
-          
-      //     this.update.editMovies(element._id,movie).subscribe(result=>{
-      //       console.log(result)
-      //   Swal.fire({
-      //     position: 'center',
-      //     icon: 'success',
-      //     title: 'Your order has been processed',
-      //     showConfirmButton: false,
-      //     timer: 4000
-      //   })
-      // }
 
-      // )
    });
+          Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your order has been processed',
+          showConfirmButton: false,
+          timer: 4000
+        })
    localStorage.removeItem("cart")
    this.router.navigate(['/store']);
 
