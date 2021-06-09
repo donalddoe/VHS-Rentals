@@ -6,6 +6,7 @@ import { map, startWith } from 'rxjs/operators';
 import { GetMoviesService } from '../get-movies.service';
 import { RentalService } from '../rental.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-rental',
@@ -16,7 +17,8 @@ export class AddRentalComponent implements OnInit {
 
   constructor(private userservice: UserService,
     private moviesservice: GetMoviesService,
-    private rent: RentalService) { }
+    private rent: RentalService,
+    private router: Router) { }
   users
   movies
   moviesHashTable=[]
@@ -75,7 +77,8 @@ export class AddRentalComponent implements OnInit {
    }
 
   onSubmit() {
-    
+    this.daysBooked.setValue(this.daysBooked.value+"")
+    this.form.updateValueAndValidity()
     this.rent.rent(this.form.value).subscribe(response => {
       Swal.fire({
         position: 'center',
@@ -84,10 +87,11 @@ export class AddRentalComponent implements OnInit {
         showConfirmButton: false,
         timer: 4000
       })
+      this.router.navigate['/admin/rentals']
     }
 
     )
 
-    console.log(this.form.value)
+
   }
 }
