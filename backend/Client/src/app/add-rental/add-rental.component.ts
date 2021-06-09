@@ -19,7 +19,25 @@ export class AddRentalComponent implements OnInit {
     private rent: RentalService) { }
   users
   movies
+  moviesHashTable=[]
+  getDailyRentalRate(){
+    return this.moviesHashTable[this.movieId.value] ? this.moviesHashTable[this.movieId.value] : 0
+  }
+  getTotal(){
+    let t=this.getDailyRentalRate()*this.daysBooked.value
+    this.total.setValue(t)
+    this.total.updateValueAndValidity()
+    return t
+  }
+  setMoviesHashTable(){
+    this.moviesHashTable=[]
+    this.movies.forEach(element => {
+      this.moviesHashTable[element._id]=element.dailyRentalRate  
+    });
+  }
+
   ngOnInit(): void {
+    this.moviesservice.fetchMovies().subscribe(response => {this.movies = response; this.setMoviesHashTable()})
     this.userservice.fetchUsers().subscribe(response => this.users = response)
     this.moviesservice.fetchMovies().subscribe(response => this.movies = response)
 
@@ -33,14 +51,13 @@ export class AddRentalComponent implements OnInit {
       Validators.required,
 
     ]),
-    daysBooked: new FormControl('', [
+    daysBooked: new FormControl(0, [
       Validators.required,
       Validators.min(1)
     ]),
-    // total: new FormControl('', [
-    //   Validators.required,
+ total: new FormControl(0, [
 
-    // ]),
+ ]),
 
   })
 
@@ -53,12 +70,12 @@ export class AddRentalComponent implements OnInit {
   get daysBooked() {
     return this.form.get('daysBooked')
   }
-  // get total() {
-  //   return this.form.get('daysBooked')
-  // }
+   get total() {
+     return this.form.get('total')
+   }
 
   onSubmit() {
-
+    
     this.rent.rent(this.form.value).subscribe(response => {
       Swal.fire({
         position: 'center',

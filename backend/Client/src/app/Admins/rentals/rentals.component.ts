@@ -6,8 +6,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AddRentalComponent } from 'src/app/add-rental/add-rental.component';
 import { DeleteRecordComponent } from 'src/app/delete-record/delete-record.component';
 import { EditRentalComponent } from 'src/app/edit-rental/edit-rental.component';
+import { GetMoviesService } from 'src/app/get-movies.service';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { RentalsService } from 'src/app/rentals.service';
+import { UserService } from 'src/app/user.service';
 import Swal from 'sweetalert2';
 
 export interface RentalData {
@@ -24,28 +26,43 @@ export interface RentalData {
 export class RentalsComponent implements OnInit {
 
   ngOnInit(): void {
+    this.userservice.fetchUsers().subscribe(response => {this.users = response; this.setUsersHashTable()})
+    this.moviesservice.fetchMovies().subscribe(response => {this.movies = response; this.setMoviesHashTable()})
     this.setUpTable()
     this.getRentals.allRentals().subscribe(response => { this.rentals = response })
 
   }
+  users
+  movies
+  usersHashTable=[]
+  moviesHashTable=[]
+  setUsersHashTable(){
+    this.usersHashTable=[]
+    this.users.forEach(element => {
+      this.usersHashTable[element._id]=element.username  
+    });
+  }
+  setMoviesHashTable(){
+    this.moviesHashTable=[]
+    this.movies.forEach(element => {
+      this.moviesHashTable[element._id]={"title":element.title,"dailyRentalRate":element.dailyRentalRate}  
+    });
+  }
   setUpTable() {
     this.getRentals.allRentals().subscribe(response => {
       this.rentals = response
+      this.rentals.forEach(element => {
+        element["username"]=this.usersHashTable[element.userid]
+        element["title"]=this.moviesHashTable[element.movieid]["title"]
+        element["dailyRentalRate"]=this.moviesHashTable[element.movieid]["dailyRentalRate"]
+      });
       this.dataSource = new MatTableDataSource(this.rentals);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })
-
-    // this.userservice.fetchUsers().subscribe(response => {
-    //   this.users = response
-    //   this.dataSource = new MatTableDataSource(this.users);
-    //   this.dataSource.paginator = this.paginator;
-    //   this.dataSource.sort = this.sort;
-    // })
   }
-  // [ { "_id": "608928553f1dd300049cae09", "user": { "_id": "607deea316fb5419a848c72b" }, "movie": { "_id": "608173c8c18f36001558c8d5", "title": "Batman Begins", "dailyRentalRate": 2 }, "dateOut": "2021-04-28T09:18:13.609Z" } ]
-
-  displayedColumns: string[] = ['username', 'movie-title', 'dailyRentalRate', 'dateOut', 'daysBooked', 'delete', 'edit'];
+  
+  displayedColumns: string[] = ['username', 'movie-title', 'dailyRentalRate', 'dateOut', 'delete'];
   dataSource: MatTableDataSource<RentalData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -53,9 +70,9 @@ export class RentalsComponent implements OnInit {
   constructor(
     public loaderService: LoaderService,
     private getRentals: RentalsService,
-    public dialog: MatDialog
-
-
+    public dialog: MatDialog,
+    private userservice: UserService,
+    private moviesservice: GetMoviesService,
   ) { }
 
 

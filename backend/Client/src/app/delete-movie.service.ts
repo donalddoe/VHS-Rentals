@@ -5,7 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DeleteMovieService {
-  private url ="https://vhsrentals.herokuapp.com/api/movies/delete-movie/"
+   private url ="https://vhsrentals.herokuapp.com/api/movies/delete-movie/"
+   //private url = "localhost:4000/api/movies/delete-movie/";
+
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin': '*',

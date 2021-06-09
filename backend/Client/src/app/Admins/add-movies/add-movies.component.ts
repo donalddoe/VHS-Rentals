@@ -38,6 +38,7 @@ export class AddMoviesComponent implements OnInit {
     })
   }
 onSubmit(){
+  console.log(this.form.value)
   this.saveMoviesService.save(this.form.value).subscribe(response=>{
     Swal.fire({
       position: 'center',

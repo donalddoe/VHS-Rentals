@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class EditMovieService {
 private url ="https://vhsrentals.herokuapp.com/api/movies/update-movie/"
+//private url = "localhost:4000/api/movies/update-movie/";
+
 httpOptions = {
   headers: new HttpHeaders({
     'Access-Control-Allow-Origin': '*',
