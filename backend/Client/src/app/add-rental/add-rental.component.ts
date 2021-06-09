@@ -21,7 +21,7 @@ export class AddRentalComponent implements OnInit {
   movies
   moviesHashTable=[]
   getDailyRentalRate(){
-    return this.moviesHashTable[this.movieId.value] ? this.moviesHashTable[this.movieId.value] : 0
+    return this.moviesHashTable[this.movieid.value] ? this.moviesHashTable[this.movieid.value] : 0
   }
   getTotal(){
     let t=this.getDailyRentalRate()*this.daysBooked.value
@@ -43,11 +43,11 @@ export class AddRentalComponent implements OnInit {
 
   }
   form = new FormGroup({
-    userId: new FormControl('', [
+    userid: new FormControl('', [
       Validators.required,
 
     ]),
-    movieId: new FormControl('', [
+    movieid: new FormControl('', [
       Validators.required,
 
     ]),
@@ -61,11 +61,11 @@ export class AddRentalComponent implements OnInit {
 
   })
 
-  get movieId() {
-    return this.form.get('movieId')
+  get movieid() {
+    return this.form.get('movieid')
   }
-  get userId() {
-    return this.form.get('userId')
+  get userid() {
+    return this.form.get('userid')
   }
   get daysBooked() {
     return this.form.get('daysBooked')

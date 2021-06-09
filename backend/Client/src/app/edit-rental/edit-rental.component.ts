@@ -23,7 +23,7 @@ users
 movies
 moviesHashTable=[]
 getDailyRentalRate(){
-  return this.moviesHashTable[this.movieId.value] ? this.moviesHashTable[this.movieId.value] : 0
+  return this.moviesHashTable[this.movieid.value] ? this.moviesHashTable[this.movieid.value] : 0
 }
 getTotal(){
   let t=this.getDailyRentalRate()*this.daysBooked.value
@@ -39,8 +39,8 @@ setMoviesHashTable(){
   });
 }
   ngOnInit(): void {
-    this.userId.setValue(this.data.userid)
-    this.movieId.setValue(this.data.movieid)
+    this.userid.setValue(this.data.userid)
+    this.movieid.setValue(this.data.movieid)
     this.total.setValue(this.data.total)
     this.daysBooked.setValue(this.data.daysBooked)
     this.userservice.fetchUsers().subscribe(response => {
@@ -53,11 +53,11 @@ setMoviesHashTable(){
 
   }
   form = new FormGroup({
-    userId: new FormControl('', [
+    userid: new FormControl('', [
       Validators.required,
    
     ]),
-    movieId: new FormControl('', [
+    movieid: new FormControl('', [
       Validators.required,
 
     ]),
@@ -72,11 +72,11 @@ setMoviesHashTable(){
 
   })
 
-  get movieId() {
+  get movieid() {
     return this.form.get('movieId')
   }
-  get userId() {
-    return this.form.get('userId')
+  get userid() {
+    return this.form.get('userid')
   }
   get daysBooked() {
     return this.form.get('daysBooked')
