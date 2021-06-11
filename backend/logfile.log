@@ -393,3 +393,5 @@
 {"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-09T15:26:44.950Z"}
 {"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-01.ldcjl.mongodb.net","timestamp":"2021-06-09T15:26:51.002Z"}
 {"message":"Cannot read property '_id' of undefined","stack":"TypeError: Cannot read property '_id' of undefined\n    at D:\\Projects\\VHS Rentals\\backend\\routes\\returns.js:21:25","level":"error","timestamp":"2021-06-09T15:27:00.553Z"}
+{"level":"info","message":"Server is up and running on port 4000","timestamp":"2021-06-09T15:36:25.594Z"}
+{"level":"info","message":"MongoDB conneted: vhs-rental-shard-00-02.ldcjl.mongodb.net","timestamp":"2021-06-09T15:36:31.533Z"}

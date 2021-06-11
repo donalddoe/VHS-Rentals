@@ -30,8 +30,8 @@ export class StoreFrontComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.userService.getCurrentUser().subscribe(response=>{localStorage.setItem("wallet",response["wallet"])})
-    this.userService.getCurrentUser().subscribe(response=>{console.log(response["wallet"])})
+    this.userService.getCurrentUser().subscribe(response=>{localStorage.setItem("wallet",response["wallet"])})
+    // this.userService.getCurrentUser().subscribe(response=>{console.log(response["wallet"])})
     this.getMovies.fetchMovies().subscribe(response => { this.movies = response, this.getList(0, 11) })
   }
   list = []
