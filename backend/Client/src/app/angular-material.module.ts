@@ -35,6 +35,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import{ CdkStepperModule} from '@angular/cdk/stepper';
 const materialModules = [
   CdkTreeModule,
   MatAutocompleteModule,
@@ -70,7 +72,9 @@ const materialModules = [
   MatTooltipModule,
   MatDialogModule,
   TextFieldModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatStepperModule,
+  CdkStepperModule
 ];
 
 @NgModule({
