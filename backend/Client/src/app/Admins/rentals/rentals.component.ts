@@ -45,12 +45,13 @@ export class RentalsComponent implements OnInit {
   setMoviesHashTable(){
     this.moviesHashTable=[]
     this.movies.forEach(element => {
-      this.moviesHashTable[element._id]={"title":element.title,"dailyRentalRate":element.dailyRentalRate}  
+      this.moviesHashTable[element._id]={"title":element.title,"dailyRentalRate":element.dailyRentalRate,"movieid":element._id}  
     });
   }
   setUpTable() {
     this.getRentals.allRentals().subscribe(response => {
       this.rentals = response
+      console.log({"response":this.rentals})
       this.rentals.forEach(element => {
         element["username"]=this.usersHashTable[element.userid]
         element["title"]=this.moviesHashTable[element.movieid]["title"]

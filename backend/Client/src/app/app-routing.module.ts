@@ -4,7 +4,6 @@ import { LoginComponent } from './screens/login/login.component';
 import { RegisterComponent } from './screens/register/register.component';
 import { CustomerComponent } from './Admins/customer/customer.component';
 import { RentalsComponent } from './Admins/rentals/rentals.component';
-import {ReturnsComponent } from './users/returns/returns.component';
 import { MoviesComponent } from './Admins/movies/movies.component';
 import { NoPageFoundComponent } from './screens/no-page-found/no-page-found.component';
 import { AuthGuard } from './auth.guard';
@@ -15,6 +14,7 @@ import { StoreFrontComponent } from './store-front/store-front.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { UserComponent } from './user/user.component';
 import { WalletComponent } from './wallet/wallet.component';
+import { ReturnsComponent } from './returns/returns.component';
 
 
 
@@ -32,18 +32,16 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: AdministrationComponent
   },
-  { path: 'store', 
-  canActivate: [AuthGuard],
-  component: StoreFrontComponent },
+  { path: 'store',canActivate: [AuthGuard],component: StoreFrontComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'movies', canActivate: [AuthGuard], component: MoviesComponent },
   { path: 'add-movies',  canActivate: [AuthGuard], component: AddMoviesComponent },
+  { path: 'returns',  canActivate: [AuthGuard], component: ReturnsComponent },
   // { path: 'movies', component: MoviesComponent },
   {path: "movie/:id",  canActivate: [AuthGuard], component: MovieDetailsComponent },
   { path: 'customers',  canActivate: [AuthGuard], component: CustomerComponent },
   { path: 'add-users', canActivate: [AuthGuard], component: CustomerComponent },
   { path: 'view-users', canActivate: [AuthGuard], component: UserComponent },
-  { path: 'returns', canActivate: [AuthGuard], component: ReturnsComponent },
   { path: 'rentals', canActivate: [AuthGuard], component: RentalsComponent },
   { path: 'shopping-cart', canActivate: [AuthGuard], component: CheckOutComponent },
   { path: 'wallet', canActivate: [AuthGuard], component: WalletComponent },

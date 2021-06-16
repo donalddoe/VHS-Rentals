@@ -9,7 +9,6 @@ import { LoginComponent } from './screens/login/login.component';
 import { RegisterComponent } from './screens/register/register.component';
 import { MoviesComponent } from './Admins/movies/movies.component';
 import { RentalsComponent } from './Admins/rentals/rentals.component';
-import { ReturnsComponent } from './users/returns/returns.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AddMoviesComponent } from './Admins/add-movies/add-movies.component';
@@ -35,6 +34,7 @@ import { EditRentalComponent } from './edit-rental/edit-rental.component';
 import { AddRentalComponent } from './add-rental/add-rental.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { EditWalletComponent } from './edit-wallet/edit-wallet.component';
+import { ReturnsComponent } from './returns/returns.component';
 // import { MdbModule } from 'mdb-angular-ui-kit';
 @NgModule({
   declarations: [
@@ -43,7 +43,6 @@ import { EditWalletComponent } from './edit-wallet/edit-wallet.component';
     RegisterComponent,
     MoviesComponent,
     RentalsComponent,
-    ReturnsComponent,
     NavBarComponent,
     AddMoviesComponent,
     CustomerComponent,
@@ -63,6 +62,7 @@ import { EditWalletComponent } from './edit-wallet/edit-wallet.component';
     AddRentalComponent,
     WalletComponent,
     EditWalletComponent,
+    ReturnsComponent
 
     // MainNavComponent
   

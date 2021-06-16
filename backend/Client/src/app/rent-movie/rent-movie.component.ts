@@ -38,5 +38,13 @@ export class RentMovieComponent implements OnInit {
     })
     this.dialogRef.close()
   }
-
+  hasEnoughFunds(price): boolean {
+    let wallet:number=parseFloat(localStorage.getItem("wallet"))
+    // this.userService.getCurrentUser().subscribe(response=>{wallet= response["wallet"]})
+    if (wallet >= price) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
