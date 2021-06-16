@@ -27,8 +27,7 @@ console.log(rental)
   if (rental.dateReturned)
     return res.status(400).send("Return already processed!");
 
-  // rental.return();
-  await rental.save();
+  // await rental.save();
   
 
   await Movie.updateOne(
