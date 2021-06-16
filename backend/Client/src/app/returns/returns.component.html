@@ -25,14 +25,7 @@
       <form [formGroup]="form2">
         <ng-template matStepLabel> Return Movie</ng-template>
         <div class="mat-elevation-z8">
-            <mat-form-field>
-              <mat-label>Filter</mat-label>
-              <input matInput (keyup)="applyFilter($event)" placeholder="Enter search query here" #input>
-              <button mat-raised-button color="primary"  >
-                <mat-icon >add</mat-icon>
-                New Rental
-              </button>
-            </mat-form-field>
+ 
             
             <table mat-table [dataSource]="dataSource" matSort>
           
