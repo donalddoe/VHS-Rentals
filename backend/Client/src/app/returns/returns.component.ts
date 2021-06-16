@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ReturnService } from '../return.service';
+import Swal from 'sweetalert2';
 
 export interface RentalData {
   user: object
@@ -39,12 +41,13 @@ export class ReturnsComponent implements OnInit {
     private getRentals: RentalsService,
     public dialog: MatDialog,
     private userservice: UserService,
-    private moviesservice: GetMoviesService,) { }
+    private moviesservice: GetMoviesService,
+    private returnservie:ReturnService) { }
 
   ngOnInit(): void {
     this.userservice.fetchUsers().subscribe(response => {this.allusers = response; this.setUsersHashTable();this.setUpRenteeTable()})
     this.moviesservice.fetchMovies().subscribe(response => {this.movies = response; this.setMoviesHashTable()})
-    this.setUpTable()  
+    // this.setUpTable()  
     
   }
 
@@ -131,7 +134,7 @@ export class ReturnsComponent implements OnInit {
       this.moviesHashTable[element._id]={"title":element.title,"dailyRentalRate":element.dailyRentalRate,"movieid":element._id}  
     });
   }
-  displayedColumns: string[] = ['username', 'movie-title', 'dailyRentalRate', 'dateOut', 'delete'];
+  displayedColumns: string[] = ['username', 'movie-title', 'dailyRentalRate', 'dateOut', 'return'];
   dataSource: MatTableDataSource<RentalData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -142,5 +145,36 @@ export class ReturnsComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  onsubmit(id){
+    console.log({"row":id})
+    this.returnservie.returnMovie(
+
+      {
+        "userid":id.userid,
+        "movieid": id.movieid
+    }
+    
+
+    ).subscribe(response=>{
+      
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Movie has been returned',
+        showConfirmButton: false,
+        timer: 4000
+      })
+      console.log(response)}, error=>{
+        
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: error["error"],
+          showConfirmButton: false,
+          timer: 4000
+        })
+      })
+
   }
 }
