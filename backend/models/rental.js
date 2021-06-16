@@ -21,11 +21,12 @@ const rentalSchema = new mongoose.Schema({
   dateOut: { 
     type: Date, 
     // required: true,
-    default: Date.now
+    default: Date.now()
   },
  
   dateReturned: { 
-    type: Date
+    type: Date,
+    // default: Date.now
   },
   rentalFee: { 
     type: Number, 
@@ -33,12 +34,7 @@ const rentalSchema = new mongoose.Schema({
   }
 });
 
-rentalSchema.statics.lookup = function (userId, movieId) {
-  return this.findOne({
-    "user._id": userId,
-    "movie._id": movieId,
-  });
-};
+
 
 // rentalSchema.methods.return = function () {
 //   this.dateReturned = new Date();

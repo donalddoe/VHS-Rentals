@@ -44,7 +44,7 @@ router.post("/", auth, async (req, res) => {
   try {
     const reduceWalletBy = movie.dailyRentalRate * req.body.daysBooked;
 
-    console.log("Rental to be created with fawn", rental);
+    // console.log("Rental to be created with fawn", rental);
     new Fawn.Task()
       .save("rentals", rental)
       .update(
